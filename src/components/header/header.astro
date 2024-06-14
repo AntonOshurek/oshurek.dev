@@ -1,0 +1,17 @@
+---
+import './header.scss';
+import Nav from '../nav/nav.astro';
+import NavButton from '../nav/nav-button.astro';
+import ThemeSwitcher from '../theme-switcher/theme-switcher.astro';
+---
+
+<header class="header">
+	<h1 class="visually-hidden">Anton Oshurek personal blog page</h1>
+	<div class="header__wrap container">
+		<NavButton />
+
+		<Nav />
+
+		<ThemeSwitcher />
+	</div>
+</header>
