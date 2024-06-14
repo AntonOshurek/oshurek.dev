@@ -1,0 +1,35 @@
+@import '../../../variables/variables';
+
+.featured-works {
+	display: grid;
+	grid-template-areas:
+		'title link'
+		'worksItems worksItems';
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: min-content 1fr;
+	padding: 30px 0;
+	width: 100%;
+	background-color: var(--bg);
+	gap: 20px;
+}
+
+.featured-works__title {
+	grid-area: title;
+	font-family: var(--basic-font);
+	font-weight: var(--s-title-weight);
+	font-size: var(--s-title-size);
+	color: var(--primary-text);
+
+	@media (max-width: $mobile-width) {
+		font-weight: var(--xs-title-weight);
+		font-size: var(--xs-title-size);
+	}
+}
+
+.featured-works__items {
+	grid-area: worksItems;
+}
+
+.featured-works__link {
+	grid-area: link;
+}

@@ -1,0 +1,11 @@
+.work-part {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+}
+
+.work-part__img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}

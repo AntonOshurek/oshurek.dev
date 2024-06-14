@@ -1,0 +1,74 @@
+.code {
+	display: block;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.code__css {
+	color: #F5D67B;
+
+	&::after {
+		content: 'CSS';
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		font-weight: 700;
+		font-style: normal;
+		font-size: 10px;
+	}
+
+	& .selector {
+		color: #F5D67B;
+	}
+
+	& .punctuation {
+		color: #72E0D1;
+	}
+
+	& .property {
+		color: #72E0D1;
+	}
+
+	& .number {
+		color: #FC9463;
+	}
+
+	& .var {
+		color: #AA7EE1;
+	}
+
+	& .parent {
+		color: #EE9900;
+	}
+}
+
+.code__html {
+	&::after {
+		content: 'HTML';
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		font-weight: 700;
+		font-style: normal;
+		font-size: 10px;
+		color: #F5D67B;
+	}
+
+	& .tag {
+		color: #72E0D1;
+	}
+
+	& .attr-name {
+		color: #83BA52;
+	}
+
+	& .attr-value {
+		color: #F5D67B;
+	}
+
+	& .punctuation {
+		color: #72E0D1;
+	}
+}
