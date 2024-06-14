@@ -8,6 +8,7 @@ import '../styles/typography/index.scss';
 import '../styles/global-blocks/index.scss';
 //components
 import Head from '../components/head.astro';
+import Header from '../components/header/header.astro';
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ import Head from '../components/head.astro';
 	<Head title="Oshurek dev test" />
 
 	<body class="body">
+		<Header />
 		<slot />
 	</body>
 </html>
