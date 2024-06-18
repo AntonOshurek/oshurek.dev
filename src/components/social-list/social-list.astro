@@ -1,0 +1,24 @@
+---
+//COMPONENTS
+import SocialListItem from './social-list-item/social-list-item.astro';
+//STYLES
+import './social-list.scss';
+---
+
+<ul class="social-list">
+	<SocialListItem
+		linkPath="https://www.linkedin.com/in/anton-oshurek/"
+		linkTitle="LinkedIn"
+		socialSpriteIndex="social-icon-linkedin"
+	/>
+	<SocialListItem
+		linkPath="https://github.com/AntonOshurek"
+		linkTitle="footer-icon-github"
+		socialSpriteIndex="social-icon-github"
+	/>
+	<SocialListItem
+		linkPath="https://www.instagram.com/oshurekweb/"
+		linkTitle="instagram"
+		socialSpriteIndex="social-icon-instagram"
+	/>
+</ul>

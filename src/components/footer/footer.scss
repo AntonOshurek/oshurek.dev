@@ -11,37 +11,9 @@
 	gap: 25px;
 }
 
-.footer__social-list {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	list-style: none;
-	gap: 20px;
-}
-
-.footer__social-item {
-	width: 40px;
-	height: 40px;
-}
-
-.footer__social-link {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-decoration: none;
-}
-
 .footer__copyright {
 	font-family: var(--basic-font);
 	font-weight: var(--xs-text-weight);
 	font-size: var(--xs-text-size);
 	color: var(--primary-text);
-}
-
-.footer__social-icon {
-	color: var(--primary-text);
-
-	&:hover {
-		color: var(--hover-item-color);
-	}
 }
