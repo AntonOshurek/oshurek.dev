@@ -1,6 +1,5 @@
 .basic-link {
-	align-self: center;
-	justify-self: flex-end;
+	place-self: center flex-end;
 	grid-area: link;
 	padding: 3px 5px;
 	font-family: var(--basic-font);
