@@ -398,6 +398,7 @@
 				]
 			}
 		],
+		"declaration-block-no-redundant-longhand-properties": null,
 		"at-rule-no-unknown": null,
 		"at-rule-no-vendor-prefix": true,
 		"declaration-no-important": true,

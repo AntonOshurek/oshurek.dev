@@ -1,5 +1,14 @@
 ---
+//LAYOUTS
 import Layout from '../layouts/Layout.astro';
+//COMPONENTS
+import Banner from '../components/banner/banner.astro';
+import RecentArticles from '../components/recent-articles/recent-articles.astro';
 ---
 
-<Layout title="Welcome to Astro." />
+<Layout title="Welcome to Astro.">
+	<main class="main">
+		<Banner />
+		<RecentArticles />
+	</main>
+</Layout>
