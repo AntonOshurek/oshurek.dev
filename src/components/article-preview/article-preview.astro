@@ -7,9 +7,9 @@ const article = await import('../../content/articles/how-to-change-color-in-svg-
 
 <article class="article-preview">
 	<h3 class="article-preview__title article-l-title">{article.frontmatter.title}</h3>
-	<time class="article-preview__date article-date" datetime="2023-12-18T010:00"
-		>{article.frontmatter.date}</time
-	>
+	<time class="article-preview__date article-date" datetime="2023-12-18T010:00">
+		{article.frontmatter.date}
+	</time>
 
 	<div class="article-preview__tags">
 		<h4 class="article-preview__tag article-tag">tailwind</h4>
@@ -21,6 +21,7 @@ const article = await import('../../content/articles/how-to-change-color-in-svg-
 		HTML.”. What they mean? We have some problems witch writing CSS in separate .CSS files? Or this
 		“Tailwind CSS is ...
 	</p>
+
 	<a class="article-preview__link" href="article.html">
 		<span class="visually-hidden">open full post</span>
 	</a>

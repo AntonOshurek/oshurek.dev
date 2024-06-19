@@ -1,0 +1,16 @@
+---
+//STYLES
+import './all-articles.scss';
+//COMPONENTS
+import APreview from '../article-preview/article-preview.astro';
+import ArticleItems from '../article-items/article-items.astro';
+---
+
+<div class="all-articles container-medium">
+	<h2 class="all-articles__title">Articles</h2>
+
+	<ArticleItems dirrection="column" additionalClasses="recent-articles__items" underline>
+		<APreview />
+		<APreview />
+	</ArticleItems>
+</div>
