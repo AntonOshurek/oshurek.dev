@@ -1,0 +1,16 @@
+---
+interface Props {
+	title: string;
+	path: string;
+	pageRoute: string;
+}
+
+const { title, path, pageRoute } = Astro.props;
+
+const activeLinkClass =
+	Astro.url.pathname.split('/')[1] === pageRoute ? 'nav-list__link--active' : '';
+---
+
+<li class="nav-list__item">
+	<a class={`nav-list__link ${activeLinkClass}`} href={path}> {title} </a>
+</li>

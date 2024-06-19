@@ -1,17 +1,12 @@
 ---
+//STYLES
 import './nav-list.scss';
-
-//nav-list__link--active
+//COMPONENTS
+import NavListItem from './nav-list-item.astro';
 ---
 
 <ul class="nav-list">
-	<li class="nav-list__item">
-		<a class="nav-list__link" href="/"> Home </a>
-	</li>
-	<li class="nav-list__item">
-		<a class="nav-list__link" href="works"> Works </a>
-	</li>
-	<li class="nav-list__item">
-		<a class="nav-list__link" href="articles"> Articles </a>
-	</li>
+	<NavListItem title="Home" path="/" pageRoute="" />
+	<NavListItem title="Works" path="works" pageRoute="works" />
+	<NavListItem title="Articles" path="articles" pageRoute="articles" />
 </ul>
