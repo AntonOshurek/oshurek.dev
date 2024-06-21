@@ -1,5 +1,6 @@
 {
 	"git.openRepositoryInParentFolders": "never",
+	"workbench.colorTheme": "Houston",
 	"editor.insertSpaces": false,
 	"editor.formatOnPaste": true,
 	"javascript.preferences.quoteStyle": "single",

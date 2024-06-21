@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import type {CollectionEntry} from 'astro:content'
+//LAYOUTS
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = async () => {
+	const articles = await getCollection('articles');
+	const paths = articles.map((article) => {
+		return {
+			params: {
+				slug: article.slug
+			},
+			props: {
+				article
+			}
+		}
+	})
+	return paths;
+}
+
+type Props = {
+	article: CollectionEntry<'articles'>
+}
+
+const {article} = Astro.props;
+const {Content} = await article.render();
+---
+
+<Layout title={article.data.title} headerTitle="Anton Oshurek personal blog page" > test </Layout>
