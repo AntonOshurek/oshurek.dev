@@ -1,16 +1,22 @@
 ---
+import { getCollection } from 'astro:content';
 //STYLES
 import './all-articles.scss';
 //COMPONENTS
 import APreview from '../article-preview/article-preview.astro';
 import ArticleItems from '../article-items/article-items.astro';
+
+const articles = await getCollection('articles');
 ---
 
 <div class="all-articles container-medium">
 	<h2 class="all-articles__title">Articles</h2>
 
 	<ArticleItems dirrection="column" additionalClasses="recent-articles__items" underline>
-		<APreview />
-		<APreview />
+		{
+			articles.map((article) => {
+				return <APreview article={article} />;
+			})
+		}
 	</ArticleItems>
 </div>

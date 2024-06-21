@@ -1,9 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 //STYLES
 import './recent-articles.scss';
 //COMPONENTS
 import APreview from '../article-preview/article-preview.astro';
 import ArticleItems from '../article-items/article-items.astro';
+
+const articles = await getCollection('articles');
 ---
 
 <!-- article-items--row recent-articles__items -->
@@ -12,7 +15,12 @@ import ArticleItems from '../article-items/article-items.astro';
 	<a class="basic-link" href="articles.html">View all</a>
 
 	<ArticleItems dirrection="row" additionalClasses="recent-articles__items">
-		<APreview />
-		<APreview />
+		{
+			articles.map((article, i) => {
+				if (i < 2) {
+					return <APreview article={article} />;
+				}
+			})
+		}
 	</ArticleItems>
 </section>
