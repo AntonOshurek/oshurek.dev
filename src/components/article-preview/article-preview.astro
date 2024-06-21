@@ -11,6 +11,8 @@ interface Props {
 }
 
 const { article, withLink = false } = Astro.props;
+
+console.log(article.slug)
 ---
 
 <article class="article-preview">
@@ -27,7 +29,7 @@ const { article, withLink = false } = Astro.props;
 
 	{
 		withLink && (
-			<a class="article-preview__link" href={article.slug}>
+			<a class="article-preview__link" href={`/article/${article.slug}`}>
 				<span class="visually-hidden">open full post</span>
 			</a>
 		)
