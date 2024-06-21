@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 //STYLES
 import './all-articles.scss';
 //COMPONENTS
-import APreview from '../article-preview/article-preview.astro';
+import ArticlePreview from '../article-preview/article-preview.astro';
 import ArticleItems from '../article-items/article-items.astro';
 
 const articles = await getCollection('articles');
@@ -15,7 +15,7 @@ const articles = await getCollection('articles');
 	<ArticleItems dirrection="column" additionalClasses="recent-articles__items" underline>
 		{
 			articles.map((article) => {
-				return <APreview article={article} />;
+				return <ArticlePreview article={article} withLink={true} />;
 			})
 		}
 	</ArticleItems>

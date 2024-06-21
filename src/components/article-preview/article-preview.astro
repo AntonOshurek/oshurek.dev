@@ -7,9 +7,10 @@ import ArticleTags from './article-tag/article-tags.astro';
 
 interface Props {
 	article: CollectionEntry<'articles'>;
+	withLink?: boolean;
 }
 
-const { article } = Astro.props;
+const { article, withLink = false } = Astro.props;
 ---
 
 <article class="article-preview">
@@ -24,7 +25,11 @@ const { article } = Astro.props;
 		{article.data.overview}
 	</p>
 
-	<a class="article-preview__link" href={article.slug}>
-		<span class="visually-hidden">open full post</span>
-	</a>
+	{
+		withLink && (
+			<a class="article-preview__link" href={article.slug}>
+				<span class="visually-hidden">open full post</span>
+			</a>
+		)
+	}
 </article>
