@@ -8,7 +8,8 @@ import ArticlePagePreview from '../../components/article-preview/article-page-pr
 
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');
-	const paths = articles.map((article) => {
+	const paths = articles.map((article, i) => {
+		console.log(i);
 		return {
 			params: {
 				slug: article.slug,
