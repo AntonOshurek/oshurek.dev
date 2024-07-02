@@ -6,7 +6,10 @@ import Banner from '../components/banner/banner.astro';
 import RecentArticles from '../components/recent-articles/recent-articles.astro';
 ---
 
-<Layout title="Oshurek Dev" headerTitle="Anton Oshurek personal blog page">
+<Layout
+	title={import.meta.env.INDEX_PAGE_TITLE}
+	headerTitle={import.meta.env.INDEX_PAGE_HEADER_TITLE}
+>
 	<Banner />
 	<RecentArticles />
 </Layout>
