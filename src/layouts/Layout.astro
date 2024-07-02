@@ -11,15 +11,16 @@ import Footer from '../components/footer/footer.astro';
 
 interface Props {
 	title: string;
-	headerTitle: string;
+	headerTitle?: string;
+	description?: string;
 }
 
-const { title, headerTitle } = Astro.props;
+const { title, headerTitle, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<Head title={title}/>
+	<Head title={title} description={description ? description : ''} />
 
 	<body class="body">
 		<Header headerTitle={headerTitle} />

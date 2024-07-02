@@ -1,30 +1,38 @@
 ---
 import { getCollection } from 'astro:content';
-import type {CollectionEntry} from 'astro:content'
+import type { CollectionEntry } from 'astro:content';
 //LAYOUTS
 import Layout from '../../layouts/Layout.astro';
+//COMPONENTS
+import ArticlePagePreview from '../../components/article-preview/article-page-preview.astro';
 
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');
-	const paths = articles.map((article) => {
+	const paths = articles.map((article, i) => {
+		console.log(i);
 		return {
 			params: {
-				slug: article.slug
+				slug: article.slug,
 			},
 			props: {
-				article
-			}
-		}
-	})
+				article,
+			},
+		};
+	});
 	return paths;
-}
+};
 
 type Props = {
-	article: CollectionEntry<'articles'>
-}
+	article: CollectionEntry<'articles'>;
+};
 
-const {article} = Astro.props;
-const {Content} = await article.render();
+const { article } = Astro.props;
+const { Content } = await article.render();
 ---
 
-<Layout title={article.data.title} headerTitle="Anton Oshurek personal blog page" > test </Layout>
+<Layout title={article.data.title} description={article.data.overview}>
+	<article class="article container-small">
+		<ArticlePagePreview article={article} />
+		<Content />
+	</article>
+</Layout>

@@ -86,5 +86,5 @@ const tchemeControl = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-	tchemeControl();
+	// tchemeControl();
 });

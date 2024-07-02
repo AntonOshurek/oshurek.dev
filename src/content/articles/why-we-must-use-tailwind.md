@@ -1,9 +1,9 @@
 ---
 title: Why we must use a tailwind CSS?
-date: 2023-12-18T010:00
+date: 2024-01-11T01:00
 tags: tailwind, css
 overview: “Rapidly build modern websites without ever leaving your HTML.”. What they mean? We have some problems witch writing CSS in separate .CSS files? Or this “Tailwind CSS is the only framework that I've seen scale on large teams. It’s easy to customize...
-previewImage: ./images/articles-images/svg-sprite-banner.jpg
+previewImage: /images/articles-images/svg-sprite-banner.jpg
 previewImageAlt: rondo przed wejściem głównym do dworca
 ---
 

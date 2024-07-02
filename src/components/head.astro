@@ -1,18 +1,38 @@
 ---
-import { sitePathToRoot } from '../global-js-vars/index';
-
 interface Props {
 	title: string;
+	description: string;
+	image?: string;
 }
 
-const { title } = Astro.props;
+const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
 
 <title>{title}</title>
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <!-- <link rel="icon" href="favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png" />
@@ -24,16 +44,96 @@ const { title } = Astro.props;
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#c7cbcc" />
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#273a43" />
 
-<!-- <script>
-	if (matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
-		document.documentElement.style.display = 'none';
-		document.head.insertAdjacentHTML(
-			'beforeend',
-			`<link rel="stylesheet" href="http://localhost:4321/light.css" onload="document.documentElement.style.display=\'\'">`,
-		);
-	}
-</script> -->
-
 <!--dark and light theme styles-->
-<link rel="stylesheet" href=`${sitePathToRoot}light.css` media="(prefers-color-scheme: light)" />
-<link rel="stylesheet" href=`${sitePathToRoot}dark.css` media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" href=`/light.css` media="(prefers-color-scheme: light)" />
+<link rel="stylesheet" href=`/dark.css` media="(prefers-color-scheme: dark)" />
+
+<script>
+	const lightStyles = document.querySelectorAll(
+		'link[rel=stylesheet][media*=prefers-color-scheme][media*=light]',
+	) as NodeListOf<HTMLLinkElement>;
+	const darkStyles = document.querySelectorAll(
+		'link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]',
+	) as NodeListOf<HTMLLinkElement>;
+	const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
+	const fieldset = document.querySelector('.theme-switcher');
+
+	function setupSwitcher() {
+		const savedScheme = getSavedScheme();
+
+		if (savedScheme !== null) {
+			const currentRadio: HTMLInputElement = document.querySelector(
+				`.theme-switcher__radio[value=${savedScheme}]`,
+			);
+			currentRadio.checked = true;
+		}
+
+		fieldset.addEventListener('change', (evt) => {
+			const target = evt.target as HTMLInputElement;
+			setScheme(target.value);
+		});
+	}
+
+	function setupScheme() {
+		const savedScheme = getSavedScheme();
+		const systemScheme = getSystemScheme();
+
+		if (savedScheme === null) return;
+
+		if (savedScheme !== systemScheme) {
+			setScheme(savedScheme);
+		}
+	}
+
+	function setScheme(scheme) {
+		switchMedia(scheme);
+
+		if (scheme === 'auto') {
+			clearScheme();
+		} else {
+			saveScheme(scheme);
+		}
+	}
+
+	function switchMedia(scheme) {
+		let lightMedia;
+		let darkMedia;
+
+		if (scheme === 'auto') {
+			lightMedia = '(prefers-color-scheme: light)';
+			darkMedia = '(prefers-color-scheme: dark)';
+		} else {
+			lightMedia = scheme === 'light' ? 'all' : 'not all';
+			darkMedia = scheme === 'dark' ? 'all' : 'not all';
+		}
+
+		[...lightStyles].forEach((link) => {
+			link.media = lightMedia;
+		});
+
+		[...darkStyles].forEach((link) => {
+			link.media = darkMedia;
+		});
+	}
+
+	function getSystemScheme() {
+		const darkScheme = darkSchemeMedia.matches;
+
+		return darkScheme ? 'dark' : 'light';
+	}
+
+	function getSavedScheme() {
+		return localStorage.getItem('color-scheme');
+	}
+
+	function saveScheme(scheme) {
+		localStorage.setItem('color-scheme', scheme);
+	}
+
+	function clearScheme() {
+		localStorage.removeItem('color-scheme');
+	}
+
+	setupSwitcher();
+	setupScheme();
+</script>

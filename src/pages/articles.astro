@@ -5,6 +5,9 @@ import Layout from '../layouts/Layout.astro';
 import AllArticles from '../components/all-articles/all-articles.astro';
 ---
 
-<Layout title="Articles" headerTitle="All articles">
+<Layout
+	title={import.meta.env.ARTICLES_PAGE_TITLE}
+	headerTitle={import.meta.env.ARTICLES_PAGE_HEADER_TITLE}
+>
 	<AllArticles />
 </Layout>

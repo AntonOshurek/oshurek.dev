@@ -5,14 +5,15 @@ import NavButton from '../nav/nav-button/nav-button.astro';
 import ThemeSwitcher from '../theme-switcher/theme-switcher.astro';
 
 interface Props {
-	headerTitle: string;
+	headerTitle?: string;
 }
 
 const { headerTitle } = Astro.props;
 ---
 
 <header class="header">
-	<h1 class="visually-hidden">{headerTitle}</h1>
+	{headerTitle ? <h1 class="visually-hidden">{headerTitle}</h1> : null}
+
 	<div class="header__wrap container">
 		<NavButton />
 
