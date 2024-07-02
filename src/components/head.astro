@@ -5,8 +5,6 @@ interface Props {
 	image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 ---
 
@@ -16,9 +14,6 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <title>{title}</title>
-
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

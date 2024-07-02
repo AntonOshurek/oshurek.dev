@@ -12,13 +12,27 @@ interface Props {
 
 const { article, withLink = false } = Astro.props;
 
-console.log(article.slug)
+const articleDate = new Date(article.data.date);
+const d = new Date(articleDate);
+
+const options: Intl.DateTimeFormatOptions = {
+	year: 'numeric',
+	month: 'short',
+	day: '2-digit',
+	hour: '2-digit',
+	minute: '2-digit',
+	timeZone: 'CET', // Центральноевропейское время
+	hour12: false,
+};
+
+// Форматируем дату и время
+const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 ---
 
 <article class="article-preview">
 	<h3 class="article-preview__title article-l-title">{article.data.title}</h3>
-	<time class="article-preview__date article-date" datetime="2023-12-18T010:00">
-		{article.data.date}
+	<time class="article-preview__date article-date" datetime={d.toISOString()}>
+		{formattedDate}
 	</time>
 
 	<ArticleTags tags={article.data.tags} />
