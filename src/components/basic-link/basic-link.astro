@@ -1,0 +1,12 @@
+---
+import './basic-link.scss';
+
+interface Props {
+	link: string;
+	text: string;
+}
+
+const { link, text } = Astro.props;
+---
+
+<a class="basic-link" href={link}>{text}</a>
