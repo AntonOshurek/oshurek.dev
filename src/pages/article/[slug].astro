@@ -5,6 +5,8 @@ import type { CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 //COMPONENTS
 import ArticlePagePreview from '../../components/article-preview/article-page-preview.astro';
+//STYLES
+import './article.scss';
 
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');

@@ -10,9 +10,25 @@
 
 .article-l-title {
 	font-family: var(--article-title-font);
-	font-weight: 500;
-	font-size: var(--l-title-slim-size);
-	line-height: var(--l-title-slim-line-height-size);
+	font-weight: var(--l-title-weight);
+	font-size: var(--l-title-size);
+	line-height: var(--l-title-line-height);
+	color: var(--primary-text);
+}
+
+.article-m-title {
+	font-family: var(--article-title-font);
+	font-weight: var(--m-title-weight);
+	font-size: var(--m-title-size);
+	line-height: var(--m-title-line-height);
+	color: var(--primary-text);
+}
+
+.article-s-title {
+	font-family: var(--article-title-font);
+	font-weight: var(--s-title-weight);
+	font-size: var(--s-title-size);
+	line-height: var(--s-title-line-height);
 	color: var(--primary-text);
 }
 
@@ -41,6 +57,20 @@
 		font-weight: var(--s-text-weight);
 		font-size: var(--s-text-size);
 		line-height: var(--s-text-line-height);
+	}
+}
+
+.article-s-paragraph {
+	font-family: var(--article-paragraph-font);
+	font-weight: var(--s-text-weight);
+	font-size: var(--s-text-size);
+	line-height: var(--s-text-line-height);
+	color: var(--primary-text);
+
+	@media (max-width: $mobile-width) {
+		font-weight: var(--xs-text-weight);
+		font-size: var(--xs-text-size);
+		line-height: var(--xs-text-line-height);
 	}
 }
 

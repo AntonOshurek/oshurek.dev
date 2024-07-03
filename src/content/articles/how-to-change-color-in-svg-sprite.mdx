@@ -7,10 +7,54 @@ previewImage: /images/articles-images/svg-sprite-banner.jpg
 previewImageAlt: rondo przed wejściem głównym do dworca
 ---
 
-import ArticlePart from '../../components/article-part/article-part.astro';
+import ArticlePart from '../../markdown-components/article-part/article-part.astro';
+import ArticleParagraphM from '../../markdown-components/typography/article-paragraph-m.astro';
 
 <ArticlePart>
-	Some time, we need to create svg sprite for optimize our html markup and keep all of icons in
-	separate file. But here, we will have some problem, we can't dymanicly change a color on this svg
-	that is in svg sprite.
+	<ArticleParagraphM>
+		For first, we must understand what is a svg sprite. “An SVG sprite is a single SVG file that
+		contains multiple icons as &ltsvg&gt elements. Each icon has a unique id attribute that you can
+		use to select it.”. For example, I show for you my svg sprite. For first, we need to create a
+		separate svg file. Usually, I create this file in images folder. That file must looks like this
+	</ArticleParagraphM>
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg"
+	<symbol viewBox="0 0 96 96" id="footer-icon-instagram">
+		<path
+			fill="currentColor"
+			d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993. . ."
+		/>
+		</path>
+	</symbol>
+		<symbol viewBox="0 0 96 96" id="footer-icon-github">
+		<path
+			fill="currentColor"
+			d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993. . ."
+		/>
+		</path>
+	</symbol>
+		<symbol viewBox="0 0 96 96" id="footer-icon-linkedin">
+		<path
+			fill="currentColor"
+			d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993. . ."
+		/>
+		</path>
+	</symbol>
+</svg>
+```
+
+```html
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Example HTML5 Document</title>
+	</head>
+	<body>
+		<p>Test</p>
+	</body>
+</html>
+```
+
 </ArticlePart>

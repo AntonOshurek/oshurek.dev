@@ -1,4 +1,4 @@
-@import '../variables/variables';
+@import '../styles/variables/variables';
 
 .body {
 	position: relative;
@@ -28,4 +28,9 @@
 			cursor: pointer;
 		}
 	}
+}
+
+.main {
+	padding: var(--main-paddings);
+	width: 100%;
 }
