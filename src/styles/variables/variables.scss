@@ -27,6 +27,7 @@ $z-index-nav-button: 4;
 	/* text sizes */
 	--xs-text-size: 14px;
 	--xs-text-weight: 400;
+	--xs-text-line-height: 22px;
 	--s-text-size: 16px;
 	--s-text-weight: 400;
 	--s-text-line-height: 26px;
@@ -42,21 +43,16 @@ $z-index-nav-button: 4;
 	--l-fat-text-weight: 500;
 
 	/* titles sizes */
-	--xs-title-size: 20px;
-	--xs-title-weight: 400;
 	--s-title-size: 22px;
 	--s-title-weight: 400;
+	--s-title-line-height: 30px;
 	--m-title-size: 26px;
-	--m-title-weight: 700;
+	--m-title-weight: 500;
 	--m-title-line-height: 36px;
 	--l-title-size: 30px;
-	--l-title-weight: 700;
-	--l-title-slim-size: 30px;
-	--l-title-slim-weight: 500;
-	--l-title-slim-line-height-size: 36px;
+	--l-title-weight: 500;
+	--l-title-line-height: 36px;
 	--xl-title-size: 34px;
 	--xl-title-weight: 700;
 	--xl-title-line-height: 44px;
-	--xxl-title-size: 44px;
-	--xxl-title-weight: 700;
 }

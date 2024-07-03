@@ -8,9 +8,43 @@ previewImageAlt: rondo przed wejściem głównym do dworca
 ---
 
 import ArticlePart from '../../components/article-part/article-part.astro';
+import AerticleParagraphM from '../../components/typography/markdown/article-paragraph-m.astro';
 
 <ArticlePart>
-	Some time, we need to create svg sprite for optimize our html markup and keep all of icons in
-	separate file. But here, we will have some problem, we can't dymanicly change a color on this svg
-	that is in svg sprite.
+	<AerticleParagraphM>
+		For first, we must understand what is a svg sprite. “An SVG sprite is a single SVG file that
+		contains multiple icons as &ltsvg&gt elements. Each icon has a unique id attribute that you can
+		use to select it.”. For example, I show for you my svg sprite. For first, we need to create a
+		separate svg file. Usually, I create this file in images folder. That file must looks like this
+	</AerticleParagraphM>
+
+```css
+.article-l-paragraph {
+	font-family: var(--article-paragraph-font);
+	font-weight: var(--l-text-weight);
+	font-size: var(--l-text-size);
+	line-height: var(--l-text-line-height);
+	color: var(--primary-text);
+
+	@media (max-width: $mobile-width) {
+		font-weight: var(--m-text-weight);
+		font-size: var(--m-text-size);
+		line-height: var(--m-text-line-height);
+	}
+}
+```
+
+```html
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Example HTML5 Document</title>
+	</head>
+	<body>
+		<p>Test</p>
+	</body>
+</html>
+```
+
 </ArticlePart>

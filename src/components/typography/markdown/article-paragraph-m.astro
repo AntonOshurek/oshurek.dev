@@ -1,0 +1,20 @@
+<div class="article-m-paragraph">
+	<slot />
+</div>
+
+<style lang="scss">
+	@import '../../../styles/variables/variables.scss';
+	.article-m-paragraph {
+		font-family: var(--article-paragraph-font);
+		font-weight: var(--m-text-weight);
+		font-size: var(--m-text-size);
+		line-height: var(--m-text-line-height);
+		color: var(--primary-text);
+
+		@media (max-width: $mobile-width) {
+			font-weight: var(--s-text-weight);
+			font-size: var(--s-text-size);
+			line-height: var(--s-text-line-height);
+		}
+	}
+</style>
