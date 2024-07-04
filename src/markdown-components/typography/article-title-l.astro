@@ -1,3 +1,50 @@
-<p class="article-l-title">
-	<slot />
-</p>
+---
+interface Props {
+	headingTag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+}
+
+const { headingTag } = Astro.props;
+---
+
+{
+	headingTag === 'h1' && (
+		<h1 class="article-l-title">
+			<slot />
+		</h1>
+	)
+}
+{
+	headingTag === 'h2' && (
+		<h2 class="article-l-title">
+			<slot />
+		</h2>
+	)
+}
+{
+	headingTag === 'h3' && (
+		<h3 class="article-l-title">
+			<slot />
+		</h3>
+	)
+}
+{
+	headingTag === 'h4' && (
+		<h4 class="article-l-title">
+			<slot />
+		</h4>
+	)
+}
+{
+	headingTag === 'h5' && (
+		<h5 class="article-l-title">
+			<slot />
+		</h5>
+	)
+}
+{
+	headingTag === 'h6' && (
+		<h6 class="article-l-title">
+			<slot />
+		</h6>
+	)
+}
