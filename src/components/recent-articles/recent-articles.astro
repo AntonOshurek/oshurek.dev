@@ -6,8 +6,11 @@ import './recent-articles.scss';
 import ArticlePreview from '../article-preview/article-preview.astro';
 import ArticleItems from '../article-items/article-items.astro';
 import BasicLink from '../basic-link/basic-link.astro';
+//UTILS
+import { sortArticles } from '../../utils/sort-articles';
 
-const articles = await getCollection('articles');
+const defaultArticles = await getCollection('articles');
+const articles = sortArticles(defaultArticles);
 ---
 
 <section class="recent-articles container-large">

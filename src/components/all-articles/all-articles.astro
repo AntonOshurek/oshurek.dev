@@ -5,12 +5,11 @@ import './all-articles.scss';
 //COMPONENTS
 import ArticlePreview from '../article-preview/article-preview.astro';
 import ArticleItems from '../article-items/article-items.astro';
+//UTILS
+import { sortArticles } from '../../utils/sort-articles';
 
-const articles = await getCollection('articles');
-
-// const articles = (await getCollection('articles')).sort(
-// 	(a, b) => a.data.date.valueOf() - b.data.date.valueOf()
-// );
+const defaultArticles = await getCollection('articles');
+const articles = sortArticles(defaultArticles);
 ---
 
 <div class="all-articles container-medium">
