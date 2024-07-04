@@ -6,10 +6,10 @@ import './all-articles.scss';
 import ArticlePreview from '../article-preview/article-preview.astro';
 import ArticleItems from '../article-items/article-items.astro';
 //UTILS
-import { sortArticles } from '../../utils/sort-articles';
+import { sortArticlesByDate } from '../../utils/utils';
 
 const defaultArticles = await getCollection('articles');
-const articles = sortArticles(defaultArticles);
+const articles = sortArticlesByDate(defaultArticles);
 ---
 
 <div class="all-articles container-medium">
