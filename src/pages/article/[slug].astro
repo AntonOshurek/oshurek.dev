@@ -5,6 +5,7 @@ import type { CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 //COMPONENTS
 import ArticlePagePreview from '../../components/article-preview/article-page-preview.astro';
+import SharePage from '../../components/share-page/share-page.astro';
 //STYLES
 import './article.scss';
 
@@ -37,5 +38,6 @@ const { Content } = await article.render();
 	<article class="article container-small">
 		<ArticlePagePreview article={article} />
 		<Content />
+		<SharePage />
 	</article>
 </Layout>
