@@ -1,5 +1,13 @@
+.article-page-main {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content;
+	gap: 50px;
+}
+
 .article {
 	display: grid;
 	grid-row-gap: 50px;
 	grid-template-columns: 1fr;
+	height: min-content;
 }

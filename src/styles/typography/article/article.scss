@@ -1,7 +1,7 @@
 @import '../../variables/variables';
 
 .article-xl-title {
-	font-family: var(--article-title-font);
+	font-family: var(--basic-font);
 	font-weight: var(--xl-title-weight);
 	font-size: var(--xl-title-size);
 	line-height: var(--xl-title-line-height);
@@ -9,7 +9,7 @@
 }
 
 .article-l-title {
-	font-family: var(--article-title-font);
+	font-family: var(--basic-font);
 	font-weight: var(--l-title-weight);
 	font-size: var(--l-title-size);
 	line-height: var(--l-title-line-height);
@@ -17,7 +17,7 @@
 }
 
 .article-m-title {
-	font-family: var(--article-title-font);
+	font-family: var(--basic-font);
 	font-weight: var(--m-title-weight);
 	font-size: var(--m-title-size);
 	line-height: var(--m-title-line-height);
@@ -25,7 +25,7 @@
 }
 
 .article-s-title {
-	font-family: var(--article-title-font);
+	font-family: var(--basic-font);
 	font-weight: var(--s-title-weight);
 	font-size: var(--s-title-size);
 	line-height: var(--s-title-line-height);
@@ -33,7 +33,7 @@
 }
 
 .article-l-paragraph {
-	font-family: var(--article-paragraph-font);
+	font-family: var(--basic-font);
 	font-weight: var(--l-text-weight);
 	font-size: var(--l-text-size);
 	line-height: var(--l-text-line-height);
@@ -47,7 +47,7 @@
 }
 
 .article-m-paragraph {
-	font-family: var(--article-paragraph-font);
+	font-family: var(--basic-font);
 	font-weight: var(--m-text-weight);
 	font-size: var(--m-text-size);
 	line-height: var(--m-text-line-height);
@@ -61,7 +61,7 @@
 }
 
 .article-s-paragraph {
-	font-family: var(--article-paragraph-font);
+	font-family: var(--basic-font);
 	font-weight: var(--s-text-weight);
 	font-size: var(--s-text-size);
 	line-height: var(--s-text-line-height);

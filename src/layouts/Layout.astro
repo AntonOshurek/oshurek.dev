@@ -13,9 +13,10 @@ interface Props {
 	title: string;
 	headerTitle?: string;
 	description?: string;
+	additionalClassToMain?: string;
 }
 
-const { title, headerTitle, description } = Astro.props;
+const { title, headerTitle, description, additionalClassToMain } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,7 +26,7 @@ const { title, headerTitle, description } = Astro.props;
 	<body class="body">
 		<Header headerTitle={headerTitle} />
 
-		<main class="main">
+		<main class={`main ${additionalClassToMain ? additionalClassToMain : ''}`}>
 			<slot />
 		</main>
 

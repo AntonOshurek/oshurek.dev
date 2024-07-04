@@ -5,13 +5,14 @@ import type { CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 //COMPONENTS
 import ArticlePagePreview from '../../components/article-preview/article-page-preview.astro';
+import SharePage from '../../components/share-page/share-page.astro';
 //STYLES
 import './article.scss';
 
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');
-	const paths = articles.map((article, i) => {
-		console.log(i);
+
+	const paths = articles.map((article) => {
 		return {
 			params: {
 				slug: article.slug,
@@ -21,6 +22,7 @@ export const getStaticPaths = async () => {
 			},
 		};
 	});
+
 	return paths;
 };
 
@@ -32,9 +34,14 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 ---
 
-<Layout title={article.data.title} description={article.data.overview}>
+<Layout
+	title={article.data.title}
+	description={article.data.overview}
+	additionalClassToMain="article-page-main"
+>
 	<article class="article container-small">
 		<ArticlePagePreview article={article} />
 		<Content />
 	</article>
+	<SharePage text="I will be happy if you share this article with your friends ;)" />
 </Layout>

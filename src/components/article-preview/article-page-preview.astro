@@ -27,7 +27,7 @@ const options: Intl.DateTimeFormatOptions = {
 const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 ---
 
-<section class="article-preview article-preview--image">
+<header class="article-preview article-preview--image">
 	<h1 class="article-preview__title article-xl-title">
 		{article.data.title}
 	</h1>
@@ -48,4 +48,4 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 		src={article.data.previewImage}
 		alt={article.data.previewImageAlt}
 	/>
-</section>
+</header>
