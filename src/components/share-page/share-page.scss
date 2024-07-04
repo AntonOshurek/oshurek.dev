@@ -2,14 +2,16 @@
 	display: grid;
 	justify-items: center;
 	grid-template-columns: 1fr;
+	height: min-content;
 	gap: 5px;
 }
 
 .share-page__title {
 	font-family: var(--basic-font);
-	font-weight: var(--s-text-weight);
-	font-size: var(--s-text-size);
-	color: var(--primary-text);
+	font-weight: var(--xs-text-weight);
+	font-size: var(--xs-text-size);
+	text-align: center;
+	color: var(--secondary-text);
 }
 
 .share-page__list {
@@ -31,7 +33,7 @@
 	font-family: var(--basic-font);
 	font-weight: var(--s-text-weight);
 	font-size: var(--s-text-size);
-	color: var(--primary-text);
+	color: var(--secondary-text);
 
 	&:hover {
 		color: var(--hover-item-color);
