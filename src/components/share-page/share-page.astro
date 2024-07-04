@@ -1,12 +1,44 @@
 ---
+//STYLES
+import './share-page.scss';
+
+interface Props {
+	text: string;
+}
+
+const { text } = Astro.props;
+
 const currentPageURL = encodeURIComponent(Astro.url.toString());
 const testURL = 'https://github.com/AntonOshurek';
 ---
 
-<div>
-	<a href={`https://www.facebook.com/sharer.php?u=${testURL}`} target="_blank">facebook share</a>
-	<a href={`https://www.linkedin.com/sharing/share-offsite/?url=${testURL}`} target="_blank"
-		>linkedin share</a
-	>
-	<a href={`https://twitter.com/intent/tweet?url=${testURL}`} target="_blank">twitter share</a>
+<div class="share-page container-small">
+	<h4 class="share-page__title">{text}</h4>
+
+	<ul class="share-page__list">
+		<li class="share-page__item">
+			<a
+				class="share-page__link"
+				href={`https://www.facebook.com/sharer.php?u=${testURL}`}
+				target="_blank"
+				rel="noopener noreferrer">facebook</a
+			>
+		</li>
+		<li class="share-page__item">
+			<a
+				class="share-page__link"
+				href={`https://www.linkedin.com/sharing/share-offsite/?url=${testURL}`}
+				target="_blank"
+				rel="noopener noreferrer">linkedin</a
+			>
+		</li>
+		<li class="share-page__item">
+			<a
+				class="share-page__link"
+				href={`https://twitter.com/intent/tweet?url=${testURL}`}
+				target="_blank"
+				rel="noopener noreferrer">twitter</a
+			>
+		</li>
+	</ul>
 </div>

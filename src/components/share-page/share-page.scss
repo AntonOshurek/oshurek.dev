@@ -1,0 +1,39 @@
+.share-page {
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr;
+	gap: 5px;
+}
+
+.share-page__title {
+	font-family: var(--basic-font);
+	font-weight: var(--s-text-weight);
+	font-size: var(--s-text-size);
+	color: var(--primary-text);
+}
+
+.share-page__list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	gap: 10px;
+}
+
+.share-page__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.share-page__link {
+	padding: 2px 5px;
+	font-family: var(--basic-font);
+	font-weight: var(--s-text-weight);
+	font-size: var(--s-text-size);
+	color: var(--primary-text);
+
+	&:hover {
+		color: var(--hover-item-color);
+	}
+}

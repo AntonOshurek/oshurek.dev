@@ -34,10 +34,14 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 ---
 
-<Layout title={article.data.title} description={article.data.overview}>
+<Layout
+	title={article.data.title}
+	description={article.data.overview}
+	additionalClassToMain="article-page-main"
+>
 	<article class="article container-small">
 		<ArticlePagePreview article={article} />
 		<Content />
-		<SharePage />
 	</article>
+	<SharePage text="I will be happy if you share this article with your friends ;)" />
 </Layout>
