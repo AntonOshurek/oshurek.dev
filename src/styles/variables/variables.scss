@@ -20,9 +20,8 @@ $z-index-nav-button: 4;
 	--main-paddings: 33px var(--safe-side-paddings) 60px var(--safe-side-paddings);
 
 	/* fonts */
-	--basic-font: heebo, arial, sans-serif;
-	--article-paragraph-font: merriweather, sans-serif;
-	--article-title-font: oswald, sans-serif;
+	--basic-font: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
 	/* text sizes */
 	--xs-text-size: 14px;
