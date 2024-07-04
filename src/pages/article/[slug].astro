@@ -10,8 +10,8 @@ import './article.scss';
 
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');
-	const paths = articles.map((article, i) => {
-		console.log(i);
+
+	const paths = articles.map((article) => {
 		return {
 			params: {
 				slug: article.slug,
@@ -21,6 +21,7 @@ export const getStaticPaths = async () => {
 			},
 		};
 	});
+
 	return paths;
 };
 

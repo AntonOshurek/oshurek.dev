@@ -9,8 +9,10 @@ previewImageAlt: rondo przed wejściem głównym do dworca
 
 import ArticlePart from '../../markdown-components/article-part/article-part.astro';
 import ArticleParagraphM from '../../markdown-components/typography/article-paragraph-m.astro';
+import ArticleTitleL from '../../markdown-components/typography/article-title-l.astro';
 
 <ArticlePart>
+	<ArticleTitleL>What is it - SVG sprite?</ArticleTitleL>
 	<ArticleParagraphM>
 		For first, we must understand what is a svg sprite. “An SVG sprite is a single SVG file that
 		contains multiple icons as &ltsvg&gt elements. Each icon has a unique id attribute that you can
@@ -44,17 +46,76 @@ import ArticleParagraphM from '../../markdown-components/typography/article-para
 </svg>
 ```
 
+<ArticleParagraphM>Before, we can use this icons in our html code in this way;</ArticleParagraphM>
+
 ```html
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Example HTML5 Document</title>
-	</head>
-	<body>
-		<p>Test</p>
-	</body>
-</html>
+<svg width="40" height="40" class="footer__social-icon" aria-hidden="true" focusable="false">
+	<use xlink:href="images/footer-icons-sprite.svg#footer-icon-instagram"></use>
+</svg>
 ```
+
+<ArticleParagraphM>
+	As you can see, I use basic svg tag for wrap and inside this svg I use ```<use>```. Inside ```<use>``` you need to write a patch to your svg sprite file in property xlink:href=”your-patch” with unique id from icon that you write in svg sprite. And that’s all what you need for use a svg sprite. But here, we have some problem with modify colors on svg from sprite because in html we really don’t have any svg path or stroke. That problem you can resolve with javascript but this isn’t a very good solution because it will complicate your code and create unnecessary dependencies.
+</ArticleParagraphM>
+
+</ArticlePart>
+
+<ArticlePart>
+<ArticleTitleL>How resolve that problem?</ArticleTitleL>
+<ArticleParagraphM>
+	Okey, what resolve I can proposal for you? With the help of my colleagues, I find really
+	cool solution for this. First of all, we need to set a currentColor in fill property on
+	svg sprite file.
+</ArticleParagraphM>
+```html
+<symbol viewBox="0 0 96 96" id="footer-icon-github">
+	<path
+		fill="currentColor"
+		d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993. . ."
+	/>
+	</path>
+</symbol>
+```
+
+<ArticleParagraphM>
+	That property will give us the opportunity to change color in path. Then, we set a color in svg
+	tag in our html. How we can did it?
+</ArticleParagraphM>
+
+```html
+<svg width="40" height="40" class="footer__social-icon" aria-hidden="true" focusable="false">
+	<use xlink:href="images/footer-icons-sprite.svg#footer-icon-instagram"></use>
+</svg>
+```
+
+<ArticleParagraphM>
+	As you can see, I set a class “footer__social-icon” fro svg tag. In this class, in css, I set a
+	color.
+</ArticleParagraphM>
+
+```css
+.footer__social-icon {
+	color: var(--primary-text);
+}
+```
+
+<ArticleParagraphM>
+	ok, that works. And last problem that I was need to resolve is change the color with hover effect.
+	That’s easy
+</ArticleParagraphM>
+
+```css
+.footer__social-icon {
+	color: var(--primary-text);
+	&:hover {
+		color: var(--hover-item-color);
+	}
+}
+```
+
+<ArticleParagraphM>
+	This is a final version of code. In this case we can change color and change color with hover
+	effect.
+</ArticleParagraphM>
 
 </ArticlePart>
