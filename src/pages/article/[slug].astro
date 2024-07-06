@@ -38,6 +38,7 @@ const { Content } = await article.render();
 	title={article.data.title}
 	description={article.data.overview}
 	additionalClassToMain="article-page-main"
+	image={article.data.previewImage}
 >
 	<article class="article container-small">
 		<ArticlePagePreview article={article} />
