@@ -1,0 +1,13 @@
+---
+//LAYOUTS
+import Layout from '../layouts/Layout.astro';
+//COMPONENTS
+import NotFound from '../components/notfound/notfound.astro';
+---
+
+<Layout
+	title={import.meta.env.INDEX_PAGE_TITLE}
+	headerTitle={import.meta.env.INDEX_PAGE_HEADER_TITLE}
+>
+	<NotFound />
+</Layout>
