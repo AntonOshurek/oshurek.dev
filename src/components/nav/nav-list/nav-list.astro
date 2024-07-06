@@ -1,4 +1,6 @@
 ---
+//VARIABLES
+import { ROUTING } from '../../../variables/routing';
 //STYLES
 import './nav-list.scss';
 //COMPONENTS
@@ -6,7 +8,7 @@ import Item from './item/item.astro';
 ---
 
 <ul class="nav-list">
-	<Item title="Home" path="/" pageRoute="" />
-	<Item title="Works" path="/works" pageRoute="works" />
-	<Item title="Articles" path="/articles" pageRoute="articles" />
+	<Item title="Home" path={ROUTING.ROOT.path} pageRoute={ROUTING.ROOT.route} />
+	<Item title="Projects" path={ROUTING.PROJECTS.path} pageRoute={ROUTING.PROJECTS.route} />
+	<Item title="Articles" path={ROUTING.ARTICLES.path} pageRoute={ROUTING.ARTICLES.route} />
 </ul>

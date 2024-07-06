@@ -7,8 +7,11 @@ interface Props {
 
 const { title, path, pageRoute } = Astro.props;
 
+// const activeLinkClass =
+// 	Astro.url.pathname.split('/')[1] === pageRoute ? 'nav-list__link--active' : '';
+
 const activeLinkClass =
-	Astro.url.pathname.split('/')[1] === pageRoute ? 'nav-list__link--active' : '';
+	Astro.url.pathname.split('/')[1] === path.split('/')[1] ? 'nav-list__link--active' : '';
 ---
 
 <li class="nav-list__item">
