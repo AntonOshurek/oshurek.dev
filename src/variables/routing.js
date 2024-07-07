@@ -1,18 +1,20 @@
+export const BASE_URL = '/oshurek.dev';
+
 export const ROUTING = {
 	ROOT: {
-		path: `${import.meta.env.BASE}/`,
+		path: `${BASE_URL}/`,
 		route: '',
 	},
 	PROJECTS: {
-		path: `${import.meta.env.BASE}/projects`,
+		path: `${BASE_URL}/projects`,
 		route: 'projects',
 	},
 	ARTICLES: {
-		path: `${import.meta.env.BASE}articles`,
+		path: `${BASE_URL}articles`,
 		route: 'articles',
 	},
 	ARTICLE: {
-		path: `${import.meta.env.BASE}article`,
+		path: `${BASE_URL}article`,
 		route: 'article',
 	},
 };
