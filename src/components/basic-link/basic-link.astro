@@ -4,9 +4,10 @@ import './basic-link.scss';
 interface Props {
 	link: string;
 	text: string;
+	additionalClass?: string;
 }
 
-const { link, text } = Astro.props;
+const { link, text, additionalClass } = Astro.props;
 ---
 
-<a class="basic-link" href={link}>{text}</a>
+<a class={`basic-link ${additionalClass ? additionalClass : ''}`} href={link}>{text}</a>
