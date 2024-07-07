@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content';
+//STYLES
+import './article-preview.scss';
+//COMPONENTS
+import ArticleTags from './article-tag/article-tags.astro';
+
+interface Props {
+	article: CollectionEntry<'articles'>;
+	withLink?: boolean;
+}
+
+const { article, withLink = false } = Astro.props;
+
+const articleDate = new Date(article.data.date);
+const d = new Date(articleDate);
+
+const options: Intl.DateTimeFormatOptions = {
+	year: 'numeric',
+	month: 'short',
+	day: '2-digit',
+	hour: '2-digit',
+	minute: '2-digit',
+	timeZone: 'CET',
+	hour12: false,
+};
+
+const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
+---
+
+<article class="article-preview">
+	<h3 class="article-preview__title article-l-title">{article.data.title}</h3>
+	<time class="article-preview__date article-date" datetime={d.toISOString()}>
+		{formattedDate}
+	</time>
+
+	<ArticleTags tags={article.data.tags} />
+
+	<p class="article-preview__overview article-l-paragraph">
+		{article.data.overview}
+	</p>
+
+	{
+		withLink && (
+			<a class="article-preview__link" href={`/article/${article.slug}`}>
+				<span class="visually-hidden">open full post</span>
+			</a>
+		)
+	}
+</article>
