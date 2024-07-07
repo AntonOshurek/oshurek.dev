@@ -16,7 +16,9 @@ const { linkTitle, linkPath, socialSpriteIndex } = Astro.props;
 		<span class="visually-hidden">{linkTitle}</span>
 
 		<svg width="40" height="40" class="social-list__icon" aria-hidden="true" focusable="false">
-			<use xlink:href={`/images/social-icons-sprite.svg#${socialSpriteIndex}`}></use>
+			<use
+				xlink:href={`${import.meta.env.BASE}/images/social-icons-sprite.svg#${socialSpriteIndex}`}
+			></use>
 		</svg>
 	</a>
 </li>

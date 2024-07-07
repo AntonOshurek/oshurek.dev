@@ -1,14 +1,18 @@
 export const ROUTING = {
 	ROOT: {
-		path: '/',
+		path: `${import.meta.env.BASE}/`,
 		route: '',
 	},
 	PROJECTS: {
-		path: '/projects',
+		path: `${import.meta.env.BASE}/projects`,
 		route: 'projects',
 	},
 	ARTICLES: {
-		path: '/articles',
+		path: `${import.meta.env.BASE}articles`,
 		route: 'articles',
+	},
+	ARTICLE: {
+		path: `${import.meta.env.BASE}article`,
+		route: 'article',
 	},
 };
