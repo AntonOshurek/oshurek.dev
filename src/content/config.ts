@@ -9,6 +9,7 @@ const articlesCollection = defineCollection({
 		overview: z.string(),
 		previewImage: z.string(),
 		previewImageAlt: z.string(),
+		isRecent: z.boolean(),
 	}),
 });
 

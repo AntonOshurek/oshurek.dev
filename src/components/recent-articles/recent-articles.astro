@@ -22,7 +22,9 @@ const articles = sortArticlesByDate(defaultArticles);
 	<ArticleItems dirrection="row" additionalClasses="recent-articles__items">
 		{
 			articles.map((article, i) => {
-				if (i < 2) {
+				let recentArticlesCounter = 0;
+				if (recentArticlesCounter < 2 && article.data.isRecent) {
+					recentArticlesCounter++;
 					return <ArticlePreview article={article} withLink={true} />;
 				}
 			})
