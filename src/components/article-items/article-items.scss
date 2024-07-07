@@ -2,7 +2,7 @@
 
 .article-items {
 	display: grid;
-	gap: var(--post-items-gap);
+	gap: var(--article-items-gap);
 
 	&--column {
 		grid-template-columns: 1fr;
@@ -21,7 +21,7 @@
 			content: '';
 			position: absolute;
 			left: 0;
-			bottom: calc(-1 * var(--post-items-gap) / 2);
+			bottom: calc(-1 * var(--article-items-gap) / 2);
 			width: 100%;
 			height: 2px;
 			background-color: var(--decor-color);

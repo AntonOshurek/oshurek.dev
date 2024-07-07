@@ -1,0 +1,14 @@
+---
+//STYLES
+import './project-items.scss';
+
+interface Props {
+	additionalClass?: string;
+}
+
+const { additionalClass } = Astro.props;
+---
+
+<div class={`project-items ${additionalClass ? additionalClass : ''}`}>
+	<slot />
+</div>

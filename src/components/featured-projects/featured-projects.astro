@@ -1,0 +1,20 @@
+---
+//STYLES
+import './featured-projects.scss';
+//COMPONENTS
+import BasicLink from '../basic-link/basic-link.astro';
+import ProjectItems from '../project-items/project-items.astro';
+//VARIABLES
+import { ROUTING } from '../../variables/routing';
+---
+
+<section class="featured-projects container-large">
+	<h2 class="featured-projects__title">Featured works</h2>
+	<BasicLink
+		link={ROUTING.PROJECTS.path}
+		text="View all"
+		additionalClass="featured-projects__link "
+	/>
+
+	<ProjectItems additionalClass="featured-projects__items" />
+</section>
