@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+//STYLES
+import './all-projects.scss';
+//COMPONENTS
+import ProjectPreview from '../project-preview/project-preview.astro';
+import ProjectItems from '../project-items/project-items.astro';
+//UTILS
+import { sortArticlesByDate } from '../../utils/utils';
+
+const defaultProjects = await getCollection('projects');
+// const articles = sortArticlesByDate(defaultArticles);
+---
+
+<div class="all-projects container-medium">
+	<h2 class="all-projects__title">Projects</h2>
+
+	<ProjectItems>
+		{
+			defaultProjects.map((project) => {
+				return <ProjectPreview project={project} withLink={true} />;
+			})
+		}
+	</ProjectItems>
+</div>

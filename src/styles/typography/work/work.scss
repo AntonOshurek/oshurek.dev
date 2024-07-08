@@ -1,9 +1,9 @@
 @import '../../variables/variables';
 
-.work-title {
+.project-title {
 	font-family: var(--basic-font);
-	font-weight: var(--l-title-slim-weight);
-	font-size: var(--l-title-slim-size);
+	font-weight: var(--l-title-weight);
+	font-size: var(--l-title-size);
 	color: var(--primary-text);
 
 	&--big {
@@ -22,28 +22,28 @@
 	}
 }
 
-.work-tags {
+.project-tags {
 	font-family: var(--basic-font);
 	font-weight: var(--m-text-weight);
 	font-size: var(--m-text-size);
 	color: var(--secondary-text);
 }
 
-.work-sub-title {
+.project-sub-title {
 	font-family: var(--basic-font);
 	font-weight: var(--l-title-slim-weight);
 	font-size: var(--l-title-slim-size);
 	color: var(--primary-text);
 }
 
-.work-paragraph {
+.project-paragraph {
 	font-family: var(--basic-font);
 	font-weight: var(--s-text-weight);
 	font-size: var(--s-text-size);
 	color: var(--primary-text);
 }
 
-.work-date {
+.project-date {
 	border-radius: 16px;
 	padding: 0 10px;
 	font-family: var(--basic-font);

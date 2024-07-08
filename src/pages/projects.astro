@@ -2,13 +2,13 @@
 //LAYOUTS
 import Layout from '../layouts/Layout.astro';
 //COMPONENTS
-import FeaturedProjects from '../components/featured-projects/featured-projects.astro';
+import AllProjects from '../components/all-projects/all-projects.astro';
 ---
 
 <Layout
-	title={import.meta.env.ARTICLES_PAGE_TITLE}
-	headerTitle={import.meta.env.ARTICLES_PAGE_HEADER_TITLE}
+	title={'all projects'}
+	headerTitle={'page with all projects of Anton Oshurek'}
 	image="/images/meta/meta-articles-preview.jpg"
 >
-	<FeaturedProjects />
+	<AllProjects />
 </Layout>
