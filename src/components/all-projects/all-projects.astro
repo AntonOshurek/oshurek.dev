@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+//STYLES
+import './all-projects.scss';
+//COMPONENTS
+import ArticlePreview from '../article-preview/article-preview.astro';
+import ArticleItems from '../article-items/article-items.astro';
+//UTILS
+import { sortArticlesByDate } from '../../utils/utils';
+
+const defaultArticles = await getCollection('articles');
+const articles = sortArticlesByDate(defaultArticles);
+---
+
+<div class="all-articles container-medium">
+	<h2 class="all-articles__title">Articles</h2>
+
+	<ArticleItems dirrection="column" additionalClasses="recent-articles__items" underline>
+		{
+			articles.map((article) => {
+				return <ArticlePreview article={article} withLink={true} />;
+			})
+		}
+	</ArticleItems>
+</div>
