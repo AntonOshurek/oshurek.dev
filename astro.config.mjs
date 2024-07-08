@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
 	site: 'https://antonoshurek.github.io',
-	base: '/oshurek.dev',
+	base: '/oshurek.dev/',
 	integrations: [mdx(), sitemap()],
 });
