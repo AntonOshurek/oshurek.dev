@@ -4,6 +4,8 @@ import type { CollectionEntry } from 'astro:content';
 import './article-preview.scss';
 //COMPONENTS
 import ArticleTags from './article-tag/article-tags.astro';
+//VARIABLES
+import { BASE_URL } from '../../variables/routing';
 
 interface Props {
 	article: CollectionEntry<'articles'>;
@@ -45,7 +47,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 		class="article-preview__image"
 		width="600"
 		height="400"
-		src={article.data.previewImage}
+		src={`${BASE_URL}${article.data.previewImage}`}
 		alt={article.data.previewImageAlt}
 	/>
 </header>
