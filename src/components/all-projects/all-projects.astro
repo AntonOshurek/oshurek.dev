@@ -3,23 +3,23 @@ import { getCollection } from 'astro:content';
 //STYLES
 import './all-projects.scss';
 //COMPONENTS
-import ArticlePreview from '../article-preview/article-preview.astro';
-import ArticleItems from '../article-items/article-items.astro';
+import ProjectPreview from '../project-preview/project-preview.astro';
+import ProjectItems from '../project-items/project-items.astro';
 //UTILS
 import { sortArticlesByDate } from '../../utils/utils';
 
-const defaultArticles = await getCollection('articles');
-const articles = sortArticlesByDate(defaultArticles);
+const defaultProjects = await getCollection('projects');
+// const articles = sortArticlesByDate(defaultArticles);
 ---
 
-<div class="all-articles container-medium">
-	<h2 class="all-articles__title">Articles</h2>
+<div class="all-projects container-medium">
+	<h2 class="all-projects__title">Projects</h2>
 
-	<ArticleItems dirrection="column" additionalClasses="recent-articles__items" underline>
+	<ProjectItems>
 		{
-			articles.map((article) => {
-				return <ArticlePreview article={article} withLink={true} />;
+			defaultProjects.map((project) => {
+				return <ProjectPreview project={project} withLink={true} />;
 			})
 		}
-	</ArticleItems>
+	</ProjectItems>
 </div>

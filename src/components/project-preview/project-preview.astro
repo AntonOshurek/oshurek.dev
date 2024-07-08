@@ -7,10 +7,9 @@ import ArticleTags from './project-tags/project-tags.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
-	withLink?: boolean;
 }
 
-const { project, withLink = false } = Astro.props;
+const { project } = Astro.props;
 
 const articleDate = new Date(project.data.date);
 const d = new Date(articleDate);
@@ -41,7 +40,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 		height="180"
 	/>
 
-	<a class="project-preview__link" href="href={`/project/${project.slug}`}">
+	<a class="project-preview__link" href={`/project/${project.slug}`}>
 		<span class="visually-hidden">open full project description</span>
 	</a>
 </article>
