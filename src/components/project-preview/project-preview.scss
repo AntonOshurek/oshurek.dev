@@ -58,7 +58,25 @@
 }
 
 .project-preview__tags {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
 	grid-area: tags;
+	list-style: none;
+	gap: 10px;
+}
+
+.project-preview__tag {
+	position: relative;
+
+	&:not(:last-child)::after {
+		content: ',';
+		position: absolute;
+		right: -5px;
+		bottom: 0;
+		width: max-content;
+		height: max-content;
+	}
 }
 
 .project-preview__description {

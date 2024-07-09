@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 //STYLES
 import './article-preview.scss';
 //COMPONENTS
-import ArticleTags from './article-tag/article-tags.astro';
+import ProjectTags from './project-tags/project-tags.astro';
 
 interface Props {
 	article: CollectionEntry<'articles'>;
@@ -35,7 +35,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 		{formattedDate}
 	</time>
 
-	<ArticleTags tags={article.data.tags} />
+	<ProjectTags tags={article.data.tags} />
 
 	<p class="article-preview__overview article-m-paragraph">
 		{article.data.overview}
