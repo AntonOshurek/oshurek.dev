@@ -18,7 +18,7 @@ const defaultProjects = await getCollection('projects');
 	<ProjectItems>
 		{
 			defaultProjects.map((project) => {
-				return <ProjectPreview project={project} withLink={true} />;
+				return <ProjectPreview project={project} />;
 			})
 		}
 	</ProjectItems>
