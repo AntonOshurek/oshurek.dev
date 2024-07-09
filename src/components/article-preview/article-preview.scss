@@ -37,25 +37,7 @@
 }
 
 .article-preview__tags {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
 	grid-area: tags;
-	list-style: none;
-	gap: 10px;
-}
-
-.article-preview__tag {
-	position: relative;
-
-	&:not(:last-child)::after {
-		content: ',';
-		position: absolute;
-		right: -5px;
-		bottom: 0;
-		width: max-content;
-		height: max-content;
-	}
 }
 
 .article-preview__overview {

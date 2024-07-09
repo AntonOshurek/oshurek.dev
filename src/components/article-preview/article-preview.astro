@@ -5,7 +5,7 @@ import './article-preview.scss';
 //VARIABLES
 import { ROUTING } from '../../variables/routing';
 //COMPONENTS
-import ArticleTags from './article-tags/article-tags.astro';
+import Tags from '../tags/tags.astro';
 import DateTime from '../date-time/date-time.astro';
 
 interface Props {
@@ -21,7 +21,7 @@ const { article, withLink = false } = Astro.props;
 
 	<DateTime date={article.data.date} format="full" additionalStyleClass="article-preview__date" />
 
-	<ArticleTags tags={article.data.tags} />
+	<Tags tags={article.data.tags} additionalStyleClass="article-preview__tags" />
 
 	<p class="article-preview__overview paragraph-l">
 		{article.data.overview}

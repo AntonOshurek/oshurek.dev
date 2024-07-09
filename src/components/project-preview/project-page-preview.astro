@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 //STYLES
 import './project-preview.scss';
 //COMPONENTS
-import ProjectTags from './project-tags/project-tags.astro';
+import Tags from '../tags/tags.astro';
 import DateTime from '../date-time/date-time.astro';
 
 interface Props {
@@ -18,7 +18,7 @@ const { project } = Astro.props;
 
 	<DateTime date={project.data.date} format="year" additionalStyleClass="project-preview__date" />
 
-	<ProjectTags tags={project.data.tags} />
+	<Tags tags={project.data.tags} additionalStyleClass="project-preview__tags" />
 
 	<p class="project-preview__description paragraph-s">
 		{project.data.overview}

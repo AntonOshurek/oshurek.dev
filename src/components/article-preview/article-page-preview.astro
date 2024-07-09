@@ -3,8 +3,8 @@ import type { CollectionEntry } from 'astro:content';
 //STYLES
 import './article-preview.scss';
 //COMPONENTS
-import ArticleTags from './article-tags/article-tags.astro';
 import DateTime from '../date-time/date-time.astro';
+import Tags from '../tags/tags.astro';
 //VARIABLES
 import { BASE_URL } from '../../variables/routing';
 
@@ -22,7 +22,7 @@ const { article } = Astro.props;
 
 	<DateTime date={article.data.date} format="full" additionalStyleClass="article-preview__date" />
 
-	<ArticleTags tags={article.data.tags} />
+	<Tags tags={article.data.tags} additionalStyleClass="article-preview__tags" />
 
 	<p class="article-preview__overview paragraph-m">
 		{article.data.overview}
