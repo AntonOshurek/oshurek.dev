@@ -1,51 +1,42 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 //STYLES
-import './article-preview.scss';
+import './project-preview.scss';
 //COMPONENTS
 import ProjectTags from './project-tags/project-tags.astro';
 
 interface Props {
-	article: CollectionEntry<'articles'>;
+	project: CollectionEntry<'projects'>;
 }
 
-const { article } = Astro.props;
+const { project } = Astro.props;
 
-const articleDate = new Date(article.data.date);
-const d = new Date(articleDate);
+const projectDate = new Date(project.data.date);
+const d = new Date(projectDate);
 
 const options: Intl.DateTimeFormatOptions = {
 	year: 'numeric',
-	month: 'short',
-	day: '2-digit',
-	hour: '2-digit',
-	minute: '2-digit',
-	timeZone: 'CET',
-	hour12: false,
 };
 
 const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 ---
 
-<header class="article-preview article-preview--image">
-	<h1 class="article-preview__title article-xl-title">
-		{article.data.title}
-	</h1>
-	<time class="article-preview__date article-date" datetime={d.toISOString()}>
-		{formattedDate}
-	</time>
+<header class="project-preview project-preview--vertical">
+	<h1 class="project-preview__title project-title">{project.data.title}</h1>
 
-	<ProjectTags tags={article.data.tags} />
+	<time class="project-preview__date project-date" datetime={d.toISOString()}>{formattedDate}</time>
 
-	<p class="article-preview__overview article-m-paragraph">
-		{article.data.overview}
+	<ProjectTags tags={project.data.tags} />
+
+	<p class="project-preview__description project-paragraph">
+		{project.data.overview}
 	</p>
 
 	<img
-		class="article-preview__image"
-		width="600"
-		height="400"
-		src={article.data.previewImage}
-		alt={article.data.previewImageAlt}
+		class="project-preview__image"
+		src="https://previews.123rf.com/images/epicfail/epicfail1702/epicfail170200239/72740134-thin-line-design-concept-for-project-website-banner.jpg"
+		alt=""
+		width="246"
+		height="180"
 	/>
 </header>
