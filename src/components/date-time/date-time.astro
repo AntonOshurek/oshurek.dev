@@ -32,11 +32,11 @@ let dateTimeStyleClass: string = `date-time ${additionalStyleClass ? additionalS
 switch (format) {
 	case 'full':
 		formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
-		dateTimeStyleClass = `${dateTimeStyleClass} date-time--full`;
+		dateTimeStyleClass = `${dateTimeStyleClass} paragraph-s `;
 		break;
 	case 'year':
 		formattedDate = new Intl.DateTimeFormat('en-GB', yearOptions).format(d);
-		dateTimeStyleClass = `${dateTimeStyleClass} date-time--year`;
+		dateTimeStyleClass = `${dateTimeStyleClass} date-time--year paragraph-m`;
 		break;
 	default:
 		const _: never = format;

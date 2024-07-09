@@ -32,18 +32,36 @@
 	color: var(--primary-text);
 }
 
+.title-xs {
+	font-family: var(--basic-font);
+	font-weight: var(--xs-title-weight);
+	font-size: var(--xs-title-size);
+	line-height: var(--xs-title-line-height);
+	color: var(--primary-text);
+}
+
+.title-xs-secondary {
+	font-family: var(--basic-font);
+	font-weight: var(--xs-title-weight);
+	font-size: var(--xs-title-size);
+	line-height: var(--xs-title-line-height);
+	color: var(--secondary-text);
+}
+
 .paragraph-l {
 	font-family: var(--basic-font);
 	font-weight: var(--l-text-weight);
 	font-size: var(--l-text-size);
 	line-height: var(--l-text-line-height);
 	color: var(--primary-text);
+}
 
-	@media (max-width: $mobile-width) {
-		font-weight: var(--m-text-weight);
-		font-size: var(--m-text-size);
-		line-height: var(--m-text-line-height);
-	}
+.paragraph-l-fat {
+	font-family: var(--basic-font);
+	font-weight: var(--l-fat-text-weight);
+	font-size: var(--l-fat-text-size);
+	line-height: var(--l-text-line-height);
+	color: var(--primary-text);
 }
 
 .paragraph-m {
@@ -52,12 +70,6 @@
 	font-size: var(--m-text-size);
 	line-height: var(--m-text-line-height);
 	color: var(--primary-text);
-
-	@media (max-width: $mobile-width) {
-		font-weight: var(--s-text-weight);
-		font-size: var(--s-text-size);
-		line-height: var(--s-text-line-height);
-	}
 }
 
 .paragraph-s {
@@ -66,12 +78,6 @@
 	font-size: var(--s-text-size);
 	line-height: var(--s-text-line-height);
 	color: var(--primary-text);
-
-	@media (max-width: $mobile-width) {
-		font-weight: var(--xs-text-weight);
-		font-size: var(--xs-text-size);
-		line-height: var(--xs-text-line-height);
-	}
 }
 
 .paragraph-s-secondary {
@@ -79,5 +85,21 @@
 	font-weight: var(--s-text-weight);
 	font-size: var(--s-text-size);
 	line-height: var(--s-text-line-height);
+	color: var(--secondary-text);
+}
+
+.paragraph-xs {
+	font-family: var(--basic-font);
+	font-weight: var(--xs-text-weight);
+	font-size: var(--xs-text-size);
+	line-height: var(--xs-text-line-height);
+	color: var(--primary-text);
+}
+
+.paragraph-xs-secondary {
+	font-family: var(--basic-font);
+	font-weight: var(--xs-text-weight);
+	font-size: var(--xs-text-size);
+	line-height: var(--xs-text-line-height);
 	color: var(--secondary-text);
 }
