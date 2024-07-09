@@ -1,6 +1,6 @@
-@import '../../variables/variables';
+@import '../variables/variables';
 
-.article-xl-title {
+.title-xl {
 	font-family: var(--basic-font);
 	font-weight: var(--xl-title-weight);
 	font-size: var(--xl-title-size);
@@ -8,7 +8,7 @@
 	color: var(--primary-text);
 }
 
-.article-l-title {
+.title-l {
 	font-family: var(--basic-font);
 	font-weight: var(--l-title-weight);
 	font-size: var(--l-title-size);
@@ -16,7 +16,7 @@
 	color: var(--primary-text);
 }
 
-.article-m-title {
+.title-m {
 	font-family: var(--basic-font);
 	font-weight: var(--m-title-weight);
 	font-size: var(--m-title-size);
@@ -24,7 +24,7 @@
 	color: var(--primary-text);
 }
 
-.article-s-title {
+.title-s {
 	font-family: var(--basic-font);
 	font-weight: var(--s-title-weight);
 	font-size: var(--s-title-size);
@@ -32,7 +32,7 @@
 	color: var(--primary-text);
 }
 
-.article-l-paragraph {
+.paragraph-l {
 	font-family: var(--basic-font);
 	font-weight: var(--l-text-weight);
 	font-size: var(--l-text-size);
@@ -46,7 +46,7 @@
 	}
 }
 
-.article-m-paragraph {
+.paragraph-m {
 	font-family: var(--basic-font);
 	font-weight: var(--m-text-weight);
 	font-size: var(--m-text-size);
@@ -60,7 +60,7 @@
 	}
 }
 
-.article-s-paragraph {
+.paragraph-s {
 	font-family: var(--basic-font);
 	font-weight: var(--s-text-weight);
 	font-size: var(--s-text-size);
@@ -74,18 +74,10 @@
 	}
 }
 
-.article-tag {
+.paragraph-s-secondary {
 	font-family: var(--basic-font);
 	font-weight: var(--s-text-weight);
 	font-size: var(--s-text-size);
 	line-height: var(--s-text-line-height);
 	color: var(--secondary-text);
-}
-
-.article-date {
-	font-family: var(--basic-font);
-	font-weight: var(--s-text-weight);
-	font-size: var(--s-text-size);
-	line-height: var(--s-text-line-height);
-	color: var(--primary-text);
 }

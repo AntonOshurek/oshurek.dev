@@ -1,0 +1,49 @@
+---
+//STYLES
+import './date-time.scss';
+
+interface Props {
+	date: string;
+	format: 'full' | 'year';
+	additionalStyleClass?: string;
+}
+
+const { date, format, additionalStyleClass } = Astro.props;
+
+const d = new Date(date);
+
+const fullOptions: Intl.DateTimeFormatOptions = {
+	year: 'numeric',
+	month: 'short',
+	day: '2-digit',
+	hour: '2-digit',
+	minute: '2-digit',
+	timeZone: 'CET',
+	hour12: false,
+};
+
+const yearOptions: Intl.DateTimeFormatOptions = {
+	year: 'numeric',
+};
+
+let formattedDate: string;
+let dateTimeStyleClass: string = `date-time ${additionalStyleClass ? additionalStyleClass : ''}`;
+
+switch (format) {
+	case 'full':
+		formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
+		dateTimeStyleClass = `${dateTimeStyleClass} date-time--full`;
+		break;
+	case 'year':
+		formattedDate = new Intl.DateTimeFormat('en-GB', yearOptions).format(d);
+		dateTimeStyleClass = `${dateTimeStyleClass} date-time--year`;
+		break;
+	default:
+		const _: never = format;
+		throw new Error('error in format switch case in date-time component');
+}
+---
+
+<time class={`${dateTimeStyleClass}`} datetime={d.toISOString()}>
+	{formattedDate}
+</time>

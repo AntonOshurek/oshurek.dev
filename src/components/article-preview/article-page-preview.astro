@@ -3,7 +3,8 @@ import type { CollectionEntry } from 'astro:content';
 //STYLES
 import './article-preview.scss';
 //COMPONENTS
-import ArticleTags from './article-tag/article-tags.astro';
+import ArticleTags from './article-tags/article-tags.astro';
+import DateTime from '../date-time/date-time.astro';
 //VARIABLES
 import { BASE_URL } from '../../variables/routing';
 
@@ -12,34 +13,18 @@ interface Props {
 }
 
 const { article } = Astro.props;
-
-const articleDate = new Date(article.data.date);
-const d = new Date(articleDate);
-
-const options: Intl.DateTimeFormatOptions = {
-	year: 'numeric',
-	month: 'short',
-	day: '2-digit',
-	hour: '2-digit',
-	minute: '2-digit',
-	timeZone: 'CET',
-	hour12: false,
-};
-
-const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 ---
 
 <header class="article-preview article-preview--image">
-	<h1 class="article-preview__title article-xl-title">
+	<h1 class="article-preview__title title-xl">
 		{article.data.title}
 	</h1>
-	<time class="article-preview__date article-date" datetime={d.toISOString()}>
-		{formattedDate}
-	</time>
+
+	<DateTime date={article.data.date} format="full" additionalStyleClass="article-preview__date" />
 
 	<ArticleTags tags={article.data.tags} />
 
-	<p class="article-preview__overview article-m-paragraph">
+	<p class="article-preview__overview paragraph-m">
 		{article.data.overview}
 	</p>
 

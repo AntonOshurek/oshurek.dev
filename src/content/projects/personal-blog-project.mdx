@@ -8,11 +8,11 @@ previewImageAlt: previewImageAlt
 isFeatured: true
 ---
 
-import ArticlePart from '../../markdown-components/article-part/article-part.astro';
+import ContentPart from '../../markdown-components/content-part/content-part.astro';
 import ArticleParagraphM from '../../markdown-components/typography/article-paragraph-m.astro';
 import ArticleTitleL from '../../markdown-components/typography/article-title-l.astro';
 
-<ArticlePart>
+<ContentPart>
 	<ArticleTitleL headingTag='h2'>What is it - SVG sprite?</ArticleTitleL>
 	<ArticleParagraphM>
 		For first, we must understand what is a svg sprite. “An SVG sprite is a single SVG file that
@@ -59,4 +59,4 @@ import ArticleTitleL from '../../markdown-components/typography/article-title-l.
 	As you can see, I use basic svg tag for wrap and inside this svg I use ```<use>```. Inside ```<use>``` you need to write a patch to your svg sprite file in property xlink:href=”your-patch” with unique id from icon that you write in svg sprite. And that’s all what you need for use a svg sprite. But here, we have some problem with modify colors on svg from sprite because in html we really don’t have any svg path or stroke. That problem you can resolve with javascript but this isn’t a very good solution because it will complicate your code and create unnecessary dependencies.
 </ArticleParagraphM>
 
-</ArticlePart>
+</ContentPart>
