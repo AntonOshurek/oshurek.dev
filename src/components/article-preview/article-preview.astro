@@ -5,7 +5,8 @@ import './article-preview.scss';
 //VARIABLES
 import { ROUTING } from '../../variables/routing';
 //COMPONENTS
-import ArticleTags from './article-tag/article-tags.astro';
+import Tags from '../tags/tags.astro';
+import DateTime from '../date-time/date-time.astro';
 
 interface Props {
 	article: CollectionEntry<'articles'>;
@@ -13,32 +14,16 @@ interface Props {
 }
 
 const { article, withLink = false } = Astro.props;
-
-const articleDate = new Date(article.data.date);
-const d = new Date(articleDate);
-
-const options: Intl.DateTimeFormatOptions = {
-	year: 'numeric',
-	month: 'short',
-	day: '2-digit',
-	hour: '2-digit',
-	minute: '2-digit',
-	timeZone: 'CET',
-	hour12: false,
-};
-
-const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 ---
 
 <article class="article-preview">
-	<h3 class="article-preview__title article-l-title">{article.data.title}</h3>
-	<time class="article-preview__date article-date" datetime={d.toISOString()}>
-		{formattedDate}
-	</time>
+	<h3 class="article-preview__title title-l">{article.data.title}</h3>
 
-	<ArticleTags tags={article.data.tags} />
+	<DateTime date={article.data.date} format="full" additionalStyleClass="article-preview__date" />
 
-	<p class="article-preview__overview article-l-paragraph">
+	<Tags tags={article.data.tags} additionalStyleClass="article-preview__tags" />
+
+	<p class="article-preview__overview paragraph-l">
 		{article.data.overview}
 	</p>
 

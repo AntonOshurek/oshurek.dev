@@ -6,19 +6,19 @@ import './all-projects.scss';
 import ProjectPreview from '../project-preview/project-preview.astro';
 import ProjectItems from '../project-items/project-items.astro';
 //UTILS
-import { sortArticlesByDate } from '../../utils/utils';
+import { sortProjectsByDate } from '../../utils/utils';
 
 const defaultProjects = await getCollection('projects');
-// const articles = sortArticlesByDate(defaultArticles);
+const projects = sortProjectsByDate(defaultProjects);
 ---
 
 <div class="all-projects container-medium">
-	<h2 class="all-projects__title">Projects</h2>
+	<h2 class="all-projects__title title-xl">Projects</h2>
 
 	<ProjectItems>
 		{
-			defaultProjects.map((project) => {
-				return <ProjectPreview project={project} withLink={true} />;
+			projects.map((project) => {
+				return <ProjectPreview project={project} />;
 			})
 		}
 	</ProjectItems>

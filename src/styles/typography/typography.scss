@@ -1,6 +1,6 @@
-@import '../../variables/variables';
+@import '../variables/variables';
 
-.article-xl-title {
+.title-xl {
 	font-family: var(--basic-font);
 	font-weight: var(--xl-title-weight);
 	font-size: var(--xl-title-size);
@@ -8,7 +8,7 @@
 	color: var(--primary-text);
 }
 
-.article-l-title {
+.title-l {
 	font-family: var(--basic-font);
 	font-weight: var(--l-title-weight);
 	font-size: var(--l-title-size);
@@ -16,7 +16,7 @@
 	color: var(--primary-text);
 }
 
-.article-m-title {
+.title-m {
 	font-family: var(--basic-font);
 	font-weight: var(--m-title-weight);
 	font-size: var(--m-title-size);
@@ -24,7 +24,7 @@
 	color: var(--primary-text);
 }
 
-.article-s-title {
+.title-s {
 	font-family: var(--basic-font);
 	font-weight: var(--s-title-weight);
 	font-size: var(--s-title-size);
@@ -32,49 +32,55 @@
 	color: var(--primary-text);
 }
 
-.article-l-paragraph {
+.title-xs {
+	font-family: var(--basic-font);
+	font-weight: var(--xs-title-weight);
+	font-size: var(--xs-title-size);
+	line-height: var(--xs-title-line-height);
+	color: var(--primary-text);
+}
+
+.title-xs-secondary {
+	font-family: var(--basic-font);
+	font-weight: var(--xs-title-weight);
+	font-size: var(--xs-title-size);
+	line-height: var(--xs-title-line-height);
+	color: var(--secondary-text);
+}
+
+.paragraph-l {
 	font-family: var(--basic-font);
 	font-weight: var(--l-text-weight);
 	font-size: var(--l-text-size);
 	line-height: var(--l-text-line-height);
 	color: var(--primary-text);
-
-	@media (max-width: $mobile-width) {
-		font-weight: var(--m-text-weight);
-		font-size: var(--m-text-size);
-		line-height: var(--m-text-line-height);
-	}
 }
 
-.article-m-paragraph {
+.paragraph-l-fat {
+	font-family: var(--basic-font);
+	font-weight: var(--l-fat-text-weight);
+	font-size: var(--l-fat-text-size);
+	line-height: var(--l-text-line-height);
+	color: var(--primary-text);
+}
+
+.paragraph-m {
 	font-family: var(--basic-font);
 	font-weight: var(--m-text-weight);
 	font-size: var(--m-text-size);
 	line-height: var(--m-text-line-height);
 	color: var(--primary-text);
-
-	@media (max-width: $mobile-width) {
-		font-weight: var(--s-text-weight);
-		font-size: var(--s-text-size);
-		line-height: var(--s-text-line-height);
-	}
 }
 
-.article-s-paragraph {
+.paragraph-s {
 	font-family: var(--basic-font);
 	font-weight: var(--s-text-weight);
 	font-size: var(--s-text-size);
 	line-height: var(--s-text-line-height);
 	color: var(--primary-text);
-
-	@media (max-width: $mobile-width) {
-		font-weight: var(--xs-text-weight);
-		font-size: var(--xs-text-size);
-		line-height: var(--xs-text-line-height);
-	}
 }
 
-.article-tag {
+.paragraph-s-secondary {
 	font-family: var(--basic-font);
 	font-weight: var(--s-text-weight);
 	font-size: var(--s-text-size);
@@ -82,10 +88,18 @@
 	color: var(--secondary-text);
 }
 
-.article-date {
+.paragraph-xs {
 	font-family: var(--basic-font);
-	font-weight: var(--s-text-weight);
-	font-size: var(--s-text-size);
-	line-height: var(--s-text-line-height);
+	font-weight: var(--xs-text-weight);
+	font-size: var(--xs-text-size);
+	line-height: var(--xs-text-line-height);
 	color: var(--primary-text);
+}
+
+.paragraph-xs-secondary {
+	font-family: var(--basic-font);
+	font-weight: var(--xs-text-weight);
+	font-size: var(--xs-text-size);
+	line-height: var(--xs-text-line-height);
+	color: var(--secondary-text);
 }

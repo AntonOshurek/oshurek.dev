@@ -7,11 +7,7 @@
 }
 
 .share-page__title {
-	font-family: var(--basic-font);
-	font-weight: var(--xs-text-weight);
-	font-size: var(--xs-text-size);
 	text-align: center;
-	color: var(--secondary-text);
 }
 
 .share-page__list {
@@ -30,10 +26,6 @@
 
 .share-page__link {
 	padding: 2px 5px;
-	font-family: var(--basic-font);
-	font-weight: var(--s-text-weight);
-	font-size: var(--s-text-size);
-	color: var(--secondary-text);
 
 	&:hover {
 		color: var(--hover-item-color);

@@ -1,0 +1,13 @@
+.project-page-main {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content;
+	gap: 50px;
+}
+
+.project {
+	display: grid;
+	grid-row-gap: 50px;
+	grid-template-columns: 1fr;
+	height: min-content;
+}
