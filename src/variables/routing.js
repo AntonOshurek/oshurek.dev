@@ -16,4 +16,7 @@ export const ROUTING = {
 	ARTICLE: {
 		path: `${BASE_URL}/article`,
 	},
+	PROJECT: {
+		path: `${BASE_URL}/project`,
+	},
 };

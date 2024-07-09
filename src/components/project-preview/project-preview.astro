@@ -4,6 +4,8 @@ import type { CollectionEntry } from 'astro:content';
 import './project-preview.scss';
 //COMPONENTS
 import ProjectTags from './project-tags/project-tags.astro';
+//VARIABLES
+import { ROUTING } from '../../variables/routing';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -11,8 +13,8 @@ interface Props {
 
 const { project } = Astro.props;
 
-const articleDate = new Date(project.data.date);
-const d = new Date(articleDate);
+const projectDate = new Date(project.data.date);
+const d = new Date(projectDate);
 
 const options: Intl.DateTimeFormatOptions = {
 	year: 'numeric',
@@ -26,7 +28,6 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 
 	<time class="project-preview__date project-date" datetime={d.toISOString()}>{formattedDate}</time>
 
-	<!-- <h4 class="project-preview__tags project-tags">{project.data.tags}</h4> -->
 	<ProjectTags tags={project.data.tags} />
 
 	<p class="project-preview__description project-paragraph">
@@ -41,7 +42,7 @@ const formattedDate = new Intl.DateTimeFormat('en-GB', options).format(d);
 		height="180"
 	/>
 
-	<a class="project-preview__link" href={`/project/${project.slug}`}>
+	<a class="project-preview__link" href={`${ROUTING.PROJECT.path}/${project.slug}`}>
 		<span class="visually-hidden">open full project description</span>
 	</a>
 </article>
