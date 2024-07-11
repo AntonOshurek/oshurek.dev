@@ -35,10 +35,10 @@ const { Content } = await project.render();
 ---
 
 <Layout
-	title={project.data.title}
-	description={project.data.overview}
+	metaTitle={project.data.title}
+	metaDescription={project.data.overview}
 	additionalClassToMain="project-page-main"
-	image={project.data.previewImage}
+	metaImage={project.data.previewImage}
 >
 	<article class="project container-medium">
 		<ProjectPagePreview project={project} />
