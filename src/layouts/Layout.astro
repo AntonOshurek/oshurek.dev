@@ -5,24 +5,24 @@ import '../styles/typography/typography.scss';
 import '../styles/variables/variables.scss';
 import './layout.scss';
 //COMPONENTS
-import Head from '../components/head/head.astro';
-import Header from '../components/header/header.astro';
-import Footer from '../components/footer/footer.astro';
+import Head from '../components/global/head/head.astro';
+import Header from '../components/global/header/header.astro';
+import Footer from '../components/global/footer/footer.astro';
 
 interface Props {
-	title: string;
+	metaTitle: string;
+	metaDescription?: string;
+	metaImage?: string;
 	headerTitle?: string;
-	description?: string;
 	additionalClassToMain?: string;
-	image?: string;
 }
 
-const { title, headerTitle, description, additionalClassToMain, image } = Astro.props;
+const { metaTitle, headerTitle, metaDescription, additionalClassToMain, metaImage } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<Head title={title} description={description ? description : ''} image={image} />
+	<Head title={metaTitle} description={metaDescription ? metaDescription : ''} image={metaImage} />
 
 	<body class="body">
 		<Header headerTitle={headerTitle} />

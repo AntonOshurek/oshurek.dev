@@ -1,0 +1,6 @@
+.project-items-layout {
+	display: grid;
+	justify-items: center;
+	grid-row-gap: var(--project-items-gap);
+	grid-template-columns: 1fr;
+}

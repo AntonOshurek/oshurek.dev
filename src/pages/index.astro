@@ -2,15 +2,16 @@
 //LAYOUTS
 import Layout from '../layouts/Layout.astro';
 //COMPONENTS
-import Banner from '../components/banner/banner.astro';
-import RecentArticles from '../components/recent-articles/recent-articles.astro';
-import FeaturedProjects from '../components/featured-projects/featured-projects.astro';
+import Banner from '../components/blocks/banner/banner.astro';
+import RecentArticles from '../components/article/recent-articles/recent-articles.astro';
+import FeaturedProjects from '../components/project/featured-projects/featured-projects.astro';
 ---
 
 <Layout
-	title={'Oshurek dev'}
+	metaTitle={'Anton Oshurek dev'}
 	headerTitle={'Anton Oshurek personal blog page'}
-	image="/images/meta/meta-index-preview.jpg"
+	metaImage="/images/meta/meta-avatar.jpeg"
+	metaDescription="This is a personal blog where I (infrequently) write about code and other topics of interest to me."
 >
 	<Banner />
 	<RecentArticles />

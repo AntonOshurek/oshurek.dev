@@ -4,8 +4,8 @@ import type { CollectionEntry } from 'astro:content';
 //LAYOUTS
 import Layout from '../../layouts/Layout.astro';
 //COMPONENTS
-import ProjectPagePreview from '../../components/project-preview/project-page-preview.astro';
-import SharePage from '../../components/share-page/share-page.astro';
+import ProjectPagePreview from '../../components/project/project-preview/project-page-preview.astro';
+import SharePage from '../../components/shared/share-page-links/share-page-links.astro';
 //STYLES
 import './project.scss';
 
@@ -35,10 +35,10 @@ const { Content } = await project.render();
 ---
 
 <Layout
-	title={project.data.title}
-	description={project.data.overview}
+	metaTitle={project.data.title}
+	metaDescription={project.data.overview}
 	additionalClassToMain="project-page-main"
-	image={project.data.previewImage}
+	metaImage={project.data.previewImage}
 >
 	<article class="project container-medium">
 		<ProjectPagePreview project={project} />

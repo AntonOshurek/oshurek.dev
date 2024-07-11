@@ -1,0 +1,56 @@
+---
+//COMPONENTS
+import HeadScripts from './head-scripts.astro';
+//VARIABLES
+import { BASE_URL } from '../../../variables/routing';
+
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+
+const { title, description, image = `${BASE_URL}/images/banner-avatar.jpg` } = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title}</title>
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<link rel="icon" href=`${BASE_URL}/favicon.svg` />
+<!-- <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/16x16.png" />
+<link rel="manifest" href="/manifest.webmanifest" /> -->
+
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#c7cbcc" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#273a43" />
+
+<!--dark and light theme styles-->
+<link rel="stylesheet" href=`${BASE_URL}/light.css` media="(prefers-color-scheme: light)" />
+<link rel="stylesheet" href=`${BASE_URL}/dark.css` media="(prefers-color-scheme: dark)" />
+
+<HeadScripts />

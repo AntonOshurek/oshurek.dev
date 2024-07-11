@@ -1,0 +1,32 @@
+---
+//STYLES
+import './article-items-layout.scss';
+
+type dirrection = 'row' | 'column';
+
+interface Props {
+	dirrection?: dirrection;
+	additionalClasses?: string;
+	underline?: boolean;
+}
+
+const { dirrection, additionalClasses, underline } = Astro.props;
+
+let classesArray = [];
+
+if (underline) {
+	classesArray.push('article-items--underline');
+}
+if (dirrection) {
+	classesArray.push(`article-items--${dirrection}`);
+}
+if (additionalClasses) {
+	classesArray.push(`${additionalClasses}`);
+}
+
+const classes = classesArray.join(' ');
+---
+
+<div class={`article-items-layout ${classes}`}>
+	<slot />
+</div>

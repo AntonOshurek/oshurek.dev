@@ -1,0 +1,18 @@
+@import '../../styles/variables/variables';
+
+.article-items-layout {
+	display: grid;
+	gap: var(--article-items-gap);
+
+	&--column {
+		grid-template-columns: 1fr;
+	}
+
+	&--row {
+		grid-template-columns: 1fr 1fr;
+
+		@media (max-width: $tablet-width) {
+			grid-template-columns: 1fr;
+		}
+	}
+}

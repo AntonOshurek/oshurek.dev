@@ -1,0 +1,21 @@
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-start;
+	list-style: none;
+	gap: 5px;
+}
+
+.tags__tag {
+	position: relative;
+
+	&:not(:last-child)::after {
+		content: ',';
+		position: absolute;
+		right: -5px;
+		bottom: 0;
+		width: max-content;
+		height: max-content;
+	}
+}

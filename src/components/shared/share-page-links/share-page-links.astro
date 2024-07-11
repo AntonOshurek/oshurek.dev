@@ -1,0 +1,43 @@
+---
+//STYLES
+import './share-page-links.scss';
+
+interface Props {
+	text: string;
+}
+
+const { text } = Astro.props;
+
+const currentPageURL = encodeURIComponent(Astro.url.toString());
+---
+
+<div class="share-page container-small">
+	<h4 class="share-page__title paragraph-xs-secondary">{text}</h4>
+
+	<ul class="share-page__list">
+		<li class="share-page__item">
+			<a
+				class="share-page__link paragraph-s-secondary"
+				href={`https://www.facebook.com/sharer.php?u=${currentPageURL}`}
+				target="_blank"
+				rel="noopener noreferrer">facebook</a
+			>
+		</li>
+		<li class="share-page__item">
+			<a
+				class="share-page__link paragraph-s-secondary"
+				href={`https://www.linkedin.com/sharing/share-offsite/?url=${currentPageURL}`}
+				target="_blank"
+				rel="noopener noreferrer">linkedin</a
+			>
+		</li>
+		<li class="share-page__item">
+			<a
+				class="share-page__link paragraph-s-secondary"
+				href={`https://twitter.com/intent/tweet?url=${currentPageURL}`}
+				target="_blank"
+				rel="noopener noreferrer">twitter</a
+			>
+		</li>
+	</ul>
+</div>
