@@ -6,8 +6,9 @@ import { ROUTING } from '../../variables/routing';
 import './featured-projects.scss';
 //COMPONENTS
 import BasicLink from '../basic-link/basic-link.astro';
-import ProjectItems from '../project-items/project-items.astro';
 import ProjectPreview from '../project-preview/project-preview.astro';
+//LAYOUTS
+import ProjectItemsLayout from '../../layouts/project-items-layout/project-items-layout.astro';
 
 const projects = await getCollection('projects');
 ---
@@ -21,7 +22,7 @@ const projects = await getCollection('projects');
 		additionalClass="featured-projects__link"
 	/>
 
-	<ProjectItems additionalClass="featured-projects__items">
+	<ProjectItemsLayout additionalClass="featured-projects__items">
 		{
 			projects.map((project) => {
 				let featuredProjectsCounter = 0;
@@ -32,5 +33,5 @@ const projects = await getCollection('projects');
 				}
 			})
 		}
-	</ProjectItems>
+	</ProjectItemsLayout>
 </section>

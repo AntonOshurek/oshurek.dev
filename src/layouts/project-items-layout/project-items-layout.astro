@@ -1,6 +1,6 @@
 ---
 //STYLES
-import './project-items.scss';
+import './project-items-layout.scss';
 
 interface Props {
 	additionalClass?: string;
@@ -9,6 +9,6 @@ interface Props {
 const { additionalClass } = Astro.props;
 ---
 
-<div class={`project-items ${additionalClass ? additionalClass : ''}`}>
+<div class={`project-items-layout ${additionalClass ? additionalClass : ''}`}>
 	<slot />
 </div>

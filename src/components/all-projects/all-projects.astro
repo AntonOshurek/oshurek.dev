@@ -4,7 +4,8 @@ import { getCollection } from 'astro:content';
 import './all-projects.scss';
 //COMPONENTS
 import ProjectPreview from '../project-preview/project-preview.astro';
-import ProjectItems from '../project-items/project-items.astro';
+//LAYOUTS
+import ProjectItemsLayout from '../../layouts/project-items-layout/project-items-layout.astro';
 //UTILS
 import { sortProjectsByDate } from '../../utils/utils';
 
@@ -15,11 +16,11 @@ const projects = sortProjectsByDate(defaultProjects);
 <div class="all-projects container-medium">
 	<h2 class="all-projects__title title-xl">Projects</h2>
 
-	<ProjectItems>
+	<ProjectItemsLayout>
 		{
 			projects.map((project) => {
 				return <ProjectPreview project={project} />;
 			})
 		}
-	</ProjectItems>
+	</ProjectItemsLayout>
 </div>

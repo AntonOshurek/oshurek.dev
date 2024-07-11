@@ -4,7 +4,8 @@ import { getCollection } from 'astro:content';
 import './all-articles.scss';
 //COMPONENTS
 import ArticlePreview from '../article-preview/article-preview.astro';
-import ArticleItems from '../article-items/article-items.astro';
+//LAYOUTS
+import ArticleItemsLayout from '../../layouts/article-items-layout/article-items-layout.astro';
 //UTILS
 import { sortArticlesByDate } from '../../utils/utils';
 
@@ -15,11 +16,11 @@ const articles = sortArticlesByDate(defaultArticles);
 <div class="all-articles container-medium">
 	<h2 class="all-articles__title title-xl">Articles</h2>
 
-	<ArticleItems dirrection="column" additionalClasses="recent-articles__items" underline>
+	<ArticleItemsLayout dirrection="column" additionalClasses="recent-articles__items" underline>
 		{
 			articles.map((article) => {
 				return <ArticlePreview article={article} withLink={true} />;
 			})
 		}
-	</ArticleItems>
+	</ArticleItemsLayout>
 </div>

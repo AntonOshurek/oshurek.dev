@@ -1,6 +1,6 @@
 ---
 //STYLES
-import './article-items.scss';
+import './article-items-layout.scss';
 
 type dirrection = 'row' | 'column';
 
@@ -27,6 +27,6 @@ if (additionalClasses) {
 const classes = classesArray.join(' ');
 ---
 
-<div class={`article-items ${classes}`}>
+<div class={`article-items-layout ${classes}`}>
 	<slot />
 </div>

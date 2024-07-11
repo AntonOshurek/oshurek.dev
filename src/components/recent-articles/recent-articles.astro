@@ -6,8 +6,9 @@ import { ROUTING } from '../../variables/routing';
 import './recent-articles.scss';
 //COMPONENTS
 import ArticlePreview from '../article-preview/article-preview.astro';
-import ArticleItems from '../article-items/article-items.astro';
 import BasicLink from '../basic-link/basic-link.astro';
+//LAYOUTS
+import ArticleItemsLayout from '../../layouts/article-items-layout/article-items-layout.astro';
 
 const articles = await getCollection('articles');
 ---
@@ -21,7 +22,7 @@ const articles = await getCollection('articles');
 		additionalClass="recent-articles___link"
 	/>
 
-	<ArticleItems dirrection="row" additionalClasses="recent-articles__items">
+	<ArticleItemsLayout dirrection="row" additionalClasses="recent-articles__items">
 		{
 			articles.map((article, i) => {
 				let recentArticlesCounter = 0;
@@ -31,5 +32,5 @@ const articles = await getCollection('articles');
 				}
 			})
 		}
-	</ArticleItems>
+	</ArticleItemsLayout>
 </section>
