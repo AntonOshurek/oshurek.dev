@@ -19,12 +19,13 @@
 			grid-column-gap: 18px;
 			grid-row-gap: 17px;
 			grid-template-areas:
-				'img img'
-				'title title'
-				'date tags'
-				'description description';
-			grid-template-columns: max-content 1fr;
-			grid-template-rows: min-content min-content min-content 1fr;
+				'img'
+				'title'
+				'date'
+				'tags'
+				'description';
+			grid-template-columns: 1fr;
+			grid-template-rows: min-content min-content min-content min-content 1fr;
 		}
 	}
 
