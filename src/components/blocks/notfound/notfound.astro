@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+//VARIABLES
+import { ROUTING } from '../../../variables/routing';
+//STYLES
+import './notfound.scss';
+//IMAGES
+import notfoundImage from './notfound-image.jpg';
+---
+
+<section class="notfound container-large">
+	<div class="notfound__content">
+		<h1 class="notfound__title">404 request error <br /> page not found</h1>
+		<p class="notfound__description">perhaps you came here by mistake</p>
+
+		<nav class="notfound__nav">
+			<ul class="notfound__links-list">
+				<li>
+					<a class="notfound__link" href={ROUTING.ROOT.path}>go to home page</a>
+				</li>
+				<li>
+					<a class="notfound__link" href={ROUTING.ARTICLES.path}>go to all articles page</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<Image
+		class="notfound__image"
+		src={notfoundImage}
+		width={400}
+		height={200}
+		alt=""
+		quality={'high'}
+	/>
+</section>

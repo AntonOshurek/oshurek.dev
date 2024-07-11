@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+//STYLES
+import './project-preview.scss';
+//COMPONENTS
+import Tags from '../../shared/tags/tags.astro';
+import DateTime from '../../shared/date-time/date-time.astro';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+---
+
+<header class="project-preview project-preview--vertical">
+	<h1 class="project-preview__title title-l">{project.data.title}</h1>
+
+	<DateTime date={project.data.date} format="year" additionalStyleClass="project-preview__date" />
+
+	<Tags tags={project.data.tags} additionalStyleClass="project-preview__tags" />
+
+	<p class="project-preview__description paragraph-s">
+		{project.data.overview}
+	</p>
+
+	<img
+		class="project-preview__image"
+		src="https://previews.123rf.com/images/epicfail/epicfail1702/epicfail170200239/72740134-thin-line-design-concept-for-project-website-banner.jpg"
+		alt=""
+		width="246"
+		height="180"
+	/>
+</header>

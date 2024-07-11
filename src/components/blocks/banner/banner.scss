@@ -1,0 +1,49 @@
+@import '../../../styles/variables/variables';
+
+.banner {
+	display: grid;
+	grid-gap: 10px 20px;
+	grid-template: repeat(2, min-content) / auto;
+	grid-template-areas:
+		'avatar title'
+		'avatar info';
+	grid-template-columns: 150px minmax(200px, 600px);
+	padding: 33px 0 60px;
+	background-color: var(--bg);
+
+	@media (max-width: $mobile-width) {
+		grid-template-areas:
+			'avatar title'
+			'info info';
+		grid-template-columns: 100px minmax(min-content, 600px);
+	}
+}
+
+.banner__title {
+	align-self: flex-end;
+	grid-area: title;
+
+	@media (max-width: $mobile-width) {
+		align-self: center;
+	}
+}
+
+.banner__info {
+	align-self: flex-start;
+	grid-area: info;
+}
+
+.banner__avatar {
+	display: flex;
+	grid-area: avatar;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	box-shadow: var(--shadow);
+	object-fit: cover;
+
+	@media (max-width: $mobile-width) {
+		width: 100px;
+		height: 100px;
+	}
+}
