@@ -7,7 +7,7 @@
 		'articlesItems articlesItems';
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: min-content 1fr;
-	padding: 30px 0 40px;
+	padding: 30px 0;
 	width: 100%;
 	gap: 20px;
 }
@@ -19,4 +19,8 @@
 
 .recent-articles__items {
 	grid-area: articlesItems;
+}
+
+.recent-articles___link {
+	grid-area: link;
 }
