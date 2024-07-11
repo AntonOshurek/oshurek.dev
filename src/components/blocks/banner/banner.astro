@@ -1,6 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 //STYLES
 import './banner.scss';
+//IMAGES
+import BannerAvatar from './banner-avatar.jpeg';
 ---
 
 <section class="banner container-large">
@@ -9,5 +12,11 @@ import './banner.scss';
 		This is a personal blog where I (infrequently) write about code and other topics of interest to
 		me. I currently work on React and LotusScript Technologies at Unicorn Poznań and Citi.
 	</p>
-	<img class="banner__avatar" src="./images/banner-avatar.jpg" alt="" width="300" height="300" />
+	<Image
+		class="banner__avatar"
+		src={BannerAvatar}
+		alt="anton oshurek avatar"
+		width="300"
+		height="300"
+	/>
 </section>
