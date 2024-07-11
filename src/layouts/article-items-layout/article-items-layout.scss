@@ -15,16 +15,4 @@
 			grid-template-columns: 1fr;
 		}
 	}
-
-	&--underline > .article-preview {
-		&::after {
-			content: '';
-			position: absolute;
-			left: 0;
-			bottom: calc(-1 * var(--article-items-gap) / 2);
-			width: 100%;
-			height: 2px;
-			background-color: var(--decor-color);
-		}
-	}
 }
