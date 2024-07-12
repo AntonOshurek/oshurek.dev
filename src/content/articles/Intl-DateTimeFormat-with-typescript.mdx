@@ -1,0 +1,88 @@
+---
+title: How to use Intl.DateTimeFormat with TypeScript?
+date: 2024-07-12T01:00
+tags: Intl, typescript, DateTimeFormat
+overview: When I first started using Intel.dateTimeFormatter, I ran into a problem that wasn't obvious, at least to me. But the problem turned out to be that I needed to explicitly specify the data type in the object options. And in this article, I will tell you how to solve this Intl.DateTimeFormat TypeScript error problem.
+previewImage: /images/articles-images/svg-sprite-banner.jpg
+previewImageAlt: intl.datetimeformater iamge
+isRecent: true
+---
+
+import ContentPart from '../../markdown-components/content-part/content-part.astro';
+import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
+import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
+import ImageBLock from '../../markdown-components/image-block/image-block.astro';
+
+import imgt from './images/Intl-DateTimeFormat-with-typescript/intl-datetimeformat-error.png';
+
+<ContentPart>
+	<ArticleTitleL headingTag="h2">В чём заключается проблема?</ArticleTitleL>
+	<ArticleParagraphM>
+		Данная проблема выглядит следующим образом. Когда вы начинаете использовать объект с опциями, и
+		добавляете его в intl.dateTimeFormatter то у вас появляется следующая ошибка...
+	</ArticleParagraphM>
+
+    <ImageBLock imagePath={imgt} imageAlt="test alt" width={1200}	height={376}/>
+
+    <ArticleParagraphM>
+    На данном этапе мой код выглядел следующим образом.
+    </ArticleParagraphM>
+
+```typescript
+const fullOptions = {
+	year: 'numeric',
+	month: 'short',
+	day: '2-digit',
+	hour: '2-digit',
+	minute: '2-digit',
+	timeZone: 'CET',
+	hour12: false,
+};
+
+formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
+```
+
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag="h2">Как исправить ошибку с ...</ArticleTitleL>
+	<ArticleParagraphM>
+		Данная ошибка появилась из за довольно простой причины. Когда мы используем объект с
+		литеральными типами, мы должны точно указать какие типы там будут. Для этого, нам нужно пойти в
+		глубь intl и достать от туда объект с опциями, и приписать этот тип к нашему объекту. Ниже, я
+		предоставляю работающий пример кода.
+	</ArticleParagraphM>
+
+```typescript
+const fullOptions: Intl.DateTimeFormatOptions = {
+	year: 'numeric',
+	month: 'short',
+	day: '2-digit',
+	hour: '2-digit',
+	minute: '2-digit',
+	timeZone: 'CET',
+	hour12: false,
+};
+
+formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
+```
+
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag="h2">
+		Но давайте я всётаки попробую вам объяснить, почему же так происходит?
+	</ArticleTitleL>
+	<ArticleParagraphM>
+		В typescript, если мы создадим переменную с текстом, то тип этой переменной не будет string а
+		только сам текст из переменной.
+	</ArticleParagraphM>
+	<ArticleParagraphM>
+		Так же, если мы используем литеральный тип, то переменная не будет являться типом string а
+		только одним из литералов.
+	</ArticleParagraphM>
+	<ArticleParagraphM>
+		Таким образом, нам нужно внимательнее следить за нашими типами и помнить, что не всё строка что
+		кажется строкой)))
+	</ArticleParagraphM>
+</ContentPart>
