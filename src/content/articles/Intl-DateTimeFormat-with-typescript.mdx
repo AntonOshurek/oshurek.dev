@@ -13,6 +13,8 @@ import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.
 import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
 import ImageBLock from '../../markdown-components/image-block/image-block.astro';
 
+import imgt from './images/Intl-DateTimeFormat-with-typescript/intl-datetimeformat-error.png';
+
 <ContentPart>
 	<ArticleTitleL headingTag="h2">В чём заключается проблема?</ArticleTitleL>
 	<ArticleParagraphM>
@@ -20,8 +22,7 @@ import ImageBLock from '../../markdown-components/image-block/image-block.astro'
 		добавляете его в intl.dateTimeFormatter то у вас появляется следующая ошибка...
 	</ArticleParagraphM>
 
-    картинка с ошибкой.
-    <ImageBLock imagePath="http://localhost:4321/oshurek.dev/images/articles-images/intl-datetimeformat-error.png" imageAlt="test alt"/>
+    <ImageBLock imagePath={imgt} imageAlt="test alt" width={1200}	height={376}/>
 
     <ArticleParagraphM>
     На данном этапе мой код выглядел следующим образом.

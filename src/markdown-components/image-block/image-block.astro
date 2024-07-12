@@ -6,16 +6,18 @@ import './image-block.scss';
 interface Props {
 	imagePath: string;
 	imageAlt: string;
+	width: number;
+	height: number;
 }
 
-const { imagePath, imageAlt } = Astro.props;
+const { imagePath, imageAlt, width, height } = Astro.props;
 ---
 
 <Image
 	class="image-block"
 	src={imagePath}
 	alt={imageAlt}
-	width="300"
-	height="300"
+	width={width}
+	height={height}
 	quality={'high'}
 />
