@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets';
+//STYLES
+import './image-block.scss';
+
+interface Props {
+	imagePath: string;
+	imageAlt: string;
+}
+
+const { imagePath, imageAlt } = Astro.props;
+---
+
+<Image
+	class="image-block"
+	src={imagePath}
+	alt={imageAlt}
+	width="300"
+	height="300"
+	quality={'high'}
+/>
