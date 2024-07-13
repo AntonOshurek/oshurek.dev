@@ -1,32 +1,46 @@
 ---
-title: How to use Intl.DateTimeFormat with TypeScript?
+title: How to use Intl DateTimeFormat with TypeScript?
 date: 2024-07-12T01:00
 tags: Intl, typescript, DateTimeFormat
 overview: When I first started using Intel.dateTimeFormatter, I ran into a problem that wasn't obvious, at least to me. But the problem turned out to be that I needed to explicitly specify the data type in the object options. And in this article, I will tell you how to solve this Intl.DateTimeFormat TypeScript error problem.
-previewImage: /images/articles-images/svg-sprite-banner.jpg
+previewImage: /images/articles-images/Intl-DateTimeFormat-with-typescript-banner.webp
 previewImageAlt: intl.datetimeformater iamge
 isRecent: true
 ---
+
+import img1 from '../images/articles/Intl-DateTimeFormat-with-typescript/const-type-not-string.png';
+import img2 from '../images/articles/Intl-DateTimeFormat-with-typescript/literal-type-not-string.png';
 
 import ContentPart from '../../markdown-components/content-part/content-part.astro';
 import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
 import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
 import ImageBLock from '../../markdown-components/image-block/image-block.astro';
 
-import imgt from './images/Intl-DateTimeFormat-with-typescript/intl-datetimeformat-error.png';
-
 <ContentPart>
-	<ArticleTitleL headingTag="h2">В чём заключается проблема?</ArticleTitleL>
+	<ArticleTitleL headingTag="h2">What is the Problem?</ArticleTitleL>
 	<ArticleParagraphM>
-		Данная проблема выглядит следующим образом. Когда вы начинаете использовать объект с опциями, и
-		добавляете его в intl.dateTimeFormatter то у вас появляется следующая ошибка...
+	The problem looks like this. When you start using an object with options and add it to Intl.DateTimeFormat, you get the following error:
 	</ArticleParagraphM>
 
-    <ImageBLock imagePath={imgt} imageAlt="test alt" width={1200}	height={376}/>
+```typescript
+No overload matches this call.
 
-    <ArticleParagraphM>
-    На данном этапе мой код выглядел следующим образом.
-    </ArticleParagraphM>
+Overload 1 of 2, '(locales?: LocalesArgument, options?: DateTimeFormatOptions): DateTimeFormat', gave the following error.
+Overload 2 of 2, '(locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat', gave the following error.ts(2769)
+
+const fullOptions: {
+	year: string;
+	month: string;
+	day: string;
+	hour: string;
+	minute: string;
+	timeZone: string;
+	hour12: boolean;
+}
+
+```
+
+<ArticleParagraphM>At this stage, my code looked like this:</ArticleParagraphM>
 
 ```typescript
 const fullOptions = {
@@ -45,12 +59,14 @@ formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
 </ContentPart>
 
 <ContentPart>
-	<ArticleTitleL headingTag="h2">Как исправить ошибку с ...</ArticleTitleL>
+	<ArticleTitleL headingTag="h2">How to Fix the Error</ArticleTitleL>
 	<ArticleParagraphM>
-		Данная ошибка появилась из за довольно простой причины. Когда мы используем объект с
-		литеральными типами, мы должны точно указать какие типы там будут. Для этого, нам нужно пойти в
-		глубь intl и достать от туда объект с опциями, и приписать этот тип к нашему объекту. Ниже, я
-		предоставляю работающий пример кода.
+		This error appeared for a rather simple reason.
+		When we use an object with literal types, we must
+		specify exactly which types will be there.
+		To do this, we need to go into Intl and get the object
+		with options from there, and assign this type to our object.
+		Below, I provide a working example of the code.
 	</ArticleParagraphM>
 
 ```typescript
@@ -71,18 +87,26 @@ formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
 
 <ContentPart>
 	<ArticleTitleL headingTag="h2">
-		Но давайте я всётаки попробую вам объяснить, почему же так происходит?
+	But let me still try to explain to you why this is happening.
 	</ArticleTitleL>
-	<ArticleParagraphM>
-		В typescript, если мы создадим переменную с текстом, то тип этой переменной не будет string а
-		только сам текст из переменной.
-	</ArticleParagraphM>
-	<ArticleParagraphM>
-		Так же, если мы используем литеральный тип, то переменная не будет являться типом string а
-		только одним из литералов.
-	</ArticleParagraphM>
-	<ArticleParagraphM>
-		Таким образом, нам нужно внимательнее следить за нашими типами и помнить, что не всё строка что
-		кажется строкой)))
-	</ArticleParagraphM>
+
+    <ArticleParagraphM>
+    	In TypeScript, if we create a variable with text,
+    	the type of this variable will not be string but only
+    	the text itself from the variable.
+    </ArticleParagraphM>
+
+    <ImageBLock imagePath={img1} imageAlt="test alt" width={1200}	height={376}/>
+
+    <ArticleParagraphM>
+    		Similarly, if we use a literal type, the variable will not be a string type but only one of the literals.
+    </ArticleParagraphM>
+
+    <ImageBLock imagePath={img2} imageAlt="test alt" width={1200}	height={376}/>
+
+    <ArticleParagraphM>
+    		Thus, we need to be more careful with our types and remember
+    		that not everything that seems like a string is actually a string.
+    </ArticleParagraphM>
+
 </ContentPart>
