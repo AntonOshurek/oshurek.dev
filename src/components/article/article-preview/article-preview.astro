@@ -7,6 +7,8 @@ import { ROUTING } from '../../../variables/routing';
 //COMPONENTS
 import Tags from '../../shared/tags/tags.astro';
 import DateTime from '../../shared/date-time/date-time.astro';
+//UTILS
+import { truncateOverviewToPreview } from '../../../utils/utils';
 
 interface Props {
 	article: CollectionEntry<'articles'>;
@@ -24,7 +26,7 @@ const { article, withLink = false } = Astro.props;
 	<Tags tags={article.data.tags} additionalStyleClass="article-preview__tags" />
 
 	<p class="article-preview__overview paragraph-l">
-		{article.data.overview}
+		{truncateOverviewToPreview(article.data.overview)}
 	</p>
 
 	{
