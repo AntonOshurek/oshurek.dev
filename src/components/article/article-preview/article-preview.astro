@@ -19,13 +19,13 @@ const { article, withLink = false } = Astro.props;
 ---
 
 <article class="article-preview">
-	<h3 class="article-preview__title title-l">{article.data.title}</h3>
+	<h3 class="article-preview__title title-m">{article.data.title}</h3>
 
 	<DateTime date={article.data.date} format="full" additionalStyleClass="article-preview__date" />
 
 	<Tags tags={article.data.tags} additionalStyleClass="article-preview__tags" />
 
-	<p class="article-preview__overview paragraph-l">
+	<p class="article-preview__overview paragraph-s">
 		{truncateOverviewToPreview(article.data.overview)}
 	</p>
 

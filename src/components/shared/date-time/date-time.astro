@@ -20,8 +20,6 @@ const fullOptions: Intl.DateTimeFormatOptions = {
 	year: 'numeric',
 	month: 'short',
 	day: '2-digit',
-	hour: '2-digit',
-	minute: '2-digit',
 	timeZone: 'CET',
 	hour12: false,
 };
@@ -36,11 +34,11 @@ let dateTimeStyleClass: string = `date-time ${additionalStyleClass ? additionalS
 switch (format) {
 	case 'full':
 		formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
-		dateTimeStyleClass = `${dateTimeStyleClass} paragraph-s `;
+		dateTimeStyleClass = `${dateTimeStyleClass} paragraph-xs `;
 		break;
 	case 'year':
 		formattedDate = new Intl.DateTimeFormat('en-GB', yearOptions).format(d);
-		dateTimeStyleClass = `${dateTimeStyleClass} date-time--year paragraph-m`;
+		dateTimeStyleClass = `${dateTimeStyleClass} date-time--year paragraph-s`;
 		break;
 	default:
 		const _: never = format;
