@@ -7,6 +7,8 @@ import Tags from '../../shared/tags/tags.astro';
 import DateTime from '../../shared/date-time/date-time.astro';
 //VARIABLES
 import { ROUTING } from '../../../variables/routing';
+//UTILS
+import { truncateOverviewToPreview } from '../../../utils/utils';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -16,14 +18,14 @@ const { project } = Astro.props;
 ---
 
 <article class="project-preview project-preview--horizontal">
-	<h3 class="project-preview__title title-l">{project.data.title}</h3>
+	<h3 class="project-preview__title title-m">{project.data.title}</h3>
 
 	<DateTime date={project.data.date} format="year" additionalStyleClass="project-preview__date" />
 
 	<Tags tags={project.data.tags} additionalStyleClass="project-preview__tags" />
 
 	<p class="project-preview__description paragraph-s">
-		{project.data.overview}
+		{truncateOverviewToPreview(project.data.overview)}
 	</p>
 
 	<img

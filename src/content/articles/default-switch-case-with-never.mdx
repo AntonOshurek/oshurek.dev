@@ -1,0 +1,109 @@
+---
+title: Using never in Switch-Case in TypeScript
+date: 2024-07-13T01:00
+tags: Switch-Case, TypeScript, never
+overview: When working with switch-case statements in TypeScript, special attention is given to the correct description and handling of all possible cases. In some scenarios, it's crucial to ensure that all potential values have been accounted for. This is where the never type comes into play.
+previewImage: /images/article-banners/default-switch-case-with-never-banner.webp
+previewImageAlt: article banner
+isRecent: false
+---
+
+import ContentPart from '../../markdown-components/content-part/content-part.astro';
+import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
+import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
+import ArticleTitleS from '../../markdown-components/typography/title-s.astro';
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>Example Usage with never</ArticleTitleL>
+	<ArticleParagraphM>
+		Consider the following code:
+	</ArticleParagraphM>
+```typescript
+type Format = 'full' | 'year';
+
+function formatDate(format: Format, d: Date): string {
+    let formattedDate: string;
+    let dateTimeStyleClass: string = '';
+
+    switch (format) {
+        case 'full':
+            formattedDate = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+            dateTimeStyleClass = `${dateTimeStyleClass} paragraph-xs `;
+            break;
+        case 'year':
+            formattedDate = new Intl.DateTimeFormat('en-GB', { year: 'numeric' }).format(d);
+            dateTimeStyleClass = `${dateTimeStyleClass} date-time--year paragraph-s`;
+            break;
+        default:
+            const _: never = format;
+            throw new Error('Unhandled format case in date-time component');
+    }
+
+    return formattedDate;
+}
+
+```
+<ArticleParagraphM>
+In this code, the switch-case handles the date formatting based on the format variable.
+For format equal to 'full', the date is formatted with the full date options.
+For format equal to 'year', the date is formatted with only the year.
+</ArticleParagraphM>
+<ArticleParagraphM>
+In the default case, the code assigns format to a variable of type never. This ensures
+that if format is not 'full' or 'year', TypeScript will
+throw a compilation error, ensuring all cases are handled.
+</ArticleParagraphM>
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>Example Without Using never</ArticleTitleL>
+	<ArticleParagraphM>
+	Here’s what the code might look like without using the never type:
+	</ArticleParagraphM>
+```typescript
+
+type Format = 'full' | 'year';
+
+function formatDate(format: Format, d: Date): string {
+    let formattedDate: string;
+    let dateTimeStyleClass: string = '';
+
+    switch (format) {
+        case 'full':
+            formattedDate = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+            dateTimeStyleClass = `${dateTimeStyleClass} paragraph-xs `;
+            break;
+        case 'year':
+            formattedDate = new Intl.DateTimeFormat('en-GB', { year: 'numeric' }).format(d);
+            dateTimeStyleClass = `${dateTimeStyleClass} date-time--year paragraph-s`;
+            break;
+        default:
+            // No handling for other cases
+            formattedDate = 'Invalid format';
+    }
+
+    return formattedDate;
+}
+
+```
+	<ArticleParagraphM>
+	Without using the never type, if a new value is added to the Format type (e.g., 'month'),
+	the switch-case won't handle it unless explicitly added. This can lead to
+	runtime errors or unexpected behavior, as the new case is not accounted for.
+	</ArticleParagraphM>
+	<ArticleParagraphM>
+	Without never, the code might fail silently, returning a default or erroneous
+	value without alerting the developer. This can make debugging and maintaining the code more difficult.
+	</ArticleParagraphM>
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>Conclusion</ArticleTitleL>
+	<ArticleParagraphM>
+	Using never in switch-case statements ensures code reliability and safety.
+	It helps avoid unhandled cases and errors related to changing possible values
+	of variables, making the code more readable and maintainable. Without never,
+	there's a higher risk of missing case handling, leading to
+	silent failures and more difficult debugging.
+	</ArticleParagraphM>
+</ContentPart>
