@@ -5,12 +5,14 @@ import Layout from '../layouts/Layout.astro';
 import Banner from '../components/blocks/banner/banner.astro';
 import RecentArticles from '../components/article/recent-articles/recent-articles.astro';
 import FeaturedProjects from '../components/project/featured-projects/featured-projects.astro';
+//VARIABLES
+import { BASE_URL } from '../variables/routing';
 ---
 
 <Layout
 	metaTitle={'Anton Oshurek dev'}
 	headerTitle={'Anton Oshurek personal blog page'}
-	metaImage="/images/meta/meta-avatar.jpeg"
+	metaImage={`${BASE_URL}/images/meta/meta-avatar.jpeg`}
 	metaDescription="This is a personal blog where I (infrequently) write about code and other topics of interest to me."
 >
 	<Banner />
