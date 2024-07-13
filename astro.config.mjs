@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-	site: 'https://antonoshurek.github.io',
-	base: '/oshurek.dev/',
+	site: 'https://oshurek.dev',
+	base: '/',
 	integrations: [mdx(), sitemap()],
 });
