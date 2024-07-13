@@ -1,122 +1,109 @@
 ---
-title: default switch case with never
+title: Using never in Switch-Case in TypeScript
 date: 2024-07-13T01:00
-tags: svg, color, css
-overview: Some time, we need to create svg sprite for optimize our html markup and keep all of	icons in separate file. But here, we will have some problem, we can’t dymanicly change a	color on this svg that is in svg sprite.
+tags: Switch-Case, TypeScript, never
+overview: When working with switch-case statements in TypeScript, special attention is given to the correct description and handling of all possible cases. In some scenarios, it's crucial to ensure that all potential values have been accounted for. This is where the never type comes into play.
 previewImage: /images/article-banners/default-switch-case-with-never-banner.webp
-previewImageAlt: rondo przed wejściem głównym do dworca
+previewImageAlt: article banner
 isRecent: false
 ---
 
 import ContentPart from '../../markdown-components/content-part/content-part.astro';
 import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
 import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
+import ArticleTitleS from '../../markdown-components/typography/title-s.astro';
 
 <ContentPart>
-	<ArticleTitleL headingTag='h2'>What is it - SVG sprite?</ArticleTitleL>
+	<ArticleTitleL headingTag='h2'>Example Usage with never</ArticleTitleL>
 	<ArticleParagraphM>
-		For first, we must understand what is a svg sprite. “An SVG sprite is a single SVG file that
-		contains multiple icons as &ltsvg&gt elements. Each icon has a unique id attribute that you can
-		use to select it.”. For example, I show for you my svg sprite. For first, we need to create a
-		separate svg file. Usually, I create this file in images folder. That file must looks like this
+		Consider the following code:
 	</ArticleParagraphM>
+```typescript
+type Format = 'full' | 'year';
 
-```html
-<svg xmlns="http://www.w3.org/2000/svg"
-	<symbol viewBox="0 0 96 96" id="footer-icon-instagram">
-		<path
-			fill="currentColor"
-			d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993. . ."
-		/>
-		</path>
-	</symbol>
-		<symbol viewBox="0 0 96 96" id="footer-icon-github">
-		<path
-			fill="currentColor"
-			d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993. . ."
-		/>
-		</path>
-	</symbol>
-		<symbol viewBox="0 0 96 96" id="footer-icon-linkedin">
-		<path
-			fill="currentColor"
-			d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993. . ."
-		/>
-		</path>
-	</symbol>
-</svg>
+function formatDate(format: Format, d: Date): string {
+    let formattedDate: string;
+    let dateTimeStyleClass: string = '';
+
+    switch (format) {
+        case 'full':
+            formattedDate = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+            dateTimeStyleClass = `${dateTimeStyleClass} paragraph-xs `;
+            break;
+        case 'year':
+            formattedDate = new Intl.DateTimeFormat('en-GB', { year: 'numeric' }).format(d);
+            dateTimeStyleClass = `${dateTimeStyleClass} date-time--year paragraph-s`;
+            break;
+        default:
+            const _: never = format;
+            throw new Error('Unhandled format case in date-time component');
+    }
+
+    return formattedDate;
+}
+
 ```
-
-<ArticleParagraphM>Before, we can use this icons in our html code in this way;</ArticleParagraphM>
-
-```html
-<svg width="40" height="40" class="footer__social-icon" aria-hidden="true" focusable="false">
-	<use xlink:href="images/footer-icons-sprite.svg#footer-icon-instagram"></use>
-</svg>
-```
-
 <ArticleParagraphM>
-	As you can see, I use basic svg tag for wrap and inside this svg I use ```<use>```. Inside ```<use>``` you need to write a patch to your svg sprite file in property xlink:href=”your-patch” with unique id from icon that you write in svg sprite. And that’s all what you need for use a svg sprite. But here, we have some problem with modify colors on svg from sprite because in html we really don’t have any svg path or stroke. That problem you can resolve with javascript but this isn’t a very good solution because it will complicate your code and create unnecessary dependencies.
+In this code, the switch-case handles the date formatting based on the format variable.
+For format equal to 'full', the date is formatted with the full date options.
+For format equal to 'year', the date is formatted with only the year.
 </ArticleParagraphM>
-
+<ArticleParagraphM>
+In the default case, the code assigns format to a variable of type never. This ensures
+that if format is not 'full' or 'year', TypeScript will
+throw a compilation error, ensuring all cases are handled.
+</ArticleParagraphM>
 </ContentPart>
 
 <ContentPart>
-<ArticleTitleL headingTag='h2'>How resolve that problem?</ArticleTitleL>
-<ArticleParagraphM>
-	Okey, what resolve I can proposal for you? With the help of my colleagues, I find really
-	cool solution for this. First of all, we need to set a currentColor in fill property on
-	svg sprite file.
-</ArticleParagraphM>
-```html
-<symbol viewBox="0 0 96 96" id="footer-icon-github">
-	<path
-		fill="currentColor"
-		d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993. . ."
-	/>
-	</path>
-</symbol>
-```
+	<ArticleTitleL headingTag='h2'>Example Without Using never</ArticleTitleL>
+	<ArticleParagraphM>
+	Here’s what the code might look like without using the never type:
+	</ArticleParagraphM>
+```typescript
 
-<ArticleParagraphM>
-	That property will give us the opportunity to change color in path. Then, we set a color in svg
-	tag in our html. How we can did it?
-</ArticleParagraphM>
+type Format = 'full' | 'year';
 
-```html
-<svg width="40" height="40" class="footer__social-icon" aria-hidden="true" focusable="false">
-	<use xlink:href="images/footer-icons-sprite.svg#footer-icon-instagram"></use>
-</svg>
-```
+function formatDate(format: Format, d: Date): string {
+    let formattedDate: string;
+    let dateTimeStyleClass: string = '';
 
-<ArticleParagraphM>
-	As you can see, I set a class “footer__social-icon” fro svg tag. In this class, in css, I set a
-	color.
-</ArticleParagraphM>
+    switch (format) {
+        case 'full':
+            formattedDate = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+            dateTimeStyleClass = `${dateTimeStyleClass} paragraph-xs `;
+            break;
+        case 'year':
+            formattedDate = new Intl.DateTimeFormat('en-GB', { year: 'numeric' }).format(d);
+            dateTimeStyleClass = `${dateTimeStyleClass} date-time--year paragraph-s`;
+            break;
+        default:
+            // No handling for other cases
+            formattedDate = 'Invalid format';
+    }
 
-```css
-.footer__social-icon {
-	color: var(--primary-text);
+    return formattedDate;
 }
+
 ```
+	<ArticleParagraphM>
+	Without using the never type, if a new value is added to the Format type (e.g., 'month'),
+	the switch-case won't handle it unless explicitly added. This can lead to
+	runtime errors or unexpected behavior, as the new case is not accounted for.
+	</ArticleParagraphM>
+	<ArticleParagraphM>
+	Without never, the code might fail silently, returning a default or erroneous
+	value without alerting the developer. This can make debugging and maintaining the code more difficult.
+	</ArticleParagraphM>
+</ContentPart>
 
-<ArticleParagraphM>
-	ok, that works. And last problem that I was need to resolve is change the color with hover effect.
-	That’s easy
-</ArticleParagraphM>
-
-```css
-.footer__social-icon {
-	color: var(--primary-text);
-	&:hover {
-		color: var(--hover-item-color);
-	}
-}
-```
-
-<ArticleParagraphM>
-	This is a final version of code. In this case we can change color and change color with hover
-	effect.
-</ArticleParagraphM>
-
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>Conclusion</ArticleTitleL>
+	<ArticleParagraphM>
+	Using never in switch-case statements ensures code reliability and safety.
+	It helps avoid unhandled cases and errors related to changing possible values
+	of variables, making the code more readable and maintainable. Without never,
+	there's a higher risk of missing case handling, leading to
+	silent failures and more difficult debugging.
+	</ArticleParagraphM>
 </ContentPart>
