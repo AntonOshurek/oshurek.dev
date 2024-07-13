@@ -1,0 +1,54 @@
+---
+title: unicorn arhitekte landing/catalog page
+date: 2022-06-11T01:00
+tags: landing, gallery
+overview: The Unicorn Arhitekte landing/catalog page is designed for showcasing architectural projects. Utilizing a tech stack of JavaScript, HTML, Less, Webpack, and Gulp, the site incorporates advanced features like the lazysizes library for efficient lazy loading of images, enhancing performance and user experience. The project highlights modern web development practices and tools.
+previewImage: /images/projects/unicorn-arhitekture-landing-page.webp
+previewImageAlt: previewImageAlt
+isFeatured: true
+---
+
+import ContentPart from '../../markdown-components/content-part/content-part.astro';
+import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
+import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
+import ArticleTitleS from '../../markdown-components/typography/title-s.astro';
+import TextLink from '../../markdown-components/typography/text-link.astro';
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>unicorn arhitekture project</ArticleTitleL>
+	<ArticleParagraphM>
+	<ArticleTitleS headingTag='h3'>Project links:</ArticleTitleS>
+	* <TextLink path={'https://github.com/AntonOshurek/unicorn__arhitekte/tree/main'} text={'GitHub Repo'} noReferrer={false}/>
+	* <TextLink path={'https://archi.unicorn.com.pl/index.html'} text={'page'}/>
+	</ArticleParagraphM>
+
+	<ArticleParagraphM>
+	<ArticleTitleS headingTag='h3'>Technologies stack:</ArticleTitleS>
+	* JavaScript
+	* HTML
+	* Less
+	* Webpack
+	* Gulp
+	</ArticleParagraphM>
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>What interesting technologies did I use in this project?</ArticleTitleL>
+	<ArticleParagraphM>
+	* <TextLink path={'https://www.npmjs.com/package/lazysizes'} text={'lazysizes'}/> - This library helped to achieve lazy loading of images as you scroll.
+	</ArticleParagraphM>
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>what you needs to be done to start the project?</ArticleTitleL>
+	<ArticleParagraphM>
+
+	* <TextLink path={'https://github.com/AntonOshurek/unicorn__arhitekte/tree/main'} text={'download repository'} noReferrer={false}/>
+	* <TextLink path={'https://nodejs.org/en/'} text={'instal Node.js LTS version'}/>
+	* instal all dependencies ```npm instal```
+	* Run Dev server ```npm start```
+
+	</ArticleParagraphM>
+</ContentPart>
+
+

@@ -1,0 +1,26 @@
+.typography {
+	ul {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		list-style: decimal;
+		padding-left: 20px;
+		font-weight: inherit;
+		gap: 1px;
+	}
+
+	code {
+		clear: both;
+		border-radius: 8px;
+		padding: 3px 8px;
+		font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+		font-weight: var(--s-text-weight);
+		font-size: var(--s-text-size);
+		word-break: normal;
+		hyphens: none;
+		tab-size: 2;
+		color: #fff;
+		background-color: var(--code-bg);
+	}
+}

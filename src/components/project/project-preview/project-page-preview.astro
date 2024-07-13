@@ -5,6 +5,8 @@ import './project-preview.scss';
 //COMPONENTS
 import Tags from '../../shared/tags/tags.astro';
 import DateTime from '../../shared/date-time/date-time.astro';
+//VARIABLES
+import { BASE_URL } from '../../../variables/routing';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -20,13 +22,13 @@ const { project } = Astro.props;
 
 	<Tags tags={project.data.tags} additionalStyleClass="project-preview__tags" />
 
-	<p class="project-preview__description paragraph-s">
+	<p class="project-preview__description paragraph-m">
 		{project.data.overview}
 	</p>
 
 	<img
 		class="project-preview__image"
-		src="https://previews.123rf.com/images/epicfail/epicfail1702/epicfail170200239/72740134-thin-line-design-concept-for-project-website-banner.jpg"
+		src={`${BASE_URL}${project.data.previewImage}`}
 		alt=""
 		width="246"
 		height="180"
