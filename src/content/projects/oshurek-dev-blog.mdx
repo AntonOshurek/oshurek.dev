@@ -1,0 +1,56 @@
+---
+title: oshurek.dev - personal blog
+date: 2024-07-13T01:00
+tags: blog, landing, astro
+overview: The personal blog of developer Anton Oshurek, created using Astro. The project is a platform for publishing articles and notes on programming and technology.
+previewImage: /images/projects/oshurek-dev-blog.webp
+previewImageAlt: previewImageAlt
+isFeatured: true
+---
+
+import ContentPart from '../../markdown-components/content-part/content-part.astro';
+import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
+import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
+import ArticleTitleS from '../../markdown-components/typography/title-s.astro';
+import TextLink from '../../markdown-components/typography/text-link.astro';
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>Oshurek Anton personal blog project</ArticleTitleL>
+	<ArticleParagraphM>
+	<ArticleTitleS headingTag='h3'>Project links:</ArticleTitleS>
+	* <TextLink path={'https://github.com/AntonOshurek/oshurek.dev'} text={'GitHub Repo'} noReferrer={false}/>
+	* <TextLink path={'oshurek.dev'} text={'page'} noReferrer={false}/>
+	</ArticleParagraphM>
+
+	<ArticleParagraphM>
+	<ArticleTitleS headingTag='h3'>Technologies stack:</ArticleTitleS>
+	* Astro
+	* JavaScript and TypeScript
+	* SASS
+	* HTML
+	* MDX
+	</ArticleParagraphM>
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>Features:</ArticleTitleL>
+	<ArticleParagraphM>
+	* Minimalist and user-friendly design.
+	* Static site for fast loading and optimal performance.
+	* Flexible content creation using MDX.
+	</ArticleParagraphM>
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag='h2'>what you needs to be done to start the project?</ArticleTitleL>
+	<ArticleParagraphM>
+
+	* <TextLink path={'https://github.com/AntonOshurek/oshurek.dev'} text={'download repository'}/>
+	* <TextLink path={'https://nodejs.org/en/'} text={'instal Node.js LTS version'}/>
+	* instal all dependencies ```npm instal```
+	* Run Dev server ```npm run start```
+
+	</ArticleParagraphM>
+</ContentPart>
+
+

@@ -1,0 +1,40 @@
+---
+interface Props {
+	path: string;
+	text: string;
+	noReferrer?: boolean;
+}
+
+const { path, text, noReferrer = true } = Astro.props;
+---
+
+{
+	noReferrer ? (
+		<a
+			href={path}
+			target="_blank"
+			referrerpolicy="no-referrer"
+			rel="noopener noreferrer"
+			class="link"
+		>
+			{text}
+		</a>
+	) : (
+		<a href={path} target="_blank" class="link">
+			{text}
+		</a>
+	)
+}
+
+<style>
+	.link {
+		place-self: center flex-end;
+		grid-area: link;
+		text-decoration: none;
+		color: var(--link-text);
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+</style>
