@@ -8,6 +8,8 @@ import ArticlePagePreview from '../../components/article/article-preview/article
 import SharePage from '../../components/shared/share-page-links/share-page-links.astro';
 //STYLES
 import './article.scss';
+//VARIABLES
+import { BASE_URL } from '../../variables/routing';
 
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');
@@ -38,7 +40,7 @@ const { Content } = await article.render();
 	metaTitle={article.data.title}
 	metaDescription={article.data.overview}
 	additionalClassToMain="article-page-main"
-	metaImage={article.data.previewImage}
+	metaImage={`${BASE_URL}${article.data.previewImage}`}
 >
 	<article class="article container-small">
 		<ArticlePagePreview article={article} />
