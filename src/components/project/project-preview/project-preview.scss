@@ -16,12 +16,11 @@
 
 		@media (max-width: $mobile-width) {
 			grid-template-areas:
-				'title'
-				'date'
-				'tags'
-				'img'
-				'description';
-			grid-template-columns: 1fr;
+				'title title'
+				'date tags'
+				'img img'
+				'description description';
+			grid-template-columns: min-content 1fr;
 			grid-template-rows: min-content min-content min-content min-content 1fr;
 		}
 	}
