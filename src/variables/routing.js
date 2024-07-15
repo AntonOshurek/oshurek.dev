@@ -8,10 +8,10 @@ export const ROUTING = {
 		path: `${BASE_URL}/`,
 	},
 	PROJECTS: {
-		path: `${BASE_URL}/projects`,
+		path: `${BASE_URL}/projects/`,
 	},
 	ARTICLES: {
-		path: `${BASE_URL}/articles`,
+		path: `${BASE_URL}/articles/`,
 	},
 	ARTICLE: {
 		path: `${BASE_URL}/article`,
