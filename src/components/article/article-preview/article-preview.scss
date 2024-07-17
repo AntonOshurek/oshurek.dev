@@ -23,6 +23,25 @@
 		grid-template-rows: repeat(3, min-content) 1fr;
 		gap: 10px;
 	}
+
+	&--page {
+		grid-template-areas:
+			'title title'
+			'date tags'
+			'img img'
+			'overview overview';
+		grid-template-rows: repeat(3, min-content) 1fr;
+
+		@media (max-width: $mobile-width) {
+			grid-template-areas:
+				'title'
+				'date'
+				'tags'
+				'img'
+				'overview';
+			grid-template-rows: repeat(4, min-content) 1fr;
+		}
+	}
 }
 
 .article-preview__title {
@@ -39,6 +58,15 @@
 
 .article-preview__overview {
 	grid-area: overview;
+}
+
+.article-preview__image {
+	display: flex;
+	grid-area: img;
+	width: 100%;
+	height: min-content;
+	box-shadow: var(--shadow);
+	object-fit: contain;
 }
 
 .article-preview__link {

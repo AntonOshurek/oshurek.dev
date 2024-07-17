@@ -12,10 +12,9 @@ import { truncateOverviewToPreview } from '../../../utils/utils';
 
 interface Props {
 	article: CollectionEntry<'articles'>;
-	withLink?: boolean;
 }
 
-const { article, withLink = false } = Astro.props;
+const { article } = Astro.props;
 ---
 
 <article class="article-preview">
@@ -29,11 +28,7 @@ const { article, withLink = false } = Astro.props;
 		{truncateOverviewToPreview(article.data.overview)}
 	</p>
 
-	{
-		withLink && (
-			<a class="article-preview__link" href={`${ROUTING.ARTICLE.path}/${article.slug}`}>
-				<span class="visually-hidden">open full post</span>
-			</a>
-		)
-	}
+	<a class="article-preview__link" href={`${ROUTING.ARTICLE.path}/${article.slug}`}>
+		<span class="visually-hidden">open full post</span>
+	</a>
 </article>

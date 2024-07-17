@@ -19,7 +19,7 @@ const articles = sortArticlesByDate(defaultArticles);
 	<ArticleItemsLayout dirrection="column" additionalClasses="recent-articles__items" underline>
 		{
 			articles.map((article) => {
-				return <ArticlePreview article={article} withLink={true} />;
+				return <ArticlePreview article={article} />;
 			})
 		}
 	</ArticleItemsLayout>
