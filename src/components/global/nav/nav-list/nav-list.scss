@@ -40,7 +40,9 @@
 	}
 
 	&--active {
+		text-decoration: none;
 		color: var(--current-item-color);
+		cursor: not-allowed;
 		pointer-events: none;
 	}
 }

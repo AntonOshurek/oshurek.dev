@@ -5,10 +5,17 @@ interface Props {
 }
 
 const { title, path } = Astro.props;
-
-const activeLinkClass = Astro.url.pathname === path ? 'nav-list__link--active' : '';
+const isActive = Astro.url.pathname === path;
 ---
 
 <li class="nav-list__item">
-	<a class={`nav-list__link paragraph-l-fat ${activeLinkClass}`} href={path}> {title} </a>
+	{
+		isActive ? (
+			<a class={`nav-list__link paragraph-l-fat nav-list__link--active`}> {title} </a>
+		) : (
+			<a class={`nav-list__link paragraph-l-fat`} href={path}>
+				{title}
+			</a>
+		)
+	}
 </li>
