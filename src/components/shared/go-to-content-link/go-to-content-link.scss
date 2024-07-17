@@ -1,0 +1,32 @@
+@import '../../../styles/variables/variables';
+
+.go-to-content-link {
+	position: absolute;
+	left: 20px;
+
+	// left: 20px;
+	top: 20px;
+	z-index: $z-index-go-to-content-link;
+	border: 2px solid var(--decor-color);
+	border-radius: 10px;
+	padding: 8px 10px;
+	box-shadow: var(--shadow);
+	text-decoration: none;
+	text-transform: capitalize;
+	color: var(--link-text);
+	background-color: var(--overlay);
+	transform: translate(calc(-100% - 40px));
+	transition: all ease 0.2s;
+	cursor: pointer;
+
+	&:focus {
+		color: var(--hover-item-color);
+
+		// left: 20px;
+		transform: translate(0);
+	}
+
+	&:hover {
+		color: var(--hover-item-color);
+	}
+}
