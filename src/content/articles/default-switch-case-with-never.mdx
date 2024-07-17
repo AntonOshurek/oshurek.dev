@@ -22,8 +22,8 @@ import ArticleTitleS from '../../markdown-components/typography/title-s.astro';
 type Format = 'full' | 'year';
 
 function formatDate(format: Format, d: Date): string {
-    let formattedDate: string;
-    let dateTimeStyleClass: string = '';
+let formattedDate: string;
+let dateTimeStyleClass: string = '';
 
     switch (format) {
         case 'full':
@@ -40,9 +40,10 @@ function formatDate(format: Format, d: Date): string {
     }
 
     return formattedDate;
+
 }
 
-```
+````
 <ArticleParagraphM>
 In this code, the switch-case handles the date formatting based on the format variable.
 For format equal to 'full', the date is formatted with the full date options.
@@ -85,25 +86,26 @@ function formatDate(format: Format, d: Date): string {
     return formattedDate;
 }
 
-```
-	<ArticleParagraphM>
-	Without using the never type, if a new value is added to the Format type (e.g., 'month'),
-	the switch-case won't handle it unless explicitly added. This can lead to
-	runtime errors or unexpected behavior, as the new case is not accounted for.
-	</ArticleParagraphM>
-	<ArticleParagraphM>
-	Without never, the code might fail silently, returning a default or erroneous
-	value without alerting the developer. This can make debugging and maintaining the code more difficult.
-	</ArticleParagraphM>
+````
+
+    <ArticleParagraphM>
+    Without using the never type, if a new value is added to the Format type (e.g., 'month'),
+    the switch-case won't handle it unless explicitly added. This can lead to
+    runtime errors or unexpected behavior, as the new case is not accounted for.
+    </ArticleParagraphM>
+    <ArticleParagraphM>
+    Without never, the code might fail silently, returning a default or erroneous
+    value without alerting the developer. This can make debugging and maintaining the code more difficult.
+    </ArticleParagraphM>
+
 </ContentPart>
 
 <ContentPart>
-	<ArticleTitleL headingTag='h2'>Conclusion</ArticleTitleL>
+	<ArticleTitleL headingTag="h2">Conclusion</ArticleTitleL>
 	<ArticleParagraphM>
-	Using never in switch-case statements ensures code reliability and safety.
-	It helps avoid unhandled cases and errors related to changing possible values
-	of variables, making the code more readable and maintainable. Without never,
-	there's a higher risk of missing case handling, leading to
-	silent failures and more difficult debugging.
+		Using never in switch-case statements ensures code reliability and safety. It helps avoid
+		unhandled cases and errors related to changing possible values of variables, making the code
+		more readable and maintainable. Without never, there's a higher risk of missing case handling,
+		leading to silent failures and more difficult debugging.
 	</ArticleParagraphM>
 </ContentPart>
