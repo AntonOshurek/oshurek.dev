@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 //STYLES
-import './article-page-preview.scss';
+import './article-preview.scss';
 //COMPONENTS
 import DateTime from '../../shared/date-time/date-time.astro';
 import Tags from '../../shared/tags/tags.astro';
@@ -15,25 +15,21 @@ interface Props {
 const { article } = Astro.props;
 ---
 
-<header class="article-page-preview">
-	<h1 class="article-page-preview__title title-l">
+<header class="article-preview article-preview--page">
+	<h1 class="article-preview__title title-l">
 		{article.data.title}
 	</h1>
 
-	<DateTime
-		date={article.data.date}
-		format="full"
-		additionalStyleClass="article-page-preview__date"
-	/>
+	<DateTime date={article.data.date} format="full" additionalStyleClass="article-preview__date" />
 
-	<Tags tags={article.data.tags} additionalStyleClass="article-page-preview__tags" />
+	<Tags tags={article.data.tags} additionalStyleClass="article-preview__tags" />
 
-	<p class="article-page-preview__overview paragraph-m">
+	<p class="article-preview__overview paragraph-m">
 		{article.data.overview}
 	</p>
 
 	<img
-		class="article-page-preview__image"
+		class="article-preview__image"
 		width="600"
 		height="400"
 		src={`${BASE_URL}${article.data.previewImage}`}

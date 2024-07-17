@@ -17,7 +17,7 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="project-preview project-preview--horizontal project-preview--underline">
+<article class="project-preview project-preview--horizontal">
 	<h3 class="project-preview__title title-m">{project.data.title}</h3>
 
 	<DateTime date={project.data.date} format="year" additionalStyleClass="project-preview__date" />

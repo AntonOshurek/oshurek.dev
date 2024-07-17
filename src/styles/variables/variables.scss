@@ -11,12 +11,12 @@ $z-index-body-nav-open: 2;
 $z-index-header: 3;
 $z-index-theme-switcher: 4;
 $z-index-nav-button: 4;
+$z-index-go-to-content-link: 4;
 
 :root {
 	/* sizes variables */
 	--safe-side-paddings: 20px;
-	--project-items-gap: 30px;
-	--article-items-gap: 30px;
+	--items-layout-gap: 30px;
 	--main-paddings: 33px var(--safe-side-paddings) 60px var(--safe-side-paddings);
 
 	/* fonts */
