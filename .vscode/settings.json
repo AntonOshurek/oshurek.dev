@@ -1,6 +1,6 @@
 {
 	"git.openRepositoryInParentFolders": "never",
-	"workbench.colorTheme": "Houston",
+	// "workbench.colorTheme": "Houston",
 	// "workbench.colorTheme": "Tokyo Night",
 	// "workbench.colorTheme": "Default Light+",
 	"editor.insertSpaces": false,
