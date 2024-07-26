@@ -1,35 +1,20 @@
 const tchemeControl = () => {
-	const lightStyles = document.querySelectorAll(
-		'link[rel=stylesheet][media*=prefers-color-scheme][media*=light]',
-	);
-	const darkStyles = document.querySelectorAll(
-		'link[rel=stylesheet][media*=prefers-color-scheme][media*=dark]',
-	);
-	const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
 	const fieldset = document.querySelector('.theme-switcher');
+	const darkSchemeMedia = matchMedia('(prefers-color-scheme: dark)');
 
 	function setupSwitcher() {
 		const savedScheme = getSavedScheme();
 
-		if (savedScheme !== null) {
+		if (savedScheme && savedScheme !== null) {
 			const currentRadio = document.querySelector(`.theme-switcher__radio[value=${savedScheme}]`);
+
 			currentRadio.checked = true;
 		}
 
 		fieldset.addEventListener('change', (evt) => {
-			setScheme(evt.target.value);
+			const target = evt.target;
+			setScheme(target.value);
 		});
-	}
-
-	function setupScheme() {
-		const savedScheme = getSavedScheme();
-		const systemScheme = getSystemScheme();
-
-		if (savedScheme === null) return;
-
-		if (savedScheme !== systemScheme) {
-			setScheme(savedScheme);
-		}
 	}
 
 	function setScheme(scheme) {
@@ -43,24 +28,11 @@ const tchemeControl = () => {
 	}
 
 	function switchMedia(scheme) {
-		let lightMedia;
-		let darkMedia;
-
 		if (scheme === 'auto') {
-			lightMedia = '(prefers-color-scheme: light)';
-			darkMedia = '(prefers-color-scheme: dark)';
+			document.querySelector('html').setAttribute('data-theme', getSystemScheme());
 		} else {
-			lightMedia = scheme === 'light' ? 'all' : 'not all';
-			darkMedia = scheme === 'dark' ? 'all' : 'not all';
+			document.querySelector('html').setAttribute('data-theme', scheme);
 		}
-
-		[...lightStyles].forEach((link) => {
-			link.media = lightMedia;
-		});
-
-		[...darkStyles].forEach((link) => {
-			link.media = darkMedia;
-		});
 	}
 
 	function getSystemScheme() {
@@ -82,9 +54,8 @@ const tchemeControl = () => {
 	}
 
 	setupSwitcher();
-	setupScheme();
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-	// tchemeControl();
+	tchemeControl();
 });

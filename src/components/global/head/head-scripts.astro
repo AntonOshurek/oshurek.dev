@@ -41,15 +41,15 @@
 		}
 	}
 
-	// function setupScheme() {
-	// 	const savedScheme = getSavedScheme();
+	function setupScheme() {
+		const savedScheme = getSavedScheme();
 
-	// 	if (savedScheme === null) {
-	// 		setScheme('auto');
-	// 	} else {
-	// 		setScheme(savedScheme);
-	// 	}
-	// }
+		if (savedScheme === null) {
+			setScheme('auto');
+		} else {
+			setScheme(savedScheme);
+		}
+	}
 
 	function getSystemScheme() {
 		const darkScheme = darkSchemeMedia.matches;
@@ -70,7 +70,9 @@
 	}
 
 	setupSwitcher();
-	// setupScheme();
+	setupScheme();
+
+	// ---------------------------old version with css files to change theme
 
 	// const lightStyles = document.querySelectorAll(
 	// 	'link[rel=stylesheet][media*=prefers-color-scheme][media*=light]',
