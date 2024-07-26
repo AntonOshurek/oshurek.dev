@@ -12,10 +12,6 @@ const { date, format, additionalStyleClass } = Astro.props;
 
 const d = new Date(date);
 
-type NotString = 'foo' | 'bar';
-const foo: NotString = 'bar';
-
-console.log(foo);
 const fullOptions: Intl.DateTimeFormatOptions = {
 	year: 'numeric',
 	month: 'short',
