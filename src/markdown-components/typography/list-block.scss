@@ -1,0 +1,14 @@
+.list-block {
+	ul {
+		display: grid;
+		grid-template-columns: 1fr;
+		list-style: disc;
+		gap: 20px;
+	}
+
+	pre {
+		margin-top: 10px;
+		padding: 10px 20px;
+		box-shadow: none;
+	}
+}
