@@ -28,40 +28,40 @@ import ListBlock from '../../markdown-components/typography/list-block.astro';
 
 	<ListBlock>
 		- Prints the current working directory, showing the full path of the directory you are in.
-		```shell
-		pwd
-		```
+			```shell
+			pwd
+			```
 
 		- Changes directory.
-		```shell
-		cd
-		```
+			```shell
+			cd
+			```
 
 		- Changes the current directory to the previous directory you were in.
-		```shell
-		cd -
-		```
+			```shell
+			cd -
+			```
 
 		- Navigate to the parent directory
-		<ArticleParagraphS>Moves up one level in the directory structure to the parent directory.</ArticleParagraphS>
-		```shell
-		cd ../
-		```
+			<ArticleParagraphS>Moves up one level in the directory structure to the parent directory.</ArticleParagraphS>
+			```shell
+			cd ../
+			```
 
 		- List directory contents
-		```shell
-		ls ~/desktop
-		```
+			```shell
+			ls ~/desktop
+			```
 
 		- Open the current directory in File Explorer
-		```shell
-		start .
-		```
+			```shell
+			start .
+			```
 
 		- Navigate to a directory with autocompletion
-		```shell
-		cd ~/dir + TAB
-		```
+			```shell
+			cd ~/dir + TAB
+			```
 	</ListBlock>
 </ContentPart>
 
@@ -76,21 +76,91 @@ import ListBlock from '../../markdown-components/typography/list-block.astro';
 
 	<ListBlock>
 		- Write the name to config
-		<ArticleParagraphS>Sets the global username for all git repositories on the system.</ArticleParagraphS>
-		```shell
-		git config --global user.name "name"
-		```
+			<ArticleParagraphS>Sets the global username for all git repositories on the system.</ArticleParagraphS>
+
+			```shell
+			git config --global user.name "name"
+			```
 
 		- Write email to config
-		<ArticleParagraphS>Sets the global email for all git repositories on the system.</ArticleParagraphS>
-		```shell
-		git config --global user.email "yourEmail"
-		```
+
+			<ArticleParagraphS>Sets the global email for all git repositories on the system.</ArticleParagraphS>
+			```shell
+			git config --global user.email "yourEmail"
+			```
 
 		- Check the config data
-		<ArticleParagraphS>Lists all the configuration settings for git.</ArticleParagraphS>
-		```shell
-		git config --list
-		```
+
+			<ArticleParagraphS>Lists all the configuration settings for git.</ArticleParagraphS>
+			```shell
+			git config --list
+			```
+
+		- View Git User Configuration
+
+			<ArticleParagraphS>command displays the contents of the Git configuration file, which contains user data and settings</ArticleParagraphS>
+			```shell
+			Cat ~/.gitconfig
+			```
+	</ListBlock>
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag="h2">
+		Working with SSH Keys for GitHub
+	</ArticleTitleL>
+
+	<ArticleParagraphM>
+		This block provides a step-by-step guide on how to generate, add, and test SSH keys for secure authentication with GitHub. Follow these commands to set up and verify your SSH keys.
+	</ArticleParagraphM>
+
+	<ListBlock>
+		- create folder for SSH
+			<ArticleParagraphS>Check if .ssh folder alredy exist</ArticleParagraphS>
+			```shell
+			cd ~/.ssh
+			ls
+			```
+			<ArticleParagraphS>If we don't have this folder or file inside - create</ArticleParagraphS>
+
+			```shell
+			mkdir ~/.ssh
+			```
+
+		- Generate a new SSH key
+
+			<ArticleParagraphS>Creates a new SSH key for secure authentication.</ArticleParagraphS>
+			```shell
+			ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+			```
+			<ArticleParagraphS>Text key name, usually id_rsa, enter the password if need.</ArticleParagraphS>
+
+		- Add SSH key to the ssh-agent
+
+			<ArticleParagraphS>Starts the ssh-agent in the background and adds your SSH private key to it.</ArticleParagraphS>
+			```shell
+			eval "$(ssh-agent -s)"
+			ssh-add ~/.ssh/id_rsa
+			```
+
+		- Add SSH key to your GitHub account
+
+			<ArticleParagraphS>Go to GitHub > Settings > SSH and GPG keys, and paste your SSH public key. For copy your public key:</ArticleParagraphS>
+			```shell
+			Cat keyname.pub
+			```
+
+		- Test SSH connection
+
+			<ArticleParagraphS>erifies that your SSH key is correctly added and working by testing the connection to GitHub.</ArticleParagraphS>
+			```shell
+			ssh -T git@github.com
+			```
+
+		- Test SSH connection with a specific key
+
+			```shell
+			ssh -T -i ~/.ssh/keyname git@github.com
+			```
 	</ListBlock>
 </ContentPart>
