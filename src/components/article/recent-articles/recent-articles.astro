@@ -9,8 +9,11 @@ import ArticlePreview from '../article-preview/article-preview.astro';
 import BasicLink from '../../shared/basic-link/basic-link.astro';
 //LAYOUTS
 import ArticleItemsLayout from '../../../layouts/article-items-layout/article-items-layout.astro';
+//UTILS
+import { sortArticlesByDate } from '../../../utils/utils';
 
-const articles = await getCollection('articles');
+const defaultArticles = await getCollection('articles');
+const articles = sortArticlesByDate(defaultArticles);
 ---
 
 <section class="recent-articles container-large">
@@ -28,7 +31,7 @@ const articles = await getCollection('articles');
 				let recentArticlesCounter = 0;
 				if (recentArticlesCounter < 2 && article.data.isRecent) {
 					recentArticlesCounter++;
-					return <ArticlePreview article={article} withLink={true} />;
+					return <ArticlePreview article={article} />;
 				}
 			})
 		}

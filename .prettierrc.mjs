@@ -20,6 +20,12 @@ export default {
 				parser: 'astro',
 			},
 		},
+		{
+			files: '*.mdx',
+			options: {
+				parser: 'mdx',
+			},
+		},
 	],
 	ignore: ['**/node_modules/**'],
 	htmlVoidElements: ['img', 'meta', 'img'],
