@@ -1,4 +1,7 @@
 .list-block {
+	display: grid;
+	gap: 10px;
+
 	ul {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -10,5 +13,18 @@
 		margin-top: 10px;
 		padding: 10px 20px;
 		box-shadow: none;
+	}
+
+	&--with-title {
+		padding: 15px 0;
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			text-align: center;
+		}
 	}
 }

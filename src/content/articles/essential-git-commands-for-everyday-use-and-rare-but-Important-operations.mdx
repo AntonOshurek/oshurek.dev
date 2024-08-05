@@ -14,8 +14,10 @@ import ContentPart from '../../markdown-components/content-part/content-part.ast
 import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
 import ArticleParagraphS from '../../markdown-components/typography/paragraph-s.astro';
 import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
+import ArticleTitleS from '../../markdown-components/typography/title-s.astro';
 import ImageBLock from '../../markdown-components/image-block/image-block.astro';
 import ListBlock from '../../markdown-components/typography/list-block.astro';
+import ListWithTitle from '../../markdown-components/typography/list-with-title.astro';
 
 <ContentPart>
 	<ArticleTitleL headingTag="h2">
@@ -27,38 +29,38 @@ import ListBlock from '../../markdown-components/typography/list-block.astro';
 	</ArticleParagraphM>
 
 	<ListBlock>
-		- Prints the current working directory, showing the full path of the directory you are in.
+		- Prints the current working directory, showing the full path of the directory you are in:
 			```shell
 			pwd
 			```
 
-		- Changes directory.
+		- Changes directory:
 			```shell
 			cd
 			```
 
-		- Changes the current directory to the previous directory you were in.
+		- Changes the current directory to the previous directory you were in:
 			```shell
 			cd -
 			```
 
-		- Navigate to the parent directory
+		- Navigate to the parent directory:
 			<ArticleParagraphS>Moves up one level in the directory structure to the parent directory.</ArticleParagraphS>
 			```shell
 			cd ../
 			```
 
-		- List directory contents
+		- List directory contents:
 			```shell
 			ls ~/desktop
 			```
 
-		- Open the current directory in File Explorer
+		- Open the current directory in File Explorer:
 			```shell
 			start .
 			```
 
-		- Navigate to a directory with autocompletion
+		- Navigate to a directory with autocompletion:
 			```shell
 			cd ~/dir + TAB
 			```
@@ -75,28 +77,28 @@ import ListBlock from '../../markdown-components/typography/list-block.astro';
 	</ArticleParagraphM>
 
 	<ListBlock>
-		- Write the name to config
+		- Write the name to config:
 			<ArticleParagraphS>Sets the global username for all git repositories on the system.</ArticleParagraphS>
 
 			```shell
 			git config --global user.name "name"
 			```
 
-		- Write email to config
+		- Write email to config:
 
 			<ArticleParagraphS>Sets the global email for all git repositories on the system.</ArticleParagraphS>
 			```shell
 			git config --global user.email "yourEmail"
 			```
 
-		- Check the config data
+		- Check the config data:
 
 			<ArticleParagraphS>Lists all the configuration settings for git.</ArticleParagraphS>
 			```shell
 			git config --list
 			```
 
-		- View Git User Configuration
+		- View Git User Configuration:
 
 			<ArticleParagraphS>command displays the contents of the Git configuration file, which contains user data and settings</ArticleParagraphS>
 			```shell
@@ -115,7 +117,7 @@ import ListBlock from '../../markdown-components/typography/list-block.astro';
 	</ArticleParagraphM>
 
 	<ListBlock>
-		- create folder for SSH
+		- create folder for SSH:
 			<ArticleParagraphS>Check if .ssh folder alredy exist</ArticleParagraphS>
 			```shell
 			cd ~/.ssh
@@ -127,7 +129,7 @@ import ListBlock from '../../markdown-components/typography/list-block.astro';
 			mkdir ~/.ssh
 			```
 
-		- Generate a new SSH key
+		- Generate a new SSH key:
 
 			<ArticleParagraphS>Creates a new SSH key for secure authentication.</ArticleParagraphS>
 			```shell
@@ -135,7 +137,7 @@ import ListBlock from '../../markdown-components/typography/list-block.astro';
 			```
 			<ArticleParagraphS>Text key name, usually id_rsa, enter the password if need.</ArticleParagraphS>
 
-		- Add SSH key to the ssh-agent
+		- Add SSH key to the ssh-agent:
 
 			<ArticleParagraphS>Starts the ssh-agent in the background and adds your SSH private key to it.</ArticleParagraphS>
 			```shell
@@ -143,24 +145,201 @@ import ListBlock from '../../markdown-components/typography/list-block.astro';
 			ssh-add ~/.ssh/id_rsa
 			```
 
-		- Add SSH key to your GitHub account
+		- Add SSH key to your GitHub account:
 
 			<ArticleParagraphS>Go to GitHub > Settings > SSH and GPG keys, and paste your SSH public key. For copy your public key:</ArticleParagraphS>
 			```shell
 			Cat keyname.pub
 			```
 
-		- Test SSH connection
+		- Test SSH connection:
 
 			<ArticleParagraphS>erifies that your SSH key is correctly added and working by testing the connection to GitHub.</ArticleParagraphS>
 			```shell
 			ssh -T git@github.com
 			```
 
-		- Test SSH connection with a specific key
+		- Test SSH connection with a specific key:
 
 			```shell
 			ssh -T -i ~/.ssh/keyname git@github.com
 			```
 	</ListBlock>
+</ContentPart>
+
+<ContentPart>
+	<ArticleTitleL headingTag="h2">
+		Basic Git Commands
+	</ArticleTitleL>
+
+	<ListWithTitle>
+
+		<ArticleTitleS headingTag="h3">
+			Working with Repositories
+		</ArticleTitleS>
+
+		- Initialize a new repository:
+			```shell
+			git init
+			```
+
+		- Clone an existing repository:
+
+			```shell
+			git clone https://github.com/user/repo.git
+			```
+
+	</ListWithTitle>
+
+	<ListWithTitle>
+
+		<ArticleTitleS headingTag="h3">
+			Managing Files
+		</ArticleTitleS>
+
+		- Add a file to staging area:
+			```shell
+			git add filename
+			```
+
+		- Add all files to staging area:
+
+			```shell
+			git add .
+			```
+
+		- Commit changes with a message:
+			```shell
+			git commit -m "Commit message"
+			```
+
+		- Commit all changes with a message:
+
+			```shell
+			git commit -a -m "Commit message"
+			```
+
+	</ListWithTitle>
+
+	<ListWithTitle>
+
+		<ArticleTitleS headingTag="h3">
+			Branching and Merging
+		</ArticleTitleS>
+
+		- Create a new branch:
+			```shell
+			git branch branch_name
+			```
+
+		- Switch to another branch:
+
+			```shell
+			git checkout branch_name
+			```
+
+		- Create and switch to a new branch:
+			```shell
+			git checkout -b branch_name
+			```
+
+		- Merge a branch into the current branch:
+
+			```shell
+			git merge branch_name
+			```
+
+		- Delete a branch:
+
+			```shell
+			git branch -d branch_name
+			```
+
+	</ListWithTitle>
+
+	<ListWithTitle>
+
+		<ArticleTitleS headingTag="h3">
+			Working with Remote Repositories
+		</ArticleTitleS>
+
+		- Show remote repositories:
+			```shell
+			git remote -v
+			```
+
+		- Add a remote repository:
+
+			```shell
+			git remote add origin https://github.com/user/repo.git
+			```
+
+		- Fetch changes from a remote repository:
+			```shell
+			git fetch origin
+			```
+
+		- Pull changes from a remote repository into the current branch:
+
+			```shell
+			git pull origin branch_name
+			```
+
+		- Push changes to a remote repository:
+
+			```shell
+			git push origin branch_name
+			```
+
+	</ListWithTitle>
+
+	<ListWithTitle>
+
+		<ArticleTitleS headingTag="h3">
+			Viewing History
+		</ArticleTitleS>
+
+		- DShow commit history:
+			```shell
+			git log
+			```
+
+		- Show commit history with a graph:
+
+			```shell
+			git log --graph --oneline --all
+			```
+
+	</ListWithTitle>
+
+	<ListWithTitle>
+
+		<ArticleTitleS headingTag="h3">
+			Undoing Changes
+		</ArticleTitleS>
+
+		- Discard changes in the working directory:
+			```shell
+			git checkout -- filename
+			```
+
+		- Remove the last commit but keep changes in the working directory:
+
+			```shell
+			git reset --soft HEAD~1
+			```
+
+		- emove the last commit and discard changes:
+			```shell
+			git reset --hard HEAD~1
+			```
+
+		- Reset changes in a specific file:
+
+			```shell
+			git checkout HEAD -- filename
+			```
+
+	</ListWithTitle>
+
 </ContentPart>
