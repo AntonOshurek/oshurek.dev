@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 //VARIABLES
 import { ROUTING } from '../../../variables/routing';
+//UTILS
+import { sortProjectsByDate } from '../../../utils/utils';
 //STYLES
 import './featured-projects.scss';
 //COMPONENTS
@@ -10,7 +12,8 @@ import ProjectPreview from '../project-preview/project-preview.astro';
 //LAYOUTS
 import ProjectItemsLayout from '../../../layouts/project-items-layout/project-items-layout.astro';
 
-const projects = await getCollection('projects');
+const defaultProjects = await getCollection('projects');
+const projects = await sortProjectsByDate(defaultProjects);
 ---
 
 <section class="featured-projects container-large">
