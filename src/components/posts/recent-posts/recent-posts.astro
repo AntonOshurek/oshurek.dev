@@ -9,6 +9,7 @@ import './recent-posts.scss';
 //COMPONENTS
 import BasicLink from '../../shared/basic-link/basic-link.astro';
 import PostItemsLayout from '../../../layouts/post-items-layout/post-items-layout.astro';
+import Post from '../post/post.astro';
 
 const defaultPosts = await getCollection('posts');
 const posts = await sortPostsByDate(defaultPosts);
@@ -24,10 +25,9 @@ const posts = await sortPostsByDate(defaultPosts);
 			posts.map((post) => {
 				let recentPostsCounter = 0;
 
-				if (recentPostsCounter < 2 && post.data.isFeatured) {
+				if (recentPostsCounter < 3) {
 					recentPostsCounter++;
-					// return <ProjectPreview project={post} />;
-					return <div>test</div>;
+					return <Post post={post} />;
 				}
 			})
 		}
