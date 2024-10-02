@@ -14,13 +14,13 @@ const { post } = Astro.props;
 ---
 
 <article class="post">
-	<p class="post__text paragraph-l">
-		{post.data.text}
-	</p>
-
-	<DateTime additionalStyleClass="post__date" date={post.data.date} format="full" />
-
-	<Tags additionalStyleClass="post__tags" tags={post.data.tags} />
+	<div class="post__info">
+		<DateTime additionalStyleClass="post__date" date={post.data.date} format="full" />
+		<p class="paragraph-m">
+			{post.data.text}
+		</p>
+		<Tags tags={post.data.tags} />
+	</div>
 
 	<img class="post__image" src={post.data.imagePath} alt="" width="300" height="300" />
 </article>
