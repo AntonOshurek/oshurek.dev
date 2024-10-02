@@ -1,0 +1,26 @@
+@import '../../../styles/variables/variables';
+
+.recent-posts {
+	display: grid;
+	grid-template-areas:
+		'title link'
+		'postsItems postsItems';
+	grid-template-columns: 1fr max-content;
+	grid-template-rows: min-content 1fr;
+	padding: 50px 0;
+	width: 100%;
+	background-color: var(--bg);
+	gap: 20px;
+}
+
+.recent-posts__title {
+	grid-area: title;
+}
+
+.recent-posts__items {
+	grid-area: postsItems;
+}
+
+.recent-posts__link {
+	grid-area: link;
+}

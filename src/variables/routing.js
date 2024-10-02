@@ -10,13 +10,16 @@ export const ROUTING = {
 	PROJECTS: {
 		path: `${BASE_URL}/projects/`,
 	},
+	PROJECT: {
+		path: `${BASE_URL}/project`,
+	},
 	ARTICLES: {
 		path: `${BASE_URL}/articles/`,
 	},
 	ARTICLE: {
 		path: `${BASE_URL}/article`,
 	},
-	PROJECT: {
-		path: `${BASE_URL}/project`,
+	POSTS: {
+		path: `${BASE_URL}/posts`,
 	},
 };
