@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import Banner from '../components/blocks/banner/banner.astro';
 import RecentArticles from '../components/article/recent-articles/recent-articles.astro';
 import FeaturedProjects from '../components/project/featured-projects/featured-projects.astro';
+import RecentPosts from '../components/posts/recent-posts/recent-posts.astro';
 //VARIABLES
 import { BASE_URL } from '../variables/routing';
 ---
@@ -16,6 +17,7 @@ import { BASE_URL } from '../variables/routing';
 	metaDescription="This is a personal blog where I (infrequently) write about code and other topics of interest to me."
 >
 	<Banner />
+	<RecentPosts />
 	<RecentArticles />
 	<FeaturedProjects />
 </Layout>

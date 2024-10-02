@@ -26,6 +26,18 @@ const projectsCollection = defineCollection({
 	}),
 });
 
+const postsCollection = defineCollection({
+	type: 'content',
+	schema: z.object({
+		text: z.string(),
+		imagePath: z.string(),
+		tags: z.string(),
+		date: z.string(),
+	}),
+});
+
 export const collections = {
 	articles: articlesCollection,
+	projects: projectsCollection,
+	posts: postsCollection,
 };

@@ -1,0 +1,14 @@
+---
+//STYLES
+import './post-items-layout.scss';
+
+interface Props {
+	additionalClass?: string;
+}
+
+const { additionalClass } = Astro.props;
+---
+
+<div class={`post-items-layout ${additionalClass ? additionalClass : ''}`}>
+	<slot />
+</div>

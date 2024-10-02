@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+//STYLES
+import './post.scss';
+//COMPONENTS
+import DateTime from '../../shared/date-time/date-time.astro';
+import Tags from '../../shared/tags/tags.astro';
+
+interface Props {
+	post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="post">
+	<div class="post__info">
+		<DateTime additionalStyleClass="post__date" date={post.data.date} format="full" />
+		<p class="paragraph-m">
+			{post.data.text}
+		</p>
+		<Tags tags={post.data.tags} />
+	</div>
+
+	<img class="post__image" src={post.data.imagePath} alt="" width="300" height="300" />
+</article>
