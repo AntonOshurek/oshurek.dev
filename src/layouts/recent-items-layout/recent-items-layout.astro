@@ -1,13 +1,31 @@
 ---
 import { getCollection } from 'astro:content';
+//UTILS
+import { sortContentCollectionByDate } from '../../utils/utils';
+//COMPONENTS
+import BasicLink from '../../components/shared/basic-link/basic-link.astro';
 
 type collections = 'posts' | 'articles' | 'projects';
 
 interface Props {
 	collectionName: collections;
+	title: string;
+	link: string;
+	itemsWraperClass: string;
 }
 
-const { collectionName } = Astro.props;
+const { collectionName, title, link, itemsWraperClass } = Astro.props;
 
 const defaultCollection = await getCollection(collectionName);
+const sortedCollection = await sortContentCollectionByDate(defaultCollection).slice(0, 2);
 ---
+
+<section class="recent-items-layout">
+	<h2 class="recent-items-layout">{title}</h2>
+
+	<BasicLink link={link} text="View all" additionalClass="featured-projects__link" />
+
+	<div class={itemsWraperClass}>
+		{sortedCollection.map((item) => <slot name="item" {...item} />)}
+	</div>
+</section>
