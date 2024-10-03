@@ -1,26 +1,22 @@
-@import '../../../styles/variables/variables';
+@import '../../styles/variables/variables';
 
-.recent-posts {
+.recent-items-layout {
 	display: grid;
 	grid-template-areas:
 		'title link'
-		'postsItems postsItems';
+		'articlesItems articlesItems';
 	grid-template-columns: 1fr max-content;
 	grid-template-rows: min-content 1fr;
 	padding: 50px 0;
 	width: 100%;
-	background-color: var(--bg);
 	gap: 20px;
 }
 
-.recent-posts__title {
+.recent-items-layout__title {
+	align-self: center;
 	grid-area: title;
 }
 
-.recent-posts__items {
-	grid-area: postsItems;
-}
-
-.recent-posts__link {
+.recent-items-layout___link {
 	grid-area: link;
 }

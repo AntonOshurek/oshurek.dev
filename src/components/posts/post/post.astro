@@ -16,9 +16,7 @@ const { post } = Astro.props;
 <article class="post">
 	<div class="post__info">
 		<DateTime additionalStyleClass="post__date" date={post.data.date} format="full" />
-		<p class="paragraph-m">
-			{post.data.text}
-		</p>
+		<p class="paragraph-m">{post.data.text}</p>
 		<Tags tags={post.data.tags} />
 	</div>
 

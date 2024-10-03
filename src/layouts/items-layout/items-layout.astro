@@ -1,0 +1,16 @@
+---
+//STYLES
+import './items-layout.scss';
+
+type collections = 'posts' | 'articles' | 'projects';
+
+interface Props {
+	collectionName: collections;
+}
+
+const { collectionName } = Astro.props;
+---
+
+<div class={`items-layout items-layout--${collectionName}`}>
+	<slot />
+</div>
