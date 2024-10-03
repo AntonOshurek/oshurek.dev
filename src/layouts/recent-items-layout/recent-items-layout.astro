@@ -4,6 +4,11 @@ import { getCollection } from 'astro:content';
 import { sortContentCollectionByDate } from '../../utils/utils';
 //COMPONENTS
 import BasicLink from '../../components/shared/basic-link/basic-link.astro';
+import Post from '../../components/posts/post/post.astro';
+import ArticlePreview from '../../components/article/article-preview/article-preview.astro';
+import ProjectPreview from '../../components/project/project-preview/project-preview.astro';
+//STYLES
+import './recent-items-layout.scss';
 
 type collections = 'posts' | 'articles' | 'projects';
 
@@ -11,21 +16,31 @@ interface Props {
 	collectionName: collections;
 	title: string;
 	link: string;
-	itemsWraperClass: string;
 }
 
-const { collectionName, title, link, itemsWraperClass } = Astro.props;
+const { collectionName, title, link } = Astro.props;
 
 const defaultCollection = await getCollection(collectionName);
 const sortedCollection = await sortContentCollectionByDate(defaultCollection).slice(0, 2);
 ---
 
-<section class="recent-items-layout">
-	<h2 class="recent-items-layout">{title}</h2>
+<section class="recent-items-layout container-large">
+	<h2 class="recent-items-layout__title">{title}</h2>
 
-	<BasicLink link={link} text="View all" additionalClass="featured-projects__link" />
+	<BasicLink link={link} text="View all" additionalClass="recent-items-layout__link" />
 
-	<div class={itemsWraperClass}>
-		{sortedCollection.map((item) => <slot name="item" {...item} />)}
+	<div class={`recent-items-layout__items recent-items-layout__items--${collectionName}`}>
+		{
+			sortedCollection.map((item) => {
+				switch (collectionName) {
+					case 'articles':
+						return <ArticlePreview article={item} />;
+					case 'posts':
+						return <Post post={item} />;
+					case 'projects':
+						return <ProjectPreview project={item} />;
+				}
+			})
+		}
 	</div>
 </section>
