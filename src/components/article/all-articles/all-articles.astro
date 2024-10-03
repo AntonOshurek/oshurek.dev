@@ -7,10 +7,10 @@ import ArticlePreview from '../article-preview/article-preview.astro';
 //LAYOUTS
 import ArticleItemsLayout from '../../../layouts/article-items-layout/article-items-layout.astro';
 //UTILS
-import { sortArticlesByDate } from '../../../utils/utils';
+import { sortContentCollectionByDate } from '../../../utils/utils';
 
 const defaultArticles = await getCollection('articles');
-const articles = sortArticlesByDate(defaultArticles);
+const articles = sortContentCollectionByDate(defaultArticles);
 ---
 
 <div class="all-articles container-medium">

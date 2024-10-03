@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+
+type collections = 'posts' | 'articles' | 'projects';
+
+interface Props {
+	collectionName: collections;
+}
+
+const { collectionName } = Astro.props;
+
+const defaultCollection = await getCollection(collectionName);
+---

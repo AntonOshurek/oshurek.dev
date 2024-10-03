@@ -7,10 +7,10 @@ import ProjectPreview from '../project-preview/project-preview.astro';
 //LAYOUTS
 import ProjectItemsLayout from '../../../layouts/project-items-layout/project-items-layout.astro';
 //UTILS
-import { sortProjectsByDate } from '../../../utils/utils';
+import { sortContentCollectionByDate } from '../../../utils/utils';
 
 const defaultProjects = await getCollection('projects');
-const projects = sortProjectsByDate(defaultProjects);
+const projects = sortContentCollectionByDate(defaultProjects);
 ---
 
 <div class="all-projects container-medium">

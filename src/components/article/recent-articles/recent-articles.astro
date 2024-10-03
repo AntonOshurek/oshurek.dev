@@ -10,10 +10,10 @@ import BasicLink from '../../shared/basic-link/basic-link.astro';
 //LAYOUTS
 import ArticleItemsLayout from '../../../layouts/article-items-layout/article-items-layout.astro';
 //UTILS
-import { sortArticlesByDate } from '../../../utils/utils';
+import { sortContentCollectionByDate } from '../../../utils/utils';
 
 const defaultArticles = await getCollection('articles');
-const articles = sortArticlesByDate(defaultArticles);
+const articles = sortContentCollectionByDate(defaultArticles);
 ---
 
 <section class="recent-articles container-large">
