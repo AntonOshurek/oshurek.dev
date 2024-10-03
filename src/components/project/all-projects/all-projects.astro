@@ -5,7 +5,7 @@ import './all-projects.scss';
 //COMPONENTS
 import ProjectPreview from '../project-preview/project-preview.astro';
 //LAYOUTS
-import ProjectItemsLayout from '../../../layouts/project-items-layout/project-items-layout.astro';
+import ItemsLayout from '../../../layouts/items-layout/items-layout.astro';
 //UTILS
 import { sortContentCollectionByDate } from '../../../utils/utils';
 
@@ -16,11 +16,11 @@ const projects = sortContentCollectionByDate(defaultProjects);
 <div class="all-projects container-medium">
 	<h2 class="all-projects__title title-xl">Projects</h2>
 
-	<ProjectItemsLayout>
+	<ItemsLayout collectionName="projects">
 		{
 			projects.map((project) => {
 				return <ProjectPreview project={project} />;
 			})
 		}
-	</ProjectItemsLayout>
+	</ItemsLayout>
 </div>

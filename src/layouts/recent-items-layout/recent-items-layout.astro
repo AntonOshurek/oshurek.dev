@@ -7,6 +7,7 @@ import BasicLink from '../../components/shared/basic-link/basic-link.astro';
 import Post from '../../components/posts/post/post.astro';
 import ArticlePreview from '../../components/article/article-preview/article-preview.astro';
 import ProjectPreview from '../../components/project/project-preview/project-preview.astro';
+import ItemsLayout from '../items-layout/items-layout.astro';
 //STYLES
 import './recent-items-layout.scss';
 
@@ -29,7 +30,7 @@ const sortedCollection = await sortContentCollectionByDate(defaultCollection).sl
 
 	<BasicLink link={link} text="View all" additionalClass="recent-items-layout__link" />
 
-	<div class={`recent-items-layout__items recent-items-layout__items--${collectionName}`}>
+	<ItemsLayout collectionName={collectionName}>
 		{
 			sortedCollection.map((item) => {
 				switch (collectionName) {
@@ -42,5 +43,20 @@ const sortedCollection = await sortContentCollectionByDate(defaultCollection).sl
 				}
 			})
 		}
-	</div>
+	</ItemsLayout>
+
+	<!-- <div class={`recent-items-layout__items recent-items-layout__items--${collectionName}`}>
+		{
+			sortedCollection.map((item) => {
+				switch (collectionName) {
+					case 'articles':
+						return <ArticlePreview article={item} />;
+					case 'posts':
+						return <Post post={item} />;
+					case 'projects':
+						return <ProjectPreview project={item} />;
+				}
+			})
+		}
+	</div> -->
 </section>

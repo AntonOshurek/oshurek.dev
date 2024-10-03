@@ -5,7 +5,7 @@ import './all-articles.scss';
 //COMPONENTS
 import ArticlePreview from '../article-preview/article-preview.astro';
 //LAYOUTS
-import ArticleItemsLayout from '../../../layouts/article-items-layout/article-items-layout.astro';
+import ItemsLayout from '../../../layouts/items-layout/items-layout.astro';
 //UTILS
 import { sortContentCollectionByDate } from '../../../utils/utils';
 
@@ -15,12 +15,11 @@ const articles = sortContentCollectionByDate(defaultArticles);
 
 <div class="all-articles container-medium">
 	<h2 class="all-articles__title title-xl">Articles</h2>
-
-	<ArticleItemsLayout dirrection="column" additionalClasses="recent-articles__items" underline>
+	<ItemsLayout collectionName="articles">
 		{
 			articles.map((article) => {
 				return <ArticlePreview article={article} />;
 			})
 		}
-	</ArticleItemsLayout>
+	</ItemsLayout>
 </div>
