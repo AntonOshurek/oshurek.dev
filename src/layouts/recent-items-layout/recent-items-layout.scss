@@ -17,64 +17,6 @@
 	grid-area: title;
 }
 
-.recent-items-layout__items {
-	grid-area: articlesItems;
-
-	&--posts {
-		display: grid;
-		justify-content: center;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		gap: var(--items-layout-gap);
-
-		@media (max-width: $mobile-width) {
-			grid-template-columns: 1fr;
-
-			article:not(:last-child)::after {
-				content: '';
-				position: absolute;
-				left: 0;
-				bottom: calc(-1 * var(--items-layout-gap) / 2);
-				width: 100%;
-				height: 2px;
-				background-color: var(--decor-color);
-			}
-		}
-	}
-
-	&--articles {
-		display: grid;
-		gap: var(--items-layout-gap);
-
-		article:not(:last-child)::after {
-			content: '';
-			position: absolute;
-			left: 0;
-			bottom: calc(-1 * var(--items-layout-gap) / 2);
-			width: 100%;
-			height: 2px;
-			background-color: var(--decor-color);
-		}
-	}
-
-	&--projects {
-		display: grid;
-		justify-items: center;
-		grid-row-gap: var(--items-layout-gap);
-		grid-template-columns: 1fr;
-
-		article:not(:last-child)::after {
-			content: '';
-			position: absolute;
-			left: 0;
-			bottom: calc(-1 * var(--items-layout-gap) / 2);
-			width: 100%;
-			height: 2px;
-			background-color: var(--decor-color);
-		}
-	}
-}
-
 .recent-items-layout___link {
 	grid-area: link;
 }

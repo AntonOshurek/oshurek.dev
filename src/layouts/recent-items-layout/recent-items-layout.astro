@@ -44,19 +44,4 @@ const sortedCollection = await sortContentCollectionByDate(defaultCollection).sl
 			})
 		}
 	</ItemsLayout>
-
-	<!-- <div class={`recent-items-layout__items recent-items-layout__items--${collectionName}`}>
-		{
-			sortedCollection.map((item) => {
-				switch (collectionName) {
-					case 'articles':
-						return <ArticlePreview article={item} />;
-					case 'posts':
-						return <Post post={item} />;
-					case 'projects':
-						return <ProjectPreview project={item} />;
-				}
-			})
-		}
-	</div> -->
 </section>
