@@ -2,7 +2,7 @@
 //LAYOUTS
 import Layout from '../layouts/Layout.astro';
 //COMPONENTS
-import AllProjects from '../components/project/all-projects/all-projects.astro';
+import AllPosts from '../components/posts/all-posts/all-posts.astro';
 //VARIABLES
 import { BASE_URL } from '../variables/routing';
 ---
@@ -13,5 +13,5 @@ import { BASE_URL } from '../variables/routing';
 	metaImage={`${BASE_URL}/images/meta/meta-avatar.jpeg`}
 	metaDescription="all my posts about programming and life-style"
 >
-	all posts page
+	<AllPosts />
 </Layout>

@@ -29,6 +29,11 @@
 		}
 	}
 
+	&--posts-vertical {
+		display: flex;
+		flex-direction: column;
+	}
+
 	&--articles {
 		@include botton-border;
 	}

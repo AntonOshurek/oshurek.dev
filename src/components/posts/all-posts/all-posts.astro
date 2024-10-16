@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+//STYLES
+import './all-posts.scss';
+//COMPONENTS
+import Post from '../post/post.astro';
+//LAYOUTS
+import ItemsLayout from '../../../layouts/items-layout/items-layout.astro';
+//UTILS
+import { sortContentCollectionByDate } from '../../../utils/utils';
+
+const defaultPosts = await getCollection('posts');
+const posts = sortContentCollectionByDate(defaultPosts);
+---
+
+<div class="all-posts container-medium">
+	<h2 class="all-posts__title title-xl">Posts</h2>
+
+	<ItemsLayout collectionName="posts" additionalLayoutClass="posts-vertical">
+		{
+			posts.map((post) => {
+				return <Post post={post} />;
+			})
+		}
+	</ItemsLayout>
+</div>

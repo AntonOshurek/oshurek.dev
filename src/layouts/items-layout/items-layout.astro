@@ -6,11 +6,14 @@ type collections = 'posts' | 'articles' | 'projects';
 
 interface Props {
 	collectionName: collections;
+	additionalLayoutClass?: string;
 }
 
-const { collectionName } = Astro.props;
+const { collectionName, additionalLayoutClass } = Astro.props;
+
+const additionalClass = additionalLayoutClass ? `items-layout--${additionalLayoutClass}` : '';
 ---
 
-<div class={`items-layout items-layout--${collectionName}`}>
+<div class={`items-layout items-layout--${collectionName} ${additionalClass}`}>
 	<slot />
 </div>
