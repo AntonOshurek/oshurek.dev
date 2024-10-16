@@ -8,12 +8,13 @@ import Tags from '../../shared/tags/tags.astro';
 
 interface Props {
 	post: CollectionEntry<'posts'>;
+	isFeed?: Boolean;
 }
 
-const { post } = Astro.props;
+const { post, isFeed } = Astro.props;
 ---
 
-<article class="post">
+<article class=`post ${isFeed ? 'post--feed' : ''}`>
 	<div class="post__info">
 		<DateTime additionalStyleClass="post__date" date={post.data.date} format="full" />
 		<p class="paragraph-m">{post.data.text}</p>
