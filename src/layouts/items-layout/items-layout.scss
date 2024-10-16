@@ -29,9 +29,10 @@
 		}
 	}
 
-	&--posts-vertical {
+	&--posts-feed {
 		display: flex;
 		flex-direction: column;
+		width: 100%;
 	}
 
 	&--articles {

@@ -13,13 +13,13 @@ const defaultPosts = await getCollection('posts');
 const posts = sortContentCollectionByDate(defaultPosts);
 ---
 
-<div class="all-posts container-medium">
+<div class="all-posts container-small">
 	<h2 class="all-posts__title title-xl">Posts</h2>
 
-	<ItemsLayout collectionName="posts" additionalLayoutClass="posts-vertical">
+	<ItemsLayout collectionName="posts" additionalLayoutClass="posts-feed">
 		{
 			posts.map((post) => {
-				return <Post post={post} />;
+				return <Post post={post} isFeed={true} />;
 			})
 		}
 	</ItemsLayout>

@@ -9,6 +9,12 @@
 	gap: 10px;
 }
 
+.post--feed {
+	.post__image {
+		max-height: 100%;
+	}
+}
+
 .post__info {
 	display: flex;
 	flex-direction: column;
