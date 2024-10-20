@@ -34,3 +34,10 @@
 	padding: var(--main-paddings);
 	width: 100%;
 }
+
+.main__column-layout {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content;
+	gap: 50px;
+}

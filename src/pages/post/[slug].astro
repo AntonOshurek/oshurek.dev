@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+//LAYOUTS
+import Layout from '../../layouts/Layout.astro';
+import ItemLayout from '../../layouts/item-layout/item-layout.astro';
+//COMPONENTS
+import Post from '../../components/posts/post/post.astro';
+
+export const getStaticPaths = async () => {
+	const posts = await getCollection('posts');
+
+	const paths = posts.map((post) => {
+		return {
+			params: {
+				slug: post.slug,
+			},
+			props: {
+				post,
+			},
+		};
+	});
+
+	return paths;
+};
+
+type Props = {
+	post: CollectionEntry<'posts'>;
+};
+
+const { post } = Astro.props;
+---
+
+<Layout
+	metaTitle={post.data.text}
+	metaDescription={post.data.tags}
+	mainColumnLayout={true}
+	metaImage={post.data.imagePath}
+>
+	<ItemLayout containerType="small">
+		<Post post={post} isFeed={true} />
+	</ItemLayout>
+</Layout>

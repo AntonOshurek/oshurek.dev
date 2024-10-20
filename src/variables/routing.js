@@ -20,6 +20,9 @@ export const ROUTING = {
 		path: `${BASE_URL}/article`,
 	},
 	POSTS: {
-		path: `${BASE_URL}/posts`,
+		path: `${BASE_URL}/posts/`,
+	},
+	POST: {
+		path: `${BASE_URL}/post`,
 	},
 };

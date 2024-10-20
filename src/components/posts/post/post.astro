@@ -5,6 +5,9 @@ import './post.scss';
 //COMPONENTS
 import DateTime from '../../shared/date-time/date-time.astro';
 import Tags from '../../shared/tags/tags.astro';
+import SharePost from '../../shared/share-post/share-post.astro';
+//VARIABLES
+import { ROUTING } from '../../../variables/routing';
 
 interface Props {
 	post: CollectionEntry<'posts'>;
@@ -12,6 +15,9 @@ interface Props {
 }
 
 const { post, isFeed } = Astro.props;
+
+const currentUrl = Astro.url;
+const currentDomain = currentUrl.origin;
 ---
 
 <article class=`post ${isFeed ? 'post--feed' : ''}`>
@@ -19,6 +25,8 @@ const { post, isFeed } = Astro.props;
 		<DateTime additionalStyleClass="post__date" date={post.data.date} format="full" />
 		<p class="paragraph-m">{post.data.text}</p>
 		<Tags tags={post.data.tags} />
+
+		<SharePost path={`${currentDomain}${ROUTING.POST.path}/${post.slug}`} />
 	</div>
 
 	<img class="post__image" src={post.data.imagePath} alt="" width="300" height="300" />

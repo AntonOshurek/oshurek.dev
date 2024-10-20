@@ -15,10 +15,10 @@ interface Props {
 	metaDescription?: string;
 	metaImage?: string;
 	headerTitle?: string;
-	additionalClassToMain?: string;
+	mainColumnLayout?: boolean;
 }
 
-const { metaTitle, headerTitle, metaDescription, additionalClassToMain, metaImage } = Astro.props;
+const { metaTitle, headerTitle, metaDescription, mainColumnLayout, metaImage } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,7 +30,7 @@ const { metaTitle, headerTitle, metaDescription, additionalClassToMain, metaImag
 	<body class="body">
 		<Header headerTitle={headerTitle} />
 
-		<main class={`main ${additionalClassToMain ? additionalClassToMain : ''}`} id="content">
+		<main class={`main ${mainColumnLayout ? 'main__column-layout' : ''}`} id="content">
 			<slot />
 		</main>
 

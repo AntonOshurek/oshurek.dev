@@ -39,5 +39,13 @@ const currentPageURL = encodeURIComponent(Astro.url.toString());
 				rel="noopener noreferrer">twitter</a
 			>
 		</li>
+		<li class="share-page__item">
+			<a
+				class="share-page__link paragraph-s-secondary"
+				href={`https://t.me/share/url?url=${currentPageURL}`}
+				target="_blank"
+				rel="noopener noreferrer">telegram</a
+			>
+		</li>
 	</ul>
 </div>

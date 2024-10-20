@@ -1,0 +1,6 @@
+.item_layout {
+	display: grid;
+	grid-row-gap: 50px;
+	grid-template-columns: 1fr;
+	height: min-content;
+}
