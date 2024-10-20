@@ -1,0 +1,41 @@
+---
+//STYLES
+import './share-post.scss';
+
+interface Props {
+	path: string;
+}
+
+const { path } = Astro.props;
+---
+
+<div class="share-post">
+	<h4 class="share-post__title paragraph-xs-secondary">Share this post for your friends</h4>
+
+	<ul class="share-post__list">
+		<li class="share-post__item">
+			<a
+				class="share-post__link paragraph-s-secondary"
+				href={`https://www.facebook.com/sharer.php?u=${path}`}
+				target="_blank"
+				rel="noopener noreferrer">facebook</a
+			>
+		</li>
+		<li class="share-post__item">
+			<a
+				class="share-post__link paragraph-s-secondary"
+				href={`https://www.linkedin.com/sharing/share-offsite/?url=${path}`}
+				target="_blank"
+				rel="noopener noreferrer">linkedin</a
+			>
+		</li>
+		<li class="share-post__item">
+			<a
+				class="share-post__link paragraph-s-secondary"
+				href={`https://twitter.com/intent/tweet?url=${path}`}
+				target="_blank"
+				rel="noopener noreferrer">twitter</a
+			>
+		</li>
+	</ul>
+</div>
