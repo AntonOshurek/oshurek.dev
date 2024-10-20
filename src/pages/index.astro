@@ -17,10 +17,14 @@ import { BASE_URL, ROUTING } from '../variables/routing';
 	<Banner />
 
 	<RecentItemsLayout collectionName="posts" link={ROUTING.POSTS.path} title="Recent posts" />
-	<RecentItemsLayout collectionName="articles" link={ROUTING.POSTS.path} title="Recent articles" />
+	<RecentItemsLayout
+		collectionName="articles"
+		link={ROUTING.ARTICLES.path}
+		title="Recent articles"
+	/>
 	<RecentItemsLayout
 		collectionName="projects"
-		link={ROUTING.POSTS.path}
+		link={ROUTING.PROJECTS.path}
 		title="Featured projects"
 	/>
 </Layout>
