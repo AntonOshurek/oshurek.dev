@@ -22,4 +22,7 @@ export const ROUTING = {
 	POSTS: {
 		path: `${BASE_URL}/posts`,
 	},
+	POST: {
+		path: `${BASE_URL}/post`,
+	},
 };
