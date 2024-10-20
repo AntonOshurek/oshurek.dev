@@ -3,11 +3,10 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 //LAYOUTS
 import Layout from '../../layouts/Layout.astro';
+import ItemLayout from '../../layouts/item-layout/item-layout.astro';
 //COMPONENTS
 import ProjectPagePreview from '../../components/project/project-preview/project-page-preview.astro';
 import SharePage from '../../components/shared/share-page-links/share-page-links.astro';
-//STYLES
-import './project.scss';
 
 export const getStaticPaths = async () => {
 	const projects = await getCollection('projects');
@@ -40,9 +39,19 @@ const { Content } = await project.render();
 	additionalClassToMain="project-page-main"
 	metaImage={project.data.previewImage}
 >
-	<article class="project container-medium">
+	<ItemLayout containerType="medium">
 		<ProjectPagePreview project={project} />
 		<Content />
-	</article>
+	</ItemLayout>
+
 	<SharePage text="I will be happy if you share this article with your friends ;)" />
 </Layout>
+
+<style>
+	.project-page-main {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: min-content;
+		gap: 50px;
+	}
+</style>

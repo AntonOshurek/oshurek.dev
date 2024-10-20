@@ -1,0 +1,31 @@
+---
+//STYLES
+import './item-layout.scss';
+
+interface Props {
+	containerType: 'large' | 'medium' | 'small';
+}
+
+const { containerType } = Astro.props;
+
+let containerClass: string;
+
+switch (containerType) {
+	case 'large':
+		containerClass = 'container-large';
+		break;
+	case 'medium':
+		containerClass = 'container-medium';
+		break;
+	case 'small':
+		containerClass = 'container-small';
+		break;
+	default:
+		const _: never = containerType;
+		throw new Error('Unhandled containerType case in item-layout component');
+}
+---
+
+<article class={`item_layout ${containerClass}`}>
+	<slot />
+</article>
