@@ -36,7 +36,7 @@ const { Content } = await project.render();
 <Layout
 	metaTitle={project.data.title}
 	metaDescription={project.data.overview}
-	additionalClassToMain="project-page-main"
+	mainColumnLayout={true}
 	metaImage={project.data.previewImage}
 >
 	<ItemLayout containerType="medium">
@@ -46,12 +46,3 @@ const { Content } = await project.render();
 
 	<SharePage text="I will be happy if you share this article with your friends ;)" />
 </Layout>
-
-<style>
-	.project-page-main {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: min-content;
-		gap: 50px;
-	}
-</style>

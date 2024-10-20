@@ -38,7 +38,7 @@ const { Content } = await article.render();
 <Layout
 	metaTitle={article.data.title}
 	metaDescription={article.data.overview}
-	additionalClassToMain="article-page-main"
+	mainColumnLayout={true}
 	metaImage={`${BASE_URL}${article.data.previewImage}`}
 >
 	<ItemLayout containerType="small">
@@ -48,12 +48,3 @@ const { Content } = await article.render();
 
 	<SharePage text="I will be happy if you share this article with your friends ;)" />
 </Layout>
-
-<style>
-	.article-page-main {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: min-content;
-		gap: 50px;
-	}
-</style>
