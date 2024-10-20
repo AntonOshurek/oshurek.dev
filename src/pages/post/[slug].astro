@@ -6,7 +6,6 @@ import Layout from '../../layouts/Layout.astro';
 import ItemLayout from '../../layouts/item-layout/item-layout.astro';
 //COMPONENTS
 import Post from '../../components/posts/post/post.astro';
-import SharePage from '../../components/shared/share-page-links/share-page-links.astro';
 
 export const getStaticPaths = async () => {
 	const posts = await getCollection('posts');
@@ -34,13 +33,11 @@ const { post } = Astro.props;
 
 <Layout
 	metaTitle={post.data.text}
-	metaDescription={post.data.text}
+	metaDescription={post.data.tags}
 	mainColumnLayout={true}
 	metaImage={post.data.imagePath}
 >
 	<ItemLayout containerType="small">
 		<Post post={post} isFeed={true} />
-
-		<SharePage text="I will be happy if you share this post with your friends ;)" />
 	</ItemLayout>
 </Layout>
