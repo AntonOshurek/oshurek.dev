@@ -7,8 +7,6 @@ import ItemLayout from '../../layouts/item-layout/item-layout.astro';
 //COMPONENTS
 import ArticlePagePreview from '../../components/article/article-preview/article-page-preview.astro';
 import SharePage from '../../components/shared/share-page-links/share-page-links.astro';
-//VARIABLES
-import { BASE_URL } from '../../variables/routing';
 
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');
@@ -39,7 +37,7 @@ const { Content } = await article.render();
 	metaTitle={article.data.title}
 	metaDescription={article.data.overview}
 	mainColumnLayout={true}
-	metaImage={`${BASE_URL}${article.data.previewImage}`}
+	metaImage={article.data.previewImage}
 >
 	<ItemLayout containerType="small">
 		<ArticlePagePreview article={article} />
