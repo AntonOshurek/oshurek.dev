@@ -34,5 +34,6 @@ const { article } = Astro.props;
 		height="400"
 		src={`${BASE_URL}${article.data.previewImage}`}
 		alt={article.data.previewImageAlt}
+		loading="lazy"
 	/>
 </header>

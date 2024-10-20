@@ -29,5 +29,12 @@ const currentDomain = currentUrl.origin;
 		<SharePost path={`${currentDomain}${ROUTING.POST.path}/${post.slug}`} />
 	</div>
 
-	<img class="post__image" src={post.data.imagePath} alt="" width="300" height="300" />
+	<img
+		class="post__image"
+		src={post.data.imagePath}
+		alt=""
+		width="300"
+		height="300"
+		loading="lazy"
+	/>
 </article>
