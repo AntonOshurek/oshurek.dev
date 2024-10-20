@@ -1,21 +1,23 @@
 .share-post {
 	display: grid;
 	justify-items: center;
-	grid-template-columns: max-content 1fr;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(2, max-content);
+	padding-top: 15px;
 	height: min-content;
-	gap: 5px;
 }
 
 .share-post__title {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
+	width: 100%;
 }
 
 .share-post__list {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	list-style: none;
 	gap: 10px;
 }
@@ -27,7 +29,7 @@
 }
 
 .share-post__link {
-	padding: 2px 5px;
+	padding: 2px 0;
 
 	&:hover {
 		color: var(--hover-item-color);
