@@ -13,9 +13,25 @@
 }
 
 .items-layout {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	grid-area: itemsLayout;
+}
+
+.items-layout__title {
+	padding: 55px 0;
+	width: 100%;
+	text-align: left;
+	text-transform: capitalize;
+}
+
+.items-layout__items {
 	display: grid;
 	grid-area: articlesItems;
 	grid-gap: var(--items-layout-gap);
+	width: 100%;
 
 	&--posts {
 		justify-content: center;

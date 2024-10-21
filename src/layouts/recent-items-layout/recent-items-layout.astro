@@ -30,7 +30,7 @@ const sortedCollection = await sortContentCollectionByDate(defaultCollection).sl
 
 	<BasicLink link={link} text="View all" additionalClass="recent-items-layout__link" />
 
-	<ItemsLayout collectionName={collectionName}>
+	<ItemsLayout collectionName={collectionName} container="none">
 		{
 			sortedCollection.map((item) => {
 				switch (collectionName) {

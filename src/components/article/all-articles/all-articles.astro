@@ -1,7 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-//STYLES
-import './all-articles.scss';
 //COMPONENTS
 import ArticlePreview from '../article-preview/article-preview.astro';
 //LAYOUTS
@@ -13,14 +11,10 @@ const defaultArticles = await getCollection('articles');
 const articles = sortContentCollectionByDate(defaultArticles);
 ---
 
-<div class="all-articles container-medium">
-	<h2 class="all-articles__title title-xl">Articles</h2>
-
-	<ItemsLayout collectionName="articles">
-		{
-			articles.map((article) => {
-				return <ArticlePreview article={article} />;
-			})
-		}
-	</ItemsLayout>
-</div>
+<ItemsLayout collectionName="articles" withTitle={true} container="medium">
+	{
+		articles.map((article) => {
+			return <ArticlePreview article={article} />;
+		})
+	}
+</ItemsLayout>

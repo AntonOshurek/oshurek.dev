@@ -1,7 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-//STYLES
-import './all-projects.scss';
 //COMPONENTS
 import ProjectPreview from '../project-preview/project-preview.astro';
 //LAYOUTS
@@ -13,14 +11,10 @@ const defaultProjects = await getCollection('projects');
 const projects = sortContentCollectionByDate(defaultProjects);
 ---
 
-<div class="all-projects container-medium">
-	<h2 class="all-projects__title title-xl">Projects</h2>
-
-	<ItemsLayout collectionName="projects">
-		{
-			projects.map((project) => {
-				return <ProjectPreview project={project} />;
-			})
-		}
-	</ItemsLayout>
-</div>
+<ItemsLayout collectionName="projects" withTitle={true} container="medium">
+	{
+		projects.map((project) => {
+			return <ProjectPreview project={project} />;
+		})
+	}
+</ItemsLayout>
