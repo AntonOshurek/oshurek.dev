@@ -3,10 +3,10 @@ import type { CollectionEntry } from 'astro:content';
 //STYLES
 import './article-preview.scss';
 //COMPONENTS
-import DateTime from '../../shared/date-time/date-time.astro';
-import Tags from '../../shared/tags/tags.astro';
+import DateTime from '../shared/date-time/date-time.astro';
+import Tags from '../shared/tags/tags.astro';
 //VARIABLES
-import { BASE_URL } from '../../../variables/routing';
+import { BASE_URL } from '../../variables/routing';
 
 interface Props {
 	article: CollectionEntry<'articles'>;
@@ -34,5 +34,6 @@ const { article } = Astro.props;
 		height="400"
 		src={`${BASE_URL}${article.data.previewImage}`}
 		alt={article.data.previewImageAlt}
+		loading="lazy"
 	/>
 </header>

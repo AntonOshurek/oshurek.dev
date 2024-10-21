@@ -3,12 +3,12 @@ import type { CollectionEntry } from 'astro:content';
 //STYLES
 import './project-preview.scss';
 //COMPONENTS
-import Tags from '../../shared/tags/tags.astro';
-import DateTime from '../../shared/date-time/date-time.astro';
+import Tags from '../shared/tags/tags.astro';
+import DateTime from '../shared/date-time/date-time.astro';
 //VARIABLES
-import { BASE_URL, ROUTING } from '../../../variables/routing';
+import { BASE_URL, ROUTING } from '../../variables/routing';
 //UTILS
-import { truncateOverviewToPreview } from '../../../utils/utils';
+import { truncateOverviewToPreview } from '../../utils/utils';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
@@ -34,6 +34,7 @@ const { project } = Astro.props;
 		alt=""
 		width="246"
 		height="180"
+		loading="lazy"
 	/>
 
 	<a class="project-preview__link" href={`${ROUTING.PROJECT.path}/${project.slug}`}>

@@ -7,13 +7,21 @@ type collections = 'posts' | 'articles' | 'projects';
 interface Props {
 	collectionName: collections;
 	additionalLayoutClass?: string;
+	withTitle?: boolean;
+	container: 'large' | 'medium' | 'small' | 'none';
 }
 
-const { collectionName, additionalLayoutClass } = Astro.props;
+const { collectionName, additionalLayoutClass, withTitle, container } = Astro.props;
 
-const additionalClass = additionalLayoutClass ? `items-layout--${additionalLayoutClass}` : '';
+const additionalClass = additionalLayoutClass
+	? `items-layout__items--${additionalLayoutClass}`
+	: '';
 ---
 
-<div class={`items-layout items-layout--${collectionName} ${additionalClass}`}>
-	<slot />
+<div class={`items-layout container-${container}`}>
+	{withTitle && <h2 class="items-layout__title title-xl">{collectionName}</h2>}
+
+	<div class={`items-layout__items items-layout__items--${collectionName} ${additionalClass}`}>
+		<slot />
+	</div>
 </div>

@@ -3,12 +3,12 @@ import type { CollectionEntry } from 'astro:content';
 //STYLES
 import './article-preview.scss';
 //VARIABLES
-import { ROUTING } from '../../../variables/routing';
+import { ROUTING } from '../../variables/routing';
 //COMPONENTS
-import Tags from '../../shared/tags/tags.astro';
-import DateTime from '../../shared/date-time/date-time.astro';
+import Tags from '../shared/tags/tags.astro';
+import DateTime from '../shared/date-time/date-time.astro';
 //UTILS
-import { truncateOverviewToPreview } from '../../../utils/utils';
+import { truncateOverviewToPreview } from '../../utils/utils';
 
 interface Props {
 	article: CollectionEntry<'articles'>;

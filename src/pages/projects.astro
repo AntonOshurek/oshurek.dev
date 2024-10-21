@@ -1,10 +1,17 @@
 ---
+import { getCollection } from 'astro:content';
 //LAYOUTS
 import Layout from '../layouts/Layout.astro';
+import ItemsLayout from '../layouts/items-layout/items-layout.astro';
 //COMPONENTS
-import AllProjects from '../components/project/all-projects/all-projects.astro';
+import ProjectPreview from '../components/project/project-preview.astro';
 //VARIABLES
 import { BASE_URL } from '../variables/routing';
+//UTILS
+import { sortContentCollectionByDate } from '../utils/utils';
+
+const defaultProjects = await getCollection('projects');
+const projects = sortContentCollectionByDate(defaultProjects);
 ---
 
 <Layout
@@ -13,5 +20,11 @@ import { BASE_URL } from '../variables/routing';
 	metaImage={`${BASE_URL}/images/meta/meta-avatar.jpeg`}
 	metaDescription="all my programming projects that I have done and that I want to share."
 >
-	<AllProjects />
+	<ItemsLayout collectionName="projects" withTitle={true} container="medium">
+		{
+			projects.map((project) => {
+				return <ProjectPreview project={project} />;
+			})
+		}
+	</ItemsLayout>
 </Layout>

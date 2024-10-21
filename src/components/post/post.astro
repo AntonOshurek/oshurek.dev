@@ -3,11 +3,11 @@ import type { CollectionEntry } from 'astro:content';
 //STYLES
 import './post.scss';
 //COMPONENTS
-import DateTime from '../../shared/date-time/date-time.astro';
-import Tags from '../../shared/tags/tags.astro';
-import SharePost from '../../shared/share-post/share-post.astro';
+import DateTime from '../shared/date-time/date-time.astro';
+import Tags from '../shared/tags/tags.astro';
+import SharePost from '../shared/share-post/share-post.astro';
 //VARIABLES
-import { ROUTING } from '../../../variables/routing';
+import { ROUTING } from '../../variables/routing';
 
 interface Props {
 	post: CollectionEntry<'posts'>;
@@ -29,5 +29,12 @@ const currentDomain = currentUrl.origin;
 		<SharePost path={`${currentDomain}${ROUTING.POST.path}/${post.slug}`} />
 	</div>
 
-	<img class="post__image" src={post.data.imagePath} alt="" width="300" height="300" />
+	<img
+		class="post__image"
+		src={post.data.imagePath}
+		alt=""
+		width="300"
+		height="300"
+		loading="lazy"
+	/>
 </article>
