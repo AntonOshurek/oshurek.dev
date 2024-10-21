@@ -1,10 +1,17 @@
 ---
+import { getCollection } from 'astro:content';
 //LAYOUTS
 import Layout from '../layouts/Layout.astro';
+import ItemsLayout from '../layouts/items-layout/items-layout.astro';
 //COMPONENTS
-import AllArticles from '../components/article/all-articles/all-articles.astro';
+import ArticlePreview from '../components/article/article-preview/article-preview.astro';
 //VARIABLES
 import { BASE_URL } from '../variables/routing';
+//UTILS
+import { sortContentCollectionByDate } from '../utils/utils';
+
+const defaultArticles = await getCollection('articles');
+const articles = sortContentCollectionByDate(defaultArticles);
 ---
 
 <Layout
@@ -13,5 +20,11 @@ import { BASE_URL } from '../variables/routing';
 	metaImage={`${BASE_URL}/images/meta/meta-avatar.jpeg`}
 	metaDescription="My articles on programming topics and solving problems related to programming. You can also find solutions to atypical programming situations here."
 >
-	<AllArticles />
+	<ItemsLayout collectionName="articles" withTitle={true} container="medium">
+		{
+			articles.map((article) => {
+				return <ArticlePreview article={article} />;
+			})
+		}
+	</ItemsLayout>
 </Layout>
