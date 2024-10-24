@@ -1,0 +1,98 @@
+---
+title: Quick Guide to Updating Node.js with NVM
+date: 2024-10-24T01:00
+tags: nvm, node.js, update
+overview: This guide was created because I often find myself forgetting the steps to update Node.js using nvm. To save myself the trouble of searching every time, I decided to write this down once and for all. Here's a simple, step-by-step process for updating Node.js with nvm, so I can always have it handy whenever I need to install a new version or switch between different versions. Now, with these instructions, I’ll never lose track of the process again!
+previewImage: /images/article-banners/quick-guide-to-updating-node.js-with-nvm.webp
+previewImageAlt: Developer workspace showing terminal with NVM commands, a notepad with steps for updating Node.js, and a cup of coffee
+isRecent: true
+---
+
+import ContentPart from '../../markdown-components/content-part/content-part.astro';
+import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
+import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
+import ListBlock from '../../markdown-components/typography/list-block.astro';
+
+<ContentPart>
+	<ArticleTitleL headingTag="h2">To install a new version of Node.js using nvm (Node Version Manager), follow these steps:</ArticleTitleL>
+
+	<ListBlock>
+		- Update the list of available Node.js versions:
+			```shell
+			nvm ls-remote
+			```
+			This command will display a list of all available Node.js versions.
+
+			```shell
+			v22.6.0
+			v22.7.0
+			v22.8.0
+			v22.9.0
+			v22.10.0
+			v23.0.0
+			```
+			Find the version you want to install.
+
+		- Install the desired version of Node.js: For example, if you want to install version 18.17.0, run:
+			```shell
+			nvm install 23.0.0
+			```
+			After installing the new version, you will see something like this:
+			```shell
+			➜  moviebook git:(main) nvm install 23
+			Downloading and installing node v23.0.0...
+			Downloading https://nodejs.org/dist/v23.0.0/node-v23.0.0-darwin-arm64.tar.xz...
+			############################################################################################################### 100.0%
+			Computing checksum with sha256sum
+			Checksums matched!
+			nvm ls
+			Now using node v23.0.0 (npm v10.9.0)
+			```
+
+		- After installing a new version of Node.js, you can check all the versions installed on your system and verify if the new one has been added by running the following command:
+
+			```shell
+			nvm ls
+			```
+			For example, you might see something like this:
+
+			```shell
+			➜  moviebook git:(main) nvm ls
+			v20.16.0
+			v22.7.0
+			-> v23.0.0
+			```
+
+		- Use the installed version: To make the newly installed version active, run:
+			```shell
+			nvm use 23.0.0
+			```
+			After running the command to use the newly installed version:
+			```shell
+			➜  moviebook git:(main) nvm use 23
+			Now using node v23.0.0 (npm v10.9.0)
+			```
+
+			- Set the installed version as the default: To make this version the default for all new terminal sessions, run:
+				```shell
+				nvm alias default 23.0.0
+				```
+				After setting the installed version as the default using the command,
+				You can verify that it has been set correctly by running ```ls``` command:
+
+				```shell
+				➜  moviebook git:(main) nvm ls
+				v20.16.0
+				v22.7.0
+				->      v23.0.0
+								system
+				default -> 23 (-> v23.0.0)
+				```
+	</ListBlock>
+</ContentPart>
+
+<ContentPart>
+	<ArticleParagraphM>
+	This article provides a simple, step-by-step guide for updating Node.js using NVM (Node Version Manager). It walks you through checking available Node.js versions, installing the desired version, switching to it, and setting it as the default for future sessions. Created as a reference for those who frequently forget the process, the guide ensures that you'll always have a quick, reliable method for updating or managing Node.js versions.
+</ArticleParagraphM>
+</ContentPart>
