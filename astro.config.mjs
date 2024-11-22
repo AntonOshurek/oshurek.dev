@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://oshurek.dev',
-  base: '/',
-  integrations: [mdx(), sitemap()]
+	site: 'https://oshurek.dev',
+	base: '/',
+	integrations: [mdx(), sitemap()],
 });
