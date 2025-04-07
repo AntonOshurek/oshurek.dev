@@ -18,6 +18,7 @@ const { post, isFeed } = Astro.props;
 
 const currentUrl = Astro.url;
 const currentDomain = currentUrl.origin;
+const isSlider = post.data.imagePath.length > 0;
 ---
 
 <article class=`post ${isFeed ? 'post--feed' : ''}`>
@@ -28,13 +29,25 @@ const currentDomain = currentUrl.origin;
 
 		<SharePost path={`${currentDomain}${ROUTING.POST.path}/${post.slug}`} />
 	</div>
-
-	<img
-		class="post__image"
-		src={post.data.imagePath[0]}
-		alt=""
-		width="300"
-		height="300"
-		loading="lazy"
-	/>
+	{
+		isSlider ? (
+			<img
+				class="post__image"
+				src={post.data.imagePath[0]}
+				alt=""
+				width="300"
+				height="300"
+				loading="lazy"
+			/>
+		) : (
+			<img
+				class="post__image"
+				src={post.data.imagePath[0]}
+				alt=""
+				width="300"
+				height="300"
+				loading="lazy"
+			/>
+		)
+	}
 </article>
