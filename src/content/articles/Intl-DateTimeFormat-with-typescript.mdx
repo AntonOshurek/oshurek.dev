@@ -8,8 +8,9 @@ previewImageAlt: article banner
 isRecent: false
 ---
 
-import img1 from '../images/articles/Intl-DateTimeFormat-with-typescript/const-type-not-string.png';
-import img2 from '../images/articles/Intl-DateTimeFormat-with-typescript/literal-type-not-string.png';
+[//]  # (import img1 from '../images/articles/Intl-DateTimeFormat-with-typescript/const-type-not-string.png';)
+import img1 from '../../images/articles/Intl-DateTimeFormat-with-typescript/const-type-not-string.png';
+import img2 from '../../images/articles/Intl-DateTimeFormat-with-typescript/literal-type-not-string.png';
 
 import ContentPart from '../../markdown-components/content-part/content-part.astro';
 import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
@@ -19,16 +20,19 @@ import ImageBLock from '../../markdown-components/image-block/image-block.astro'
 <ContentPart>
 	<ArticleTitleL headingTag="h2">What is the Problem?</ArticleTitleL>
 	<ArticleParagraphM>
-	The problem looks like this. When you start using an object with options and add it to Intl.DateTimeFormat, you get the following error:
+		The problem looks like this. When you start using an object with options and add it to Intl.DateTimeFormat, you get
+		the following error:
 	</ArticleParagraphM>
 
-```typescript
-No overload matches this call.
+	```typescript
+	No overload matches this call.
 
-Overload 1 of 2, '(locales?: LocalesArgument, options?: DateTimeFormatOptions): DateTimeFormat', gave the following error.
-Overload 2 of 2, '(locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat', gave the following error.ts(2769)
+	Overload 1 of 2, '(locales?: LocalesArgument, options?: DateTimeFormatOptions): DateTimeFormat', gave the following
+	error.
+	Overload 2 of 2, '(locales?: string | string[], options?: DateTimeFormatOptions): DateTimeFormat', gave the following
+	error.ts(2769)
 
-const fullOptions: {
+	const fullOptions: {
 	year: string;
 	month: string;
 	day: string;
@@ -38,12 +42,12 @@ const fullOptions: {
 	hour12: boolean;
 }
 
-```
+	```
 
-<ArticleParagraphM>At this stage, my code looked like this:</ArticleParagraphM>
+	<ArticleParagraphM>At this stage, my code looked like this:</ArticleParagraphM>
 
-```typescript
-const fullOptions = {
+	```typescript
+	const fullOptions = {
 	year: 'numeric',
 	month: 'short',
 	day: '2-digit',
@@ -53,8 +57,8 @@ const fullOptions = {
 	hour12: false,
 };
 
-formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
-```
+	formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
+	```
 
 </ContentPart>
 
@@ -69,8 +73,8 @@ formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
 		Below, I provide a working example of the code.
 	</ArticleParagraphM>
 
-```typescript
-const fullOptions: Intl.DateTimeFormatOptions = {
+	```typescript
+	const fullOptions: Intl.DateTimeFormatOptions = {
 	year: 'numeric',
 	month: 'short',
 	day: '2-digit',
@@ -80,33 +84,33 @@ const fullOptions: Intl.DateTimeFormatOptions = {
 	hour12: false,
 };
 
-formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
-```
+	formattedDate = new Intl.DateTimeFormat('en-GB', fullOptions).format(d);
+	```
 
 </ContentPart>
 
 <ContentPart>
 	<ArticleTitleL headingTag="h2">
-	But let me still try to explain to you why this is happening.
+		But let me still try to explain to you why this is happening.
 	</ArticleTitleL>
 
-    <ArticleParagraphM>
-    	In TypeScript, if we create a variable with text,
-    	the type of this variable will not be string but only
-    	the text itself from the variable.
-    </ArticleParagraphM>
+	<ArticleParagraphM>
+		In TypeScript, if we create a variable with text,
+		the type of this variable will not be string but only
+		the text itself from the variable.
+	</ArticleParagraphM>
 
-    <ImageBLock imagePath={img1} imageAlt="test alt" width={1200}	height={376}/>
+	<ImageBLock imagePath={img1} imageAlt="test alt" width={1200} height={376}/>
 
-    <ArticleParagraphM>
-    		Similarly, if we use a literal type, the variable will not be a string type but only one of the literals.
-    </ArticleParagraphM>
+	<ArticleParagraphM>
+		Similarly, if we use a literal type, the variable will not be a string type but only one of the literals.
+	</ArticleParagraphM>
 
-    <ImageBLock imagePath={img2} imageAlt="test alt" width={1200}	height={376}/>
+	<ImageBLock imagePath={img2} imageAlt="test alt" width={1200} height={376}/>
 
-    <ArticleParagraphM>
-    		Thus, we need to be more careful with our types and remember
-    		that not everything that seems like a string is actually a string.
-    </ArticleParagraphM>
+	<ArticleParagraphM>
+		Thus, we need to be more careful with our types and remember
+		that not everything that seems like a string is actually a string.
+	</ArticleParagraphM>
 
 </ContentPart>
