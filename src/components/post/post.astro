@@ -18,7 +18,7 @@ const { post, isFeed } = Astro.props;
 
 const currentUrl = Astro.url;
 const currentDomain = currentUrl.origin;
-const isSlider = post.data.imagePath.length > 0;
+const isSlider = post.data.imagePath.length > 1;
 ---
 
 <article class=`post ${isFeed ? 'post--feed' : ''}`>
@@ -33,7 +33,7 @@ const isSlider = post.data.imagePath.length > 0;
 		isSlider ? (
 			<img
 				class="post__image"
-				src={post.data.imagePath[0]}
+				src={post.data.imagePath[1]}
 				alt=""
 				width="300"
 				height="300"
