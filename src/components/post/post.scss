@@ -34,28 +34,16 @@
 	color: var(--secondary-text);
 }
 
-.post__slider {
-	width: 100%;
-	//max-width: $container-small-max-width; //because block with posts has container-small class
-	border-radius: 20px;
-}
-
 .swiper {
+	border-radius: 20px;
 	width: 100%;
 	height: 100%;
 	max-width: $container-small-max-width;
 	max-height: 350px;
 }
 
-.swiper-wrapper {
-	width: 100%;
-}
-
 .swiper-slide {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	width: 100% !important;
 }
 
 .post__image {

@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type {CollectionEntry} from 'astro:content';
 //STYLES
 import './post.scss';
 import 'swiper/css';
@@ -10,14 +10,14 @@ import DateTime from '../shared/date-time/date-time.astro';
 import Tags from '../shared/tags/tags.astro';
 import SharePost from '../shared/share-post/share-post.astro';
 //VARIABLES
-import { ROUTING } from '../../variables/routing';
+import {ROUTING} from '../../variables/routing';
 
 interface Props {
 	post: CollectionEntry<'posts'>;
 	isFeed?: Boolean;
 }
 
-const { post, isFeed } = Astro.props;
+const {post, isFeed} = Astro.props;
 
 const currentUrl = Astro.url;
 const currentDomain = currentUrl.origin;
@@ -26,46 +26,42 @@ const isSlider = post.data.imagePath.length > 1;
 
 <article class=`post ${isFeed ? 'post--feed' : ''}`>
 	<div class="post__info">
-		<DateTime additionalStyleClass="post__date" date={post.data.date} format="full" />
+		<DateTime additionalStyleClass="post__date" date={post.data.date} format="full"/>
 		<p class="paragraph-m">{post.data.text}</p>
-		<Tags tags={post.data.tags} />
+		<Tags tags={post.data.tags}/>
 
-		<SharePost path={`${currentDomain}${ROUTING.POST.path}/${post.slug}`} />
+		<SharePost path={`${currentDomain}${ROUTING.POST.path}/${post.slug}`}/>
 	</div>
 	{
 		isSlider ? (
-			<div class="post__slider">
-				<!-- Slider main container -->
-				<div class="swiper">
-					<!-- Additional required wrapper -->
-					<div class="swiper-wrapper">
-						<!-- Slides -->
-						{post.data.imagePath.map((imagePath, index) => (
-							<div class="swiper-slide">
-								<img
-									class="post__image"
-									src={imagePath}
-									alt=""
-									width="300"
-									height="300"
-									loading="lazy"
-								/>
-							</div>
-						))}
-					</div>
-					<!-- If we need pagination -->
-					<div class="swiper-pagination"></div>
-
-					<!-- If we need navigation buttons -->
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
-
-					<!-- If we need scrollbar -->
-					<div class="swiper-scrollbar"></div>
+			<!-- Slider main container -->
+			<div class="swiper">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+					<!-- Slides -->
+					{post.data.imagePath.map((imagePath, index) => (
+						<div class="swiper-slide">
+							<img
+								class="post__image"
+								src={imagePath}
+								alt=""
+								width="300"
+								height="300"
+								loading="lazy"
+							/>
+						</div>
+					))}
 				</div>
+				<!-- If we need pagination -->
+				<div class="swiper-pagination"></div>
+
+				<!-- If we need navigation buttons -->
+				<!--<div class="swiper-button-prev"></div>-->
+				<!--<div class="swiper-button-next"></div>-->
+
+				<!-- If we need scrollbar -->
+				<div class="swiper-scrollbar"></div>
 			</div>
-
-
 		) : (
 			<img
 				class="post__image"
@@ -83,7 +79,7 @@ const isSlider = post.data.imagePath.length > 1;
 	//SWIPER
 	// core version + navigation, pagination modules:
 	import Swiper from 'swiper';
-	import { Navigation, Pagination } from 'swiper/modules';
+	import {Navigation, Pagination} from 'swiper/modules';
 	// import Swiper and modules styles
 
 
@@ -97,14 +93,14 @@ const isSlider = post.data.imagePath.length > 1;
 		},
 
 		// Navigation arrows
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
+		// navigation: {
+		// 	nextEl: '.swiper-button-next',
+		// 	prevEl: '.swiper-button-prev',
+		// },
 
 		// And if we need scrollbar
 		scrollbar: {
 			el: '.swiper-scrollbar',
 		},
-		});
+	});
 </script>
