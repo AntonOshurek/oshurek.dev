@@ -30,7 +30,7 @@ const postsCollection = defineCollection({
 	type: 'content',
 	schema: z.object({
 		text: z.string(),
-		imagePath: z.string(),
+		imagePath: z.array(z.string()),
 		tags: z.string(),
 		date: z.string(),
 	}),
