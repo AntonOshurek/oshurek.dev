@@ -1,0 +1,64 @@
+---
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import './post-slider.scss';
+
+interface Props {
+	postImages: string[];
+}
+
+const { postImages } = Astro.props;
+---
+
+<div class="swiper">
+	<!-- Additional required wrapper -->
+	<div class="swiper-wrapper">
+		<!-- Slides -->
+		{
+			postImages.map((imagePath) => (
+				<div class="swiper-slide">
+					<img class="post__image" src={imagePath} alt="" width="300" height="300" loading="lazy" />
+				</div>
+			))
+		}
+	</div>
+	<!-- If we need pagination -->
+	<div class="swiper-pagination"></div>
+
+	<!-- If we need navigation buttons -->
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+
+	<!-- If we need scrollbar -->
+	<div class="swiper-scrollbar"></div>
+</div>
+
+<script>
+	//SWIPER
+	// core version + navigation, pagination modules:
+	import Swiper from 'swiper';
+	import { Navigation, Pagination } from 'swiper/modules';
+	// import Swiper and modules styles
+
+	// init Swiper:
+	const swiper = new Swiper('.swiper', {
+		// configure Swiper to use modules
+		modules: [Navigation, Pagination],
+		loop: true,
+		pagination: {
+			el: '.swiper-pagination',
+		},
+
+		// Navigation arrows
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+
+		// And if we need scrollbar
+		scrollbar: {
+			el: '.swiper-scrollbar',
+		},
+	});
+</script>
