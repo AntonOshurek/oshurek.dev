@@ -24,11 +24,15 @@ const isSlider = post.data.imagePath.length > 1;
 
 <article class=`post ${isFeed ? 'post--feed' : ''}`>
 	<div class="post__info">
+		<!--<div>-->
 		<DateTime additionalStyleClass="post__date" date={post.data.date} format="full" />
 		<p class="paragraph-m">{post.data.text}</p>
+		<!--</div>-->
+		<!--<div>-->
 		<Tags tags={post.data.tags} />
 
 		<SharePost path={`${currentDomain}${ROUTING.POST.path}/${post.slug}`} />
+		<!--</div>-->
 	</div>
 	{
 		isSlider ? (
