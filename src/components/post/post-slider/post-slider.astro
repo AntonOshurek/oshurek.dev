@@ -1,4 +1,7 @@
 ---
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import './post-slider.scss';
 
 interface Props {
@@ -24,8 +27,8 @@ const { postImages } = Astro.props;
 	<div class="swiper-pagination"></div>
 
 	<!-- If we need navigation buttons -->
-	<!--<div class="swiper-button-prev"></div>-->
-	<!--<div class="swiper-button-next"></div>-->
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
 
 	<!-- If we need scrollbar -->
 	<div class="swiper-scrollbar"></div>
@@ -48,10 +51,10 @@ const { postImages } = Astro.props;
 		},
 
 		// Navigation arrows
-		// navigation: {
-		// 	nextEl: '.swiper-button-next',
-		// 	prevEl: '.swiper-button-prev',
-		// },
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
 
 		// And if we need scrollbar
 		scrollbar: {
