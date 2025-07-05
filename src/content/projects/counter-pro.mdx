@@ -8,6 +8,7 @@ previewImageAlt: previewImageAlt
 isFeatured: true
 ---
 
+import {ROUTING} from '../../variables/routing';
 import ContentPart from '../../markdown-components/content-part/content-part.astro';
 import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
 import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
@@ -17,19 +18,19 @@ import TextLink from '../../markdown-components/typography/text-link.astro';
 <ContentPart>
 	<ArticleTitleL headingTag='h2'>Counter Pro - android app</ArticleTitleL>
 	<ArticleParagraphM>
-	<ArticleTitleS headingTag='h3'>Project links:</ArticleTitleS>
+		<ArticleTitleS headingTag='h3'>Project links:</ArticleTitleS>
 		* <TextLink path={'https://github.com/AntonOshurek/counter-pro/'} text={'GitHub Repo'} noReferrer={false}/>
-		* <TextLink path={'./counter-pro/privacy-policy'} text={'Privacy Policy'} noReferrer={false}/>
-		* <TextLink path={'./counter-pro/release-information'} text={'Release information'} noReferrer={false}/>
+		* <TextLink path={`/project/counter-pro/privacy-policy/`} text={'Privacy Policy'} noReferrer={false}/>
+		* <TextLink path={'/project/counter-pro/release-information'} text={'Release information'} noReferrer={false}/>
 	</ArticleParagraphM>
 
-    <ArticleParagraphM>
-    <ArticleTitleS headingTag='h3'>Technologies stack:</ArticleTitleS>
-			* React Native (Expo)
-			* TypeScript
-			* SQLite (local storage)
-			* AsyncStorage
-			* React Navigation
-    </ArticleParagraphM>
+	<ArticleParagraphM>
+		<ArticleTitleS headingTag='h3'>Technologies stack:</ArticleTitleS>
+		* React Native (Expo)
+		* TypeScript
+		* SQLite (local storage)
+		* AsyncStorage
+		* React Navigation
+	</ArticleParagraphM>
 
 </ContentPart>
