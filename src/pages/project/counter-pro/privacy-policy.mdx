@@ -1,10 +1,23 @@
 ---
+
 ---
+import Layout from '../../../layouts/Layout.astro';
+import { BASE_URL } from '../../../variables/routing';
+import ItemLayout from '../../../layouts/item-layout/item-layout.astro';
 import ContentPart from '../../../markdown-components/content-part/content-part.astro';
 import ArticleParagraphM from '../../../markdown-components/typography/paragraph-m.astro';
 import ArticleTitleL from '../../../markdown-components/typography/title-l.astro';
 import ArticleTitleS from '../../../markdown-components/typography/title-s.astro';
 
+
+<Layout
+	metaTitle={'Counter Pro Privacy Policy'}
+	headerTitle={'Page with all articles'}
+	metaImage={`${BASE_URL}/images/meta/meta-avatar.jpeg`}
+	metaDescription="My articles on programming topics and solving problems related to programming. You can also find solutions to atypical programming situations here."
+>
+
+<ItemLayout containerType="small">
 <ContentPart>
 	<ArticleTitleL headingTag='h2'>Privacy Policy for Counter App</ArticleTitleL>
 	<ArticleParagraphM>Effective date: May 29, 2025</ArticleParagraphM>
@@ -51,12 +64,6 @@ import ArticleTitleS from '../../../markdown-components/typography/title-s.astro
 		If we make any changes, we will update this page accordingly.
 	</ArticleParagraphM>
 
-	<ArticleParagraphM>
-		<ArticleTitleS headingTag='h3'>Contact Us</ArticleTitleS>
-
-		If you have any questions about this privacy policy, you can contact us at:
-
-		**app.contact@oshurek.dev**
-	</ArticleParagraphM>
-
 </ContentPart>
+</ItemLayout>
+</Layout>
