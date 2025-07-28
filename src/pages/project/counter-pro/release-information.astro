@@ -6,13 +6,15 @@ import ContentPart from '../../../markdown-components/content-part/content-part.
 
 import { Content as ReleaseInfo } from './release-information-content.mdx';
 import BasicLink from '../../../components/shared/basic-link/basic-link.astro';
+//VARIABLES
+import { BASE_URL } from '../../../variables/routing';
 ---
 
 <Layout
 	metaTitle={'Counter-Pro Release information'}
 	metaDescription={'Release information for Counter-Pro android mobile application'}
 	mainColumnLayout={true}
-	metaImage={'/images/projects/counter-pro-info-counters.webp'}
+	metaImage={`${BASE_URL}/images/projects/counter-pro-info-counters.webp`}
 >
 	<ItemLayout containerType="medium">
 		<ContentPart>
