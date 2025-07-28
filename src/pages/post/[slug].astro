@@ -35,7 +35,7 @@ const { post } = Astro.props;
 	metaTitle={post.data.text}
 	metaDescription={post.data.tags}
 	mainColumnLayout={true}
-	metaImage={post.data.imagePath}
+	metaImage={post.data.imagePath[0]}
 >
 	<ItemLayout containerType="small">
 		<Post post={post} isFeed={true} />

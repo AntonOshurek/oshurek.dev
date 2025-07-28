@@ -1,0 +1,24 @@
+---
+//LAYOUTS
+import Layout from '../../../layouts/Layout.astro';
+import ItemLayout from '../../../layouts/item-layout/item-layout.astro';
+import ContentPart from '../../../markdown-components/content-part/content-part.astro';
+
+import { Content as ReleaseInfo } from './release-information.mdx';
+import BasicLink from '../../../components/shared/basic-link/basic-link.astro';
+---
+
+<Layout
+	metaTitle={'Counter-Pro Release information'}
+	metaDescription={'Release information for Counter-Pro android mobile application'}
+	mainColumnLayout={true}
+	metaImage={'/images/projects/counter-pro-info-counters.webp'}
+>
+	<ItemLayout containerType="medium">
+		<ContentPart>
+			<BasicLink link={'/project/counter-pro'} text="Go to Counter Pro app page" />
+		</ContentPart>
+
+		<ReleaseInfo />
+	</ItemLayout>
+</Layout>
