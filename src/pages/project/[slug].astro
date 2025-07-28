@@ -11,7 +11,7 @@ import SharePage from '../../components/shared/share-page-links/share-page-links
 export const getStaticPaths = async () => {
 	const projects = await getCollection('projects');
 
-	const paths = projects.map((project) => {
+	return projects.map((project) => {
 		return {
 			params: {
 				slug: project.slug,
@@ -21,8 +21,6 @@ export const getStaticPaths = async () => {
 			},
 		};
 	});
-
-	return paths;
 };
 
 type Props = {
