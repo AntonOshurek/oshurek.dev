@@ -3,16 +3,17 @@ interface Props {
 	path: string;
 	text: string;
 	noReferrer?: boolean;
+	blank?: boolean;
 }
 
-const { path, text, noReferrer = true } = Astro.props;
+const { path, text, noReferrer = true, blank } = Astro.props;
 ---
 
 {
 	noReferrer ? (
 		<a
 			href={path}
-			target="_blank"
+			target={blank ? '_blank' : ''}
 			referrerpolicy="no-referrer"
 			rel="noopener noreferrer"
 			class="link"
@@ -20,7 +21,7 @@ const { path, text, noReferrer = true } = Astro.props;
 			{text}
 		</a>
 	) : (
-		<a href={path} target="_blank" class="link">
+		<a href={path} target={blank ? '_blank' : ''} class="link">
 			{text}
 		</a>
 	)
