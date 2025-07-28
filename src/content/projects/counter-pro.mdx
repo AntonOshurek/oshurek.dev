@@ -8,7 +8,6 @@ previewImageAlt: previewImageAlt
 isFeatured: true
 ---
 
-import {ROUTING} from '../../variables/routing';
 import ContentPart from '../../markdown-components/content-part/content-part.astro';
 import ArticleParagraphM from '../../markdown-components/typography/paragraph-m.astro';
 import ArticleTitleL from '../../markdown-components/typography/title-l.astro';
@@ -19,10 +18,10 @@ import TextLink from '../../markdown-components/typography/text-link.astro';
 	<ArticleTitleL headingTag='h2'>Counter Pro - android app</ArticleTitleL>
 	<ArticleParagraphM>
 		<ArticleTitleS headingTag='h3'>Project links:</ArticleTitleS>
-		* <TextLink path={'https://github.com/AntonOshurek/counter-pro/'} text={'GitHub Repo'} noReferrer={false}/>
-		* <TextLink path={`/project/counter-pro/privacy-policy/`} text={'Privacy Policy'} noReferrer={false}/>
-		* <TextLink path={'/project/counter-pro/release-information'} text={'Release information'} noReferrer={false}/>
-		* <TextLink path={'https://play.google.com/store/apps/details?id=com.oshurekdev.counterpro'} text={'Google Play'} noReferrer={false}/>
+		* <TextLink path={'https://github.com/AntonOshurek/counter-pro/'} text={'GitHub Repo'} noReferrer={false} blank={true} />
+		* <TextLink path={`/project/counter-pro/privacy-policy/`} text={'Privacy Policy'} noReferrer={false} />
+		* <TextLink path={'/project/counter-pro/release-information'} text={'Release information'} noReferrer={false} />
+		* <TextLink path={'https://play.google.com/store/apps/details?id=com.oshurekdev.counterpro'} text={'Google Play'} noReferrer={false} blank={true} />
 	</ArticleParagraphM>
 
 	<ArticleParagraphM>
