@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 //LAYOUTS
-import Layout from '../layouts/Layout.astro';
-import ItemsLayout from '../layouts/items-layout/items-layout.astro';
+import Layout from '@layouts/Layout.astro';
+import ItemsLayout from '@layouts/items-layout/items-layout.astro';
 //COMPONENTS
-import Post from '../components/post/post.astro';
+import Post from '@components/post/post.astro';
 //VARIABLES
-import { BASE_URL } from '../variables/routing';
+import { BASE_URL } from '@variables/routing';
 //UTILS
-import { sortContentCollectionByDate } from '../utils/utils';
+import { sortContentCollectionByDate } from '@utils/utils';
 
 const defaultPosts = await getCollection('posts');
 const posts = sortContentCollectionByDate(defaultPosts);

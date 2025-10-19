@@ -1,6 +1,3 @@
-//base url for deploy to github
-// export const BASE_URL = '/oshurek.dev';
-//base url to deploy to hosting
 export const BASE_URL = '';
 
 export const ROUTING = {
