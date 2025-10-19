@@ -2,10 +2,10 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 //LAYOUTS
-import Layout from '../../layouts/Layout.astro';
-import ItemLayout from '../../layouts/item-layout/item-layout.astro';
+import Layout from '@layouts/Layout.astro';
+import ItemLayout from '@layouts/item-layout/item-layout.astro';
 //COMPONENTS
-import Post from '../../components/post/post.astro';
+import Post from '@components/post/post.astro';
 
 export const getStaticPaths = async () => {
 	const posts = await getCollection('posts');

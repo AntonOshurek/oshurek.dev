@@ -6,9 +6,9 @@ import './project-preview.scss';
 import Tags from '../shared/tags/tags.astro';
 import DateTime from '../shared/date-time/date-time.astro';
 //VARIABLES
-import { BASE_URL, ROUTING } from '../../variables/routing';
+import { BASE_URL, ROUTING } from '@variables/routing';
 //UTILS
-import { truncateOverviewToPreview } from '../../utils/utils';
+import { truncateOverviewToPreview } from '@utils/utils';
 
 interface Props {
 	project: CollectionEntry<'projects'>;
