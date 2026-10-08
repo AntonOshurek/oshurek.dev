@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-//UTILS
-import { sortContentCollectionByDate } from '../../utils/utils';
 //COMPONENTS
-import BasicLink from '../../components/shared/basic-link/basic-link.astro';
+import BasicLink from '@shared/ui/basic-link/basic-link.astro';
 import Post from '../../components/post/post.astro';
 import ArticlePreview from '../../components/article/article-preview.astro';
 import ProjectPreview from '../../components/project/project-preview.astro';
 import ItemsLayout from '../items-layout/items-layout.astro';
+// SHARED
+import { sortContentCollectionByDate } from '@shared';
 //STYLES
 import './recent-items-layout.scss';
 
@@ -22,7 +22,7 @@ interface Props {
 const { collectionName, title, link } = Astro.props;
 
 const defaultCollection = await getCollection(collectionName);
-const sortedCollection = await sortContentCollectionByDate(defaultCollection).slice(0, 2);
+const sortedCollection = sortContentCollectionByDate(defaultCollection).slice(0, 2);
 ---
 
 <section class="recent-items-layout container-large">
@@ -33,7 +33,7 @@ const sortedCollection = await sortContentCollectionByDate(defaultCollection).sl
 	<ItemsLayout collectionName={collectionName} container="none">
 		{
 			sortedCollection.map((item) => {
-				switch (collectionName) {
+				switch (item.collection) {
 					case 'articles':
 						return <ArticlePreview article={item} />;
 					case 'posts':

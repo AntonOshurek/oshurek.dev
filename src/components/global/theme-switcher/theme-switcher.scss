@@ -1,8 +1,8 @@
-@import '../../../styles/variables/variables';
+@use '../../../styles/variables/variables' as variables;
 
 .theme-switcher {
 	position: relative;
-	z-index: $z-index-theme-switcher;
+	z-index: variables.$z-index-theme-switcher;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	margin: 0;

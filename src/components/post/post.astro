@@ -1,14 +1,14 @@
 ---
+// ASTRO
 import type { CollectionEntry } from 'astro:content';
-//STYLES
-import './post.scss';
-//COMPONENTS
-import DateTime from '../shared/date-time/date-time.astro';
-import Tags from '../shared/tags/tags.astro';
-import SharePost from '../shared/share-post/share-post.astro';
+// UI
+import { DateTime, Tags, SharePost } from '@shared/ui/';
+// COMPONENTS
 import PostSlider from './post-slider/post-slider.astro';
-//VARIABLES
-import { ROUTING } from '@variables/routing';
+// SHARED
+import { ROUTING } from '@shared';
+// STYLES
+import './post.scss';
 
 interface Props {
 	post: CollectionEntry<'posts'>;

@@ -1,4 +1,4 @@
-@import '../../../styles/variables/variables';
+@use '../../../styles/variables/variables' as variables;
 
 .notfound {
 	display: grid;
@@ -8,7 +8,7 @@
 	height: 100%;
 	gap: 10px;
 
-	@media (max-width: $tablet-width) {
+	@media (max-width: variables.$tablet-width) {
 		grid-template-columns: 1fr;
 		gap: 40px;
 	}
@@ -19,7 +19,7 @@
 	grid-template-columns: 1fr;
 	gap: 30px;
 
-	@media (max-width: $tablet-width) {
+	@media (max-width: variables.$tablet-width) {
 		gap: 20px;
 	}
 }
@@ -31,7 +31,7 @@
 	line-height: var(--xl-title-line-height);
 	color: var(--primary-text);
 
-	@media (max-width: $tablet-width) {
+	@media (max-width: variables.$tablet-width) {
 		font-weight: var(--l-title-weight);
 		font-size: var(--l-title-size);
 		line-height: var(--l-title-line-height);
@@ -45,13 +45,13 @@
 	line-height: var(--l-text-line-height);
 	color: var(--secondary-text);
 
-	@media (max-width: $tablet-width) {
+	@media (max-width: variables.$tablet-width) {
 		font-weight: var(--m-text-weight);
 		font-size: var(--m-text-size);
 		line-height: var(--m-text-line-height);
 	}
 
-	@media (max-width: $mobile-width) {
+	@media (max-width: variables.$mobile-width) {
 		font-weight: var(--s-text-weight);
 		font-size: var(--s-text-size);
 		line-height: var(--s-text-line-height);
@@ -82,7 +82,7 @@
 		color: var(--hover-item-color);
 	}
 
-	@media (max-width: $tablet-width) {
+	@media (max-width: variables.$tablet-width) {
 		font-weight: var(--s-text-weight);
 		font-size: var(--s-text-size);
 		line-height: var(--s-text-line-height);
@@ -94,7 +94,7 @@
 	height: 100%;
 	object-fit: contain;
 
-	@media (max-width: $tablet-width) {
+	@media (max-width: variables.$tablet-width) {
 		max-height: 300px;
 	}
 }

@@ -1,4 +1,4 @@
-@import '../styles/variables/variables';
+@use '../styles/variables/variables' as variables;
 
 .body {
 	position: relative;
@@ -21,7 +21,7 @@
 			content: '';
 			position: fixed;
 			inset: 0;
-			z-index: $z-index-body-nav-open;
+			z-index: variables.$z-index-body-nav-open;
 			width: 100%;
 			max-width: 100vw;
 			background-color: var(--open-nav-overlay);

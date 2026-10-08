@@ -1,7 +1,7 @@
-@import '../../../styles/variables/variables';
+@use '../../../styles/variables/variables' as variables;
 
 .nav {
-	@media (max-width: $tablet-width) {
+	@media (max-width: variables.$tablet-width) {
 		position: absolute;
 		left: 0;
 		right: 0;

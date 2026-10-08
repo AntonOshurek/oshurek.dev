@@ -10,20 +10,20 @@
 		const savedScheme = getSavedScheme();
 
 		if (savedScheme) {
-			const currentRadio: HTMLInputElement = document.querySelector(
+			const currentRadio = document.querySelector<HTMLInputElement>(
 				`.theme-switcher__radio[value=${savedScheme}]`,
 			);
 
-			currentRadio.checked = true;
+			if (currentRadio) currentRadio.checked = true;
 		}
 
-		fieldset.addEventListener('change', (evt) => {
+		fieldset?.addEventListener('change', (evt) => {
 			const target = evt.target as HTMLInputElement;
 			setScheme(target.value);
 		});
 	}
 
-	function setScheme(scheme) {
+	function setScheme(scheme: string) {
 		switchMedia(scheme);
 
 		if (scheme === 'auto') {
@@ -33,11 +33,11 @@
 		}
 	}
 
-	function switchMedia(scheme) {
+	function switchMedia(scheme: string) {
 		if (scheme === 'auto') {
-			document.querySelector('html').setAttribute('data-theme', getSystemScheme());
+			document.querySelector('html')?.setAttribute('data-theme', getSystemScheme());
 		} else {
-			document.querySelector('html').setAttribute('data-theme', scheme);
+			document.querySelector('html')?.setAttribute('data-theme', scheme);
 		}
 	}
 
@@ -61,7 +61,7 @@
 		return localStorage.getItem('color-scheme');
 	}
 
-	function saveScheme(scheme) {
+	function saveScheme(scheme: string) {
 		localStorage.setItem('color-scheme', scheme);
 	}
 

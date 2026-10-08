@@ -1,14 +1,13 @@
 ---
+// ASTRO
 import { getCollection } from 'astro:content';
-//LAYOUTS
+// LAYOUTS
 import Layout from '@layouts/Layout.astro';
 import ItemsLayout from '@layouts/items-layout/items-layout.astro';
-//COMPONENTS
+// COMPONENTS
 import ProjectPreview from '@components/project/project-preview.astro';
-//VARIABLES
-import { BASE_URL } from '@variables/routing';
-//UTILS
-import { sortContentCollectionByDate } from '@utils/utils';
+// SHARED
+import { BASE_URL, sortContentCollectionByDate } from '@shared';
 
 const defaultProjects = await getCollection('projects');
 const projects = sortContentCollectionByDate(defaultProjects);

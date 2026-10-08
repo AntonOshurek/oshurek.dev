@@ -1,10 +1,10 @@
-@import '../../../styles/variables/variables';
+@use '../../../styles/variables/variables' as variables;
 
 .swiper {
 	border-radius: 20px;
 	width: 100%;
 	height: 100%;
-	max-width: $container-small-max-width;
+	max-width: variables.$container-small-max-width;
 	max-height: 350px;
 }
 
@@ -12,7 +12,7 @@
 .swiper-button-next::after {
 	color: var(--primary);
 
-	@media (max-width: $mobile-width) {
+	@media (max-width: variables.$mobile-width) {
 		font-size: 30px;
 	}
 }

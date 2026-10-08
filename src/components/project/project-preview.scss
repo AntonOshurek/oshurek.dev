@@ -1,4 +1,4 @@
-@import '../../styles/variables/variables';
+@use '../../styles/variables/variables' as variables;
 
 .project-preview {
 	position: relative;
@@ -15,7 +15,7 @@
 		grid-template-columns: minmax(150px, 250px) min-content 1fr;
 		grid-template-rows: min-content min-content 1fr;
 
-		@media (max-width: $mobile-width) {
+		@media (max-width: variables.$mobile-width) {
 			grid-template-areas:
 				'title title'
 				'date tags'
@@ -43,7 +43,7 @@
 			object-fit: contain;
 		}
 
-		@media (max-width: $mobile-width) {
+		@media (max-width: variables.$mobile-width) {
 			grid-template-areas:
 				'title title'
 				'date tags'

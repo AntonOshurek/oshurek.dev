@@ -1,4 +1,4 @@
-@import '../../../../styles/variables/variables';
+@use '../../../../styles/variables/variables' as variables;
 
 .nav-button {
 	display: none;
@@ -9,8 +9,8 @@
 	background-color: transparent;
 	cursor: pointer;
 
-	@media (max-width: $tablet-width) {
-		z-index: $z-index-nav-button;
+	@media (max-width: variables.$tablet-width) {
+		z-index: variables.$z-index-nav-button;
 		display: flex;
 		align-items: center;
 		justify-content: center;

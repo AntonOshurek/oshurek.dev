@@ -1,14 +1,12 @@
 ---
+// ASTRO
 import type { CollectionEntry } from 'astro:content';
-//STYLES
+// UI
+import { Tags, DateTime } from '@shared/ui/';
+// SHARED
+import { truncateOverviewToPreview, BASE_URL, ROUTING } from '@shared';
+// STYLES
 import './project-preview.scss';
-//COMPONENTS
-import Tags from '../shared/tags/tags.astro';
-import DateTime from '../shared/date-time/date-time.astro';
-//VARIABLES
-import { BASE_URL, ROUTING } from '@variables/routing';
-//UTILS
-import { truncateOverviewToPreview } from '@utils/utils';
 
 interface Props {
 	project: CollectionEntry<'projects'>;

@@ -3,30 +3,16 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@components/*": [
-				"src/components/*"
-			],
-			"@content/*": [
-				"src/content/*"
-			],
-			"@images/*": [
-				"src/images/*"
-			],
-			"@layouts/*": [
-				"src/layouts/*"
-			],
-			"@markdown-components/*": [
-				"src/markdown-components/*"
-			],
-			"@pages/*": [
-				"src/pages/*"
-			],
-			"@variables/*": [
-				"src/variables/*"
-			],
-			"@utils/*": [
-				"src/utils/*"
-			]
+			"@components/*": ["src/components/*"],
+			"@content/*": ["src/content/*"],
+			"@images/*": ["src/images/*"],
+			"@layouts/*": ["src/layouts/*"],
+			"@markdown-components/*": ["src/markdown-components/*"],
+			"@pages/*": ["src/pages/*"],
+			"@variables/*": ["src/variables/*"],
+			"@utils/*": ["src/utils/*"],
+			"@shared/*": ["src/shared/*"],
+			"@shared": ["src/shared/index.ts"]
 		}
-	},
+	}
 }

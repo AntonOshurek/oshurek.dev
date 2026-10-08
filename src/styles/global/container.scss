@@ -1,21 +1,21 @@
-@import '../variables/variables';
+@use '../variables/variables' as variables;
 
 .container {
 	margin: 0 auto;
-	max-width: $desctope-width;
+	max-width: variables.$desctope-width;
 }
 
 .container-large {
 	margin: 0 auto;
-	max-width: $container-large-max-width;
+	max-width: variables.$container-large-max-width;
 }
 
 .container-medium {
 	margin: 0 auto;
-	max-width: $container-medium-max-width;
+	max-width: variables.$container-medium-max-width;
 }
 
 .container-small {
 	margin: 0 auto;
-	max-width: $container-small-max-width;
+	max-width: variables.$container-small-max-width;
 }

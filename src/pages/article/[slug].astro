@@ -1,12 +1,14 @@
 ---
+// ASTRO
 import { getCollection } from 'astro:content';
 import { type CollectionEntry, render } from 'astro:content';
-//LAYOUTS
+// LAYOUTS
 import Layout from '@layouts/Layout.astro';
 import ItemLayout from '@layouts/item-layout/item-layout.astro';
-//COMPONENTS
+// COMPONENTS
 import ArticlePagePreview from '@components/article/article-page-preview.astro';
-import SharePage from '@components/shared/share-page-links/share-page-links.astro';
+// UI
+import { SharePageLinks } from '@shared/ui/';
 
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');
@@ -42,5 +44,5 @@ const { Content } = await render(article);
 		<Content />
 	</ItemLayout>
 
-	<SharePage text="I will be happy if you share this article with your friends ;)" />
+	<SharePageLinks text="I will be happy if you share this article with your friends ;)" />
 </Layout>

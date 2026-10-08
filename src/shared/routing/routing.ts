@@ -1,6 +1,6 @@
-export const BASE_URL = '';
+const BASE_URL = '' as const;
 
-export const ROUTING = {
+const ROUTING = {
 	ROOT: {
 		path: `${BASE_URL}/`,
 	},
@@ -22,4 +22,6 @@ export const ROUTING = {
 	POST: {
 		path: `${BASE_URL}/post`,
 	},
-};
+} as const;
+
+export { ROUTING, BASE_URL };

@@ -1,4 +1,4 @@
-@import '../../../styles/variables/variables';
+@use '../../../styles/variables/variables' as variables;
 
 .banner {
 	display: grid;
@@ -11,7 +11,7 @@
 	padding: 33px 0 60px;
 	background-color: var(--bg);
 
-	@media (max-width: $mobile-width) {
+	@media (max-width: variables.$mobile-width) {
 		grid-template-areas:
 			'avatar title'
 			'info info';
@@ -23,7 +23,7 @@
 	align-self: flex-end;
 	grid-area: title;
 
-	@media (max-width: $mobile-width) {
+	@media (max-width: variables.$mobile-width) {
 		align-self: center;
 	}
 }
@@ -42,7 +42,7 @@
 	box-shadow: var(--shadow);
 	object-fit: cover;
 
-	@media (max-width: $mobile-width) {
+	@media (max-width: variables.$mobile-width) {
 		width: 100px;
 		height: 100px;
 	}

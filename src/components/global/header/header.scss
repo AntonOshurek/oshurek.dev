@@ -1,7 +1,7 @@
-@import '../../../styles/variables/variables';
+@use '../../../styles/variables/variables' as variables;
 
 .header {
-	z-index: $z-index-header;
+	z-index: variables.$z-index-header;
 	padding: 10px var(--safe-side-paddings);
 	width: 100%;
 }
@@ -12,7 +12,7 @@
 	justify-content: flex-end;
 	gap: 40px;
 
-	@media (max-width: $tablet-width) {
+	@media (max-width: variables.$tablet-width) {
 		flex-direction: row-reverse;
 		justify-content: flex-start;
 	}
