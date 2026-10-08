@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { type CollectionEntry, render } from 'astro:content';
 //LAYOUTS
 import Layout from '@layouts/Layout.astro';
 import ItemLayout from '@layouts/item-layout/item-layout.astro';
@@ -11,18 +11,16 @@ import SharePage from '@components/shared/share-page-links/share-page-links.astr
 export const getStaticPaths = async () => {
 	const articles = await getCollection('articles');
 
-	const paths = articles.map((article) => {
+	return articles.map((article) => {
 		return {
 			params: {
-				slug: article.slug,
+				slug: article.id,
 			},
 			props: {
 				article,
 			},
 		};
 	});
-
-	return paths;
 };
 
 type Props = {
@@ -30,7 +28,7 @@ type Props = {
 };
 
 const { article } = Astro.props;
-const { Content } = await article.render();
+const { Content } = await render(article);
 ---
 
 <Layout

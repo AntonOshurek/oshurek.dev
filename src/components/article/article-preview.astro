@@ -28,7 +28,7 @@ const { article } = Astro.props;
 		{truncateOverviewToPreview(article.data.overview)}
 	</p>
 
-	<a class="article-preview__link" href={`${ROUTING.ARTICLE.path}/${article.slug}`}>
+	<a class="article-preview__link" href={`${ROUTING.ARTICLE.path}/${article.id}`}>
 		<span class="visually-hidden">open full post</span>
 	</a>
 </article>
